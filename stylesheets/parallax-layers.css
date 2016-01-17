@@ -1,0 +1,45 @@
+
+/*INNER PARALLAX SECTIONS (Except Intro Parallax)*/
+
+.no-parallax{
+	background-attachment: scroll !important;
+}
+
+.testimonial{
+	background: url('src="http://placehold.it/1500x1000.jpg') 0 0 no-repeat fixed;
+	background-size: cover;
+}
+.about-head{
+	background: url('src="http://placehold.it/1500x1000.jpg') 0 0 no-repeat fixed;
+	background-size: cover;
+}
+.works1-head{
+	background: url('src="http://placehold.it/1500x1000.jpg') 0 0 no-repeat fixed;
+	background-size: cover;
+}
+.works2-head{
+	background: url('src="http://placehold.it/1500x1000.jpg') 0 0 no-repeat fixed;
+	background-size: cover;
+}
+.news-head{
+	background: url('src="http://placehold.it/1500x1000.jpg') 0 0 no-repeat fixed;
+	background-size: cover;
+}
+.credits-head{
+	background: url('src="http://placehold.it/1500x1000.jpg') 0 0 no-repeat fixed;
+	background-size: cover;
+}
+.clients-head{
+	background: url('src="http://placehold.it/1500x1000.jpg') 0 0 no-repeat fixed;
+	background-size: cover;
+}
+.awards-head{
+	background: url('src="http://placehold.it/1500x1000.jpg') 0 0 no-repeat fixed;
+	background-size: cover;
+}
+.contact-head{
+	background: url('src="http://placehold.it/1500x1000.jpg') 0 0 no-repeat fixed;
+	background-size: cover;
+}
+
+

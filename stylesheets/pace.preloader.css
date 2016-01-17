@@ -1,0 +1,47 @@
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.pace .pace-progress {
+  /*background-color: #fff;*/
+  height: 10px;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  -webkit-transition: width 1s;
+  -moz-transition: width 1s;
+  -o-transition: width 1s;
+  transition: width 1s;
+}
+
+.pace .pace-activity:before {
+  content: '';
+  background-color: rgba(255,255,255,1);
+  background-image: url('../images/loader.gif');
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: block;
+  z-index: 900;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.pace-running .pace{
+  overflow-y:hidden;
+}
+.pace-running .mast-wrap{
+  opacity: 0;
+}
+.pace-done .mast-wrap{
+  opacity: 1;
+}
+
+.pace-done .pace{
+  display: none;
+}

@@ -1,0 +1,68 @@
+#myContainer{
+    margin-left: 100px;
+}
+
+.ms-section{
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    text-align: center;
+}
+#multiscroll-nav span{
+     background: #121212;
+    border: 1px solid #121212;
+    border-radius: 50%;
+    height: 12px;
+    left: 2px;
+    position: absolute;
+    top: 2px;
+    width: 12px;
+    z-index: 1;
+}
+#multiscroll-nav li .active span{
+     background: #fff;
+    border: 1px solid #fff;
+}
+
+/*Text Styles*/
+.ms-section h1 {
+    font-family: "Raleway",Arial,Helvetica,sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 8px;
+    line-height: 27px;
+    text-transform: uppercase;
+}
+.ms-section h3 {
+}
+.ms-section h3 > span {
+    font-family: "Montserrat",Arial,Helvetica,sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 8px;
+    line-height: 20px;
+    padding: 7px;
+    padding-left: 15px;
+    text-transform: uppercase;
+}
+.ms-overlay{
+    display: none;
+    height: 100%;
+    background-color: transparent;
+}
+
+.ms-overlay a{
+    display: block;
+            cursor: url("../images/plus.png") 40 40, crosshair;
+            -webkit-transition: all .4s ease-in-out;
+               -moz-transition: all .4s ease-in-out;
+                -ms-transition: all .4s ease-in-out;
+                 -o-transition: all .4s ease-in-out;
+                    transition: all .4s ease-in-out;
+}
+
+.ms-section-left{
+    background-position: right center !important;
+}
+.ms-section-right{
+    background-position: left center !important;
+}
