@@ -51,10 +51,18 @@
     .team-info{
 	    padding: 0 20px;
 	}
+    .team-social{
+	    margin-top: 10px;
+	}
+    .team-social > span {
+        padding-top: 10px;
+    }
 }
 
 /*Notebooks and Small Laptops*/
 @media (max-width: 1152px) {
+
+    
 }
 
 /*iPad Landscape Mode and Large Tablets */
