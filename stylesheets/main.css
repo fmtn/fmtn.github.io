@@ -67,7 +67,7 @@ a:focus {
 p {
   color: #686868;
   font-family: 'Raleway', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 300;
   line-height: 25px;
 }
@@ -357,7 +357,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   font-size: 22px;
   font-weight: 300;
-  letter-spacing: 8px;
+  letter-spacing: 0.2em;
   line-height: 24px;
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -366,7 +366,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 20px;
 }
 .inner-heading > span {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 22px;
   font-family: "Raleway", sans-serif;
   font-weight: 700;
@@ -377,7 +377,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", sans-serif;
   font-size: 72px;
   font-weight: 500;
-  letter-spacing: 8px;
+  letter-spacing: 0.15em;
   line-height: 41px;
   padding: 14px 14px 14px 30px;
   text-transform: uppercase;
@@ -818,7 +818,7 @@ h1, h2, h3, h4, h5, h6 {
   display: block !important;
 }
 .team-info {
-  padding: 0 60px;
+  padding: 0 40px;
 }
 .team-info p {
   font-size: 14px;
@@ -1405,7 +1405,7 @@ fieldset h1 {
   font-size: 36px;
   font-family: Montserrat, sans-serif;
   font-weight: 500;
-  letter-spacing: 8px;
+  letter-spacing: 0.15em;
   line-height: 41px;
   text-transform: uppercase;
   color: #ffffff;
