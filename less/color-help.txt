@@ -1,0 +1,2 @@
+red:  F2333A
+bright yellow: #FFED27;

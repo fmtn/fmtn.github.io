@@ -76,7 +76,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
   font-weight: normal;
 }
-#content {}
+#content {
+  width: 100%;
+  overflow: hidden
+}
 .container {
   width: 100%;
   margin-right: 0;
