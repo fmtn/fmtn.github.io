@@ -40,6 +40,17 @@
 
 /*Very Large Tablets and Medium Laptops*/
 @media (max-width: 1280px) {
+    .team-info > .valign {
+        position:static;
+        top:0px;
+        padding-top:20px;
+        -webkit-transform: translateY(0%);
+        -ms-transform: translateY(-0%);
+        transform: translateY(-0%);
+	}
+    .team-info{
+	    padding: 0 20px;
+	}
 }
 
 /*Notebooks and Small Laptops*/
