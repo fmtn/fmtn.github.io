@@ -65,7 +65,7 @@ a:focus {
   display: inline-block;
 }
 p {
-  color: #bababa;
+  color: #686868;
   font-family: 'Raleway', sans-serif;
   font-size: 20px;
   font-weight: 300;
@@ -792,6 +792,9 @@ h1, h2, h3, h4, h5, h6 {
 .service-details-switcher {
   list-style: none;
   padding: 0;
+}
+.service-details > article > p {
+  color: #bababa;
 }
 .service-details {
   display: none;
