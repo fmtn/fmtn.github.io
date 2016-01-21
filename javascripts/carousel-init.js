@@ -43,7 +43,8 @@ $(function ($) {
         itemsMobile: [360,1],
         autoPlay: false,
         autoHeight: true,
-
+        mouseDrag: false,
+        touchDrag: false,
      });
 
 
