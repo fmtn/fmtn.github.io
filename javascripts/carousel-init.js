@@ -44,7 +44,7 @@ $(function ($) {
         autoPlay: false,
         autoHeight: true,
         mouseDrag: false,
-        touchDrag: false,
+        touchDrag: true,
      });
 
 
