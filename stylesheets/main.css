@@ -484,7 +484,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /*MASTER FOOTER*/
 
-.master-footer {}
+.master-footer {
+    overflow: hidden;
+    width: 100%;
+}
 .master-footer-left, .master-footer-right {
   padding: 100px;
 }
@@ -789,6 +792,9 @@ h1, h2, h3, h4, h5, h6 {
 .service-details-switcher {
   list-style: none;
   padding: 0;
+}
+.service-details > article > p {
+  color: #bababa;
 }
 .service-details {
   display: none;
@@ -1383,7 +1389,7 @@ fieldset h1 {
   font-family: "Montserat", Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 300;
-  letter-spacing: 6px;
+  letter-spacing: 4px;
   line-height: 16px;
   text-transform: uppercase;
   padding: 10px 0;
