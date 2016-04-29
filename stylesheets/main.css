@@ -759,6 +759,22 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
+.blog-container article {
+    background-image: url("../images/fourmation-workspace.jpg");
+    background-size: cover;
+    background-position: 0px -250px;
+}
+
+.blog-container .main-heading {
+    font-weight: 400;
+}
+
+.blog-container .btn {
+    border: solid 1px #fff;
+    background: #fff;
+    color: #4c4c4c;
+}
+
 /*AGENCY*/
 
 .about-bg {
