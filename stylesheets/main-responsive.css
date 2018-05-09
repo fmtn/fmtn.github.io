@@ -87,7 +87,9 @@
 .highlight-static-title h1 {
     font-size: 40px;
 }
-
+.blog-container article {
+    background-position: 0px 0px;
+}
 
 }
 
@@ -218,7 +220,10 @@
 
 /*iPad Portrait Mode, iPad Mini and Small Tablets */
 @media (max-width: 768px) {
-
+    .master-footer {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
 	.container{
 		max-width: 768px;
 		padding-left: 20px;
