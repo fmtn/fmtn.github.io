@@ -68,7 +68,7 @@ p {
   color: #686868;
   font-family: 'Raleway', sans-serif;
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 25px;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -335,10 +335,10 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 8px;
 }
 .main-heading {
-  font-size: 22px;
+  font-size: 28px;
   line-height: 29px;
   font-family: "Raleway", sans-serif;
-  font-weight: 300;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 8px;
   margin-bottom: 30px;
@@ -347,10 +347,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 30px;
   color: #000;
   font-family: Raleway, sans-serif;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 400;
   line-height: 22px;
-  letter-spacing: 8px;
+  letter-spacing: 5px;
   text-transform: uppercase;
 }
 .sub-heading {
@@ -476,7 +476,7 @@ h1, h2, h3, h4, h5, h6 {
 .top-header h3 {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 8px;
   line-height: 24px;
   text-transform: uppercase;
@@ -525,7 +525,9 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
 }
 .about-content-inner .sub-heading {
-  font-size: 18px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 50px;
 }
 .about-content-inner p {
   font-size: 20px;
@@ -779,7 +781,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-bg {
   height: 100%;
-  background: url('../images/fourmation-info-phone.jpg') no-repeat center center;
+  background: url('../images/fourmation-info-phone-watch.jpg') no-repeat center center;
   background-size: cover;
 }
 .service-item {
