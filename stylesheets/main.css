@@ -918,6 +918,13 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 17px;
 }
 
+.tinted {    
+  background-color: rgba(0,0,0,0.5);
+}
+.team-apply {
+  background-image: url("../images/fourmation-apply.jpg");
+  background-size: cover;
+}
 /* NEWS*/
 
 .news-container {
