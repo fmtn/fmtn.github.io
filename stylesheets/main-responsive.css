@@ -43,7 +43,7 @@
     .team-info > .valign {
         position:static;
         top:0px;
-        padding-top:20px;
+        padding-top:10px;
         -webkit-transform: translateY(0%);
         -ms-transform: translateY(-0%);
         transform: translateY(-0%);

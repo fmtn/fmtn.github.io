@@ -292,7 +292,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .valign {
   position: relative;
-  top: 40%;
+  top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -859,7 +859,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 20px;
 }
 .team-social > span {
-  width: 50%;
+  width: 80%;
   border-top: solid 1px #1c1c1e;
   padding-top: 20px;
   display: inline-block;
