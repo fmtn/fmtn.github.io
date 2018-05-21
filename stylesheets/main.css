@@ -359,7 +359,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 8px;
+  letter-spacing: 0.3em;
   margin-bottom: 30px;
 }
 .main-heading-sub {
@@ -869,7 +869,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 40px;
 }
 .team-info p {
-  font-size: 14px;
+  font-size: 16px;
   padding-top: 20px;
 }
 .team-social {

@@ -713,7 +713,10 @@
 	.agency-head img{
 		width: 100px;
 	}
-
+  .work-bg{
+    height: 400px;
+    background-position: -150px 0px;
+  }
 }
 
 /*Other Major Small Smart Phones*/
