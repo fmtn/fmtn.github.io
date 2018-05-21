@@ -323,6 +323,17 @@ h1, h2, h3, h4, h5, h6 {
   height: 50px;
 }
 
+.join-team{
+  position: absolute;
+  right: 0;
+  bottom: 100px;
+  left: 0;
+  text-align: center;
+  margin: auto;
+  width: 100%;
+  height: 100px;
+}
+
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -364,7 +375,7 @@ h1, h2, h3, h4, h5, h6 {
 .sub-heading {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   font-size: 22px;
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 0.2em;
   line-height: 24px;
   text-transform: uppercase;
@@ -792,6 +803,11 @@ h1, h2, h3, h4, h5, h6 {
   background: url('../images/fourmation-info-phone-watch.jpg') no-repeat center center;
   background-size: cover;
 }
+.work-bg {
+  height: 600px;
+  background: url('../images/fourmation-apply.jpg') no-repeat center center;
+  background-size: cover;
+}
 .service-item {
   background-position: center center;
   background-repeat: no-repeat;
@@ -854,6 +870,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .team-info p {
   font-size: 14px;
+  padding-top: 20px;
 }
 .team-social {
   margin-top: 20px;
@@ -918,7 +935,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 17px;
 }
 
-.tinted {    
+.tinted {
   background-color: rgba(0,0,0,0.5);
 }
 .team-apply {
