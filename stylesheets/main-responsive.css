@@ -43,7 +43,7 @@
     .team-info > .valign {
         position:static;
         top:0px;
-        padding-top:100px;;
+        padding-top:20px;;
         -webkit-transform: translateY(0%);
         -ms-transform: translateY(-0%);
         transform: translateY(-0%);
@@ -336,6 +336,9 @@
 	.credits-ticker li{
 		padding: 20px !important;
 	}
+  .team-info > .valign {
+    padding-top: 10px;
+  }
 
 }
 
