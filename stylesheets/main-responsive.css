@@ -48,8 +48,8 @@
         -ms-transform: translateY(-0%);
         transform: translateY(-0%);
 	}
-    .team-info{
-	    padding: 0 20px;
+	.team-info-content{
+	    padding: 15px;
 	}
     .team-social{
 	    margin-top: 20px;
@@ -68,14 +68,16 @@
 /*iPad Landscape Mode and Large Tablets */
 @media (max-width: 1024px) {
 
-	.team-info{
-	    padding: 0 40px;
+	.team-info-content{
+	    padding: 30px;
 	}
 
 	.team-info > .valign > p {
 				font-size: 1.2em;
 	}
-
+	.team-info h6 > span {
+		font-size: 15px;
+	}
 	.foot-logo {
 	  font-size: 0.7em;
 	}

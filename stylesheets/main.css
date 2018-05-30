@@ -866,11 +866,10 @@ h1, h2, h3, h4, h5, h6 {
   display: block !important;
 }
 .team-info {
-  padding: 0 40px;
-}
+  padding: 0px;
+} 
 .team-info p {
-  font-size: 16px;
-  padding-top: 20px;
+  font-size: 14px;
 }
 .team-social {
   margin-top: 20px;
@@ -883,7 +882,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .team-social img {
   margin-right: 10px;
-  opacity: 1;
+  opacity: 0.6;
   -webkit-transition: all .4s linear;
   -moz-transition: all .4s linear;
   -ms-transition: all .4s linear;
@@ -891,7 +890,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all .4s linear;
 }
 .team-social img:hover {
-  opacity: 0.4;
+  opacity: 1;
   -webkit-transition: all .4s linear;
   -moz-transition: all .4s linear;
   -ms-transition: all .4s linear;
@@ -937,10 +936,44 @@ h1, h2, h3, h4, h5, h6 {
 
 .tinted {
   background-color: rgba(0,0,0,0.5);
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
 }
 .team-apply {
   background-image: url("../images/fourmation-apply.jpg");
   background-size: cover;
+}
+.team-apply h3 {
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.team-info-content {
+  opacity: 0;
+  padding: 30px;
+  width:100%;
+  height:100%;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.team-info:hover .team-info-content{
+  opacity: 1;
+  background-color: rgba(255, 233, 0, 0.7);
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
 }
 /* NEWS*/
 
