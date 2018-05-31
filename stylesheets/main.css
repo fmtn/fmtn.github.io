@@ -39,6 +39,8 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   overflow-x: hidden;
+  height: 100%;
+  overflow: hidden;
 }
 a, a:hover, a:focus {
   text-decoration: none;
@@ -91,6 +93,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 .mast-wrap {
   opacity: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------*/
@@ -284,7 +292,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .valign {
   position: relative;
-  top: 40%;
+  top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -315,6 +323,17 @@ h1, h2, h3, h4, h5, h6 {
   height: 50px;
 }
 
+.join-team{
+  position: absolute;
+  right: 0;
+  bottom: 100px;
+  left: 0;
+  text-align: center;
+  margin: auto;
+  width: 100%;
+  height: 100px;
+}
+
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -340,7 +359,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 8px;
+  letter-spacing: 0.3em;
   margin-bottom: 30px;
 }
 .main-heading-sub {
@@ -356,7 +375,7 @@ h1, h2, h3, h4, h5, h6 {
 .sub-heading {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   font-size: 22px;
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 0.2em;
   line-height: 24px;
   text-transform: uppercase;
@@ -784,6 +803,11 @@ h1, h2, h3, h4, h5, h6 {
   background: url('../images/fourmation-info-phone-watch.jpg') no-repeat center center;
   background-size: cover;
 }
+.work-bg {
+  height: 600px;
+  background: url('../images/fourmation-apply.jpg') no-repeat center center;
+  background-size: cover;
+}
 .service-item {
   background-position: center center;
   background-repeat: no-repeat;
@@ -842,8 +866,8 @@ h1, h2, h3, h4, h5, h6 {
   display: block !important;
 }
 .team-info {
-  padding: 0 40px;
-}
+  padding: 0px;
+} 
 .team-info p {
   font-size: 14px;
 }
@@ -851,14 +875,14 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 20px;
 }
 .team-social > span {
-  width: 50%;
+  width: 80%;
   border-top: solid 1px #1c1c1e;
   padding-top: 20px;
   display: inline-block;
 }
 .team-social img {
   margin-right: 10px;
-  opacity: 1;
+  opacity: 0.6;
   -webkit-transition: all .4s linear;
   -moz-transition: all .4s linear;
   -ms-transition: all .4s linear;
@@ -866,7 +890,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all .4s linear;
 }
 .team-social img:hover {
-  opacity: 0.4;
+  opacity: 1;
   -webkit-transition: all .4s linear;
   -moz-transition: all .4s linear;
   -ms-transition: all .4s linear;
@@ -910,6 +934,47 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 17px;
 }
 
+.tinted {
+  background-color: rgba(0,0,0,0.5);
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+.team-apply {
+  background-image: url("../images/fourmation-apply.jpg");
+  background-size: cover;
+}
+.team-apply h3 {
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.team-info-content {
+  opacity: 0;
+  padding: 30px;
+  width:100%;
+  height:100%;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.team-info:hover .team-info-content{
+  opacity: 1;
+  background-color: rgba(255, 233, 0, 0.7);
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
 /* NEWS*/
 
 .news-container {
