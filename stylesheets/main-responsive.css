@@ -342,6 +342,14 @@
     padding-top: 10px;
   }
 
+  .center-square {
+    padding: 29vw;
+  }
+  .center-square-text {
+    font-size: 16vw;
+    line-height: 19vw;
+  }
+
 }
 
 /*Medium Smart Phones v2*/
