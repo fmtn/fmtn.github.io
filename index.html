@@ -2,604 +2,417 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Fourmation - Enabling the connected world</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fourmation - Enabling the connected world">
-    <meta name="author" content="Fourmation">
-    <meta name="keywords" content="api, connectivity, integration, consultancy, architecture, web, mobile" />
+	<meta charset="UTF-8" />
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0" name="viewport">
+	<meta name="description" content="Fourmation - Enabling the connected world">
+	<meta name="author" content="Fourmation">
+	<meta name="keywords" content="api, connectivity, integration, consultancy, architecture, web, mobile" />
 
-    <meta property="og:url" content="https://fourmation.se" />
-    <meta property="og:title" content="Fourmation - Enabling the connected world" />
-    <meta property="og:image" content="https://fourmation.se/images/fourmation-facebook-share.jpg" />
-    <meta property="og:description" content="Consultancy and projects for the connected world" />
+	<meta property="og:url" content="https://fourmation.se" />
+	<meta property="og:title" content="Fourmation - Enabling the connected world" />
+	<meta property="og:image" content="https://fourmation.se/images/fourmation-facebook-share.jpg" />
+	<meta property="og:description" content="Consultancy and projects for the connected world" />
 
-    <!-- Standard Favicon-->
-    <link rel="shortcut icon" href="images/favicon.png">
+	<!-- Standard Favicon-->
+	<link rel="shortcut icon" href="images/favicon.png">
 
-    <!-- Apple Touch icon-->
-    <link rel="apple-touch-icon" href="images/ati/apple-touch-icon.png" />
-    <link rel="apple-touch-icon" sizes="57x57" href="images/ati/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="images/ati/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="images/ati/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="images/ati/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="images/ati/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="images/ati/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="images/ati/apple-touch-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="images/ati/apple-touch-icon-180x180.png" />
+	<!-- Font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900|Work+Sans:200,700,900&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap CSS Files -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-    <!-- Custom Fonts Setup via Font-face CSS3 -->
-    <link href="fonts/fonts.css" rel="stylesheet">
-    <!-- CSS files for plugins -->
-    <link href="stylesheets/hiding-nav.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="stylesheets/menu-transition.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="stylesheets/jquery.tweet.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="stylesheets/home.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="stylesheets/YTPlayer.css" rel="stylesheet" type="text/css" media="screen" />
-    <link href="stylesheets/owl.carousel.css" rel="stylesheet">
-    <link href="stylesheets/owl.theme.css" rel="stylesheet">
-    <link href="stylesheets/jquery.bxslider.css" rel="stylesheet" />
-    <link href="stylesheets/parallax-layers.css" rel="stylesheet">
+	<!-- Css -->
+	<link rel="stylesheet" href="css/core.min.css" />
+	<link rel="stylesheet" href="css/skin.css" />
+	<link rel="stylesheet" href="css/aos.min.css" />
 
-    <link href="stylesheets/pace.preloader.css" rel="stylesheet">
-    <link href="stylesheets/slimmenu.css" rel="stylesheet" />
-    <!-- Main Template Styles -->
-    <link href="stylesheets/main.css" rel="stylesheet">
-    <!-- Main Template Responsive Styles -->
-    <link href="stylesheets/main-responsive.css" rel="stylesheet">
-    <!-- Main Template Retina Optimizaton Rules -->
-    <link href="stylesheets/main-retina.css" rel="stylesheet">
-    <!-- LESS stylesheet for managing color presets -->
-    <link rel="stylesheet/less" type="text/css" href="less/color.less">
-    <!-- LESS JS engine-->
-    <script src="less/less-1.7.3.min.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,700,900%7COpen+Sans:400,300,700,800%7CMontserrat:200,400,500,700'
-        rel='stylesheet' type='text/css'>
-
-    <!-- Core JS Libraries -->
-    <script src="bootstrap/js/jquery.js" type="text/javascript"></script>
-    <script src="javascripts/jquery.easing.1.3.js" type="text/javascript"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
-
-    <script src="javascripts/nova-text-rotator.js"></script>
-    <script src="javascripts/modernizr.custom.js"></script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "Organization",
-      "name": "Fourmation",
-      "description": "IT Consulting Agency",
-      "url": "https://www.fourmation.se",
-      "logo": "https://fourmation.se/images/fmtn-logo-yellow.png",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Södra Larmgatan 2",
-        "addressLocality": "Göteborg",
-        "postalCode": "411 16",
-        "addressCountry": "SE"
-      },
-      "sameAs": [
-        "https://www.facebook.com/fourmation.se",
-        "https://www.linkedin.com/company/fourmation-ab"
-      ]
-    }
-    </script>
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="bootstrap/js/html5shiv.js"></script>
-      <script src="bootstrap/js/respond.min.js"></script>
+	<!--[if lt IE 9]>
+    	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
 </head>
 
-<body class="post">
-    <section class="mast-wrap">
-
-        <section class="top-header visible-lg">
-
-            <div class="row">
-                <article class="top-header-left col-md-6 white-bg text-center">
-                    <h3 class="dark">We are
-                        <strong>fourmation</strong>
-                    </h3>
-                </article>
-
-                <article class="top-header-right col-md-6 black-bg text-center">
-                    <h3 class="white">Enabling the connected world</h3>
-                </article>
-            </div>
-
-        </section>
-
-        <div>
-
-            <div class="ticker-container intro-bg fullheight text-center">
-                <div class="valign">
-
-                    <div class="remove-top page-head add-bottom-half" style="margin-left: auto; margin-right: auto; padding: 0px 10%; max-width: 1100px; background-position: 50% -29px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 493.92 86.81">
-                            <title>fourmation-sign</title>
-                            <rect width="493.92" height="86.81" style="fill:#ffe900" />
-                            <path d="M90.41,240.68V254h17.66v4.16H90.41v16.2H86.09v-37.8h24v4.16Z" transform="translate(-59.89 -211.96)" style="stroke:#000;stroke-miterlimit:10;stroke-width:0.75px"
-                            />
-                            <path d="M161.26,255.42c0,10.64-8.75,19.12-19.76,19.12s-19.82-8.48-19.82-19.12,8.75-19,19.82-19S161.26,244.78,161.26,255.42Zm-35.21,0c0,8.32,7,15,15.44,15a14.94,14.94,0,1,0,0-29.86C133.07,240.52,126,247.1,126,255.42Z"
-                                transform="translate(-59.89 -211.96)" style="stroke:#000;stroke-miterlimit:10;stroke-width:0.75px"
-                            />
-                            <path d="M208.77,258.77c0,9.83-5.94,15.77-15.82,15.77S177,268.6,177,258.77V236.52h4.32v22.25c0,7.34,4.43,11.61,11.61,11.61s11.5-4.27,11.5-11.61V236.52h4.32Z"
-                                transform="translate(-59.89 -211.96)" style="stroke:#000;stroke-miterlimit:10;stroke-width:0.75px"
-                            />
-                            <path d="M245,262.28c-.81.05-1.67.11-2.54.11h-10v11.93h-4.32v-37.8h14.36c9.45,0,14.9,4.64,14.9,12.69,0,6.26-3,10.48-8.48,12.26l8.86,12.85h-4.91Zm-2.54-4.05c6.86,0,10.75-3,10.75-8.91,0-5.72-3.89-8.64-10.75-8.64h-10v17.55Z"
-                                transform="translate(-59.89 -211.96)" style="stroke:#000;stroke-miterlimit:10;stroke-width:0.75px"
-                            />
-                            <path d="M310.13,274.32l-.05-31.16-13.77,27.16h-2.59L280,243.16v31.16h-4.1v-37.8h5.35l13.82,27.22,13.77-27.22h5.29v37.8Z"
-                                transform="translate(-59.89 -211.96)" style="stroke:#000;stroke-miterlimit:10;stroke-width:0.75px"
-                            />
-                            <path d="M337.67,264.76l-4.21,9.56h-4.59l17-37.8h4.48l16.9,37.8h-4.7l-4.21-9.56Zm10.26-23.33-8.42,19.17h17Z" transform="translate(-59.89 -211.96)"
-                                style="stroke:#000;stroke-miterlimit:10;stroke-width:0.75px" />
-                            <path d="M389.89,240.68v33.64h-4.32V240.68H373.26v-4.16h29v4.16Z" transform="translate(-59.89 -211.96)" style="stroke:#000;stroke-miterlimit:10;stroke-width:0.75px"
-                            />
-                            <path d="M417.27,274.32v-37.8h4.32v37.8Z" transform="translate(-59.89 -211.96)" style="stroke:#000;stroke-miterlimit:10;stroke-width:0.75px"
-                            />
-                            <path d="M477.8,255.42c0,10.64-8.75,19.12-19.76,19.12s-19.82-8.48-19.82-19.12,8.75-19,19.82-19S477.8,244.78,477.8,255.42Zm-35.21,0c0,8.32,7,15,15.44,15a14.94,14.94,0,1,0,0-29.86C449.61,240.52,442.59,247.1,442.59,255.42Z"
-                                transform="translate(-59.89 -211.96)" style="stroke:#000;stroke-miterlimit:10;stroke-width:0.75px"
-                            />
-                            <path d="M521.43,274.32,498.75,244v30.35h-4.32v-37.8h4.48l22.68,30.4v-30.4h4.27v37.8Z" transform="translate(-59.89 -211.96)"
-                                style="stroke:#000;stroke-miterlimit:10;stroke-width:0.75px" />
-                        </svg>
-                    </div>
-                    <h2 class="text-rotator white">
-                        <span class="rotate">
-                            API, Connectivity, Mobile & Web, Architecture, Consultancy
-                        </span>
-                        <script>
-                            var text_rotator_content = $('.rotate').html();
-                            $('.rotate').empty();
-                            $('.rotate').html('<div class="rotator-wrap"></div>')
-                            this_item = $('.rotate').children('.rotator-wrap');
-                            console.log(text_rotator_content);
-                            var text_rotator_content_split = text_rotator_content.split(',');
-                            var item_size = text_rotator_content_split.length;
-                            nova_text_rotator(text_rotator_content_split, this_item, item_size);
-                        </script>
-                    </h2>
-
-                </div>
-                <div class="trigger-button explore-more">
-                    <a class="btn btn-reflex btn-reflex-white goto" href="#content">Explore More</a>
-                </div>
-            </div>
-
-            <div id="content">
-
-                <section class="container color-bg text-center">
-
-                    <div class="row">
-
-                        <article class="col-md-12 team-job text-center pad-top pad-bottom">
-                            <h3 class="main-heading black">We make information come to life</h3>
-                            <p class="main-heading-sub">Cutting-edge consultants sprung from development</p>
-                        </article>
-                    </div>
-
-                </section>
-
-                <section class="about-container">
-
-                    <div class="row">
-
-                        <article class="col-md-6 about-content about-bg text-right hidden-xs">
-
-                        </article>
-                        <article class="col-md-6 about-content silver-bg text-left">
-
-                            <div class="row">
-                                <article class="about-content-inner inner-pad col-md-12 white-bg text-left">
-                                    <h3 class="sub-heading">We love solving problems!</h3>
-                                    <p>Fourmation is a team of passionate IT architects and developers, ready to take on projects
-                                        and challenges.</p>
-                                    <p>We live in a connected world where data needs to flow in any direction and be presented
-                                        to users. Fourmation loves facing the most technical of these challenges, finding
-                                        the best solutions and implementing them. We pride ourselves on being really good
-                                        at what we do.</p>
-                                    <p>Whether you hire a single consultant or our entire team, you'll always get our Fourmation
-                                        of combined knowledge.</p>
-                                    <p>That's why you should contact us, we would love to work together with you!</p>
-                                </article>
-                            </div>
-
-                            <div class="row">
-                                <article class="team-job col-md-12  color-bg text-center" style="padding: 120px">
-
-                                    <div class="ms-section ms-section-left left3 ms-table active" id="left3" style="height: 100%;">
-                                        <div class="ms-tableCell">
-                                            <div class="highlight-static-title text-left black">
-                                                <h1>APIs are drivers for new innovation</h1>
-                                                <h3>
-                                                    <span class="white-bg">We can help!</span>
-                                                </h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                        </article>
-                    </div>
-
-                </section>
-                <!-- about-container ends -->
-
-                <section class="service-container">
-
-                    <div id="service-carousel" class="service-carousel owl-carousel">
-
-                        <div class="service-carousel-item text-center silver-bg">
-                            <a data-service-details-expand="01" href="#">
-                                <img alt="" title="" src="images/services/01.png" />
-                                <h5 class="inner-heading">
-                                    <span class="dark">API</span>
-                                </h5>
-                            </a>
-                            <div class="triangle-arrow triangle-arrow-up active-service"></div>
-                        </div>
-
-                        <div class="service-carousel-item text-center white-bg" data-service-details-expand="02">
-                            <a data-service-details-expand="02" href="#">
-                                <img alt="" title="" src="images/services/02.png" />
-                                <h5 class="inner-heading">
-                                    <span class="dark">Connectivity</span>
-                                </h5>
-                            </a>
-                            <div class="triangle-arrow triangle-arrow-up"></div>
-                        </div>
-
-                        <div class="service-carousel-item text-center silver-bg" data-service-details-expand="03">
-                            <a data-service-details-expand="03" href="#">
-                                <img alt="" title="" src="images/services/03.png" />
-                                <h5 class="inner-heading">
-                                    <span class="dark">Mobile & Web</span>
-                                </h5>
-                            </a>
-                            <div class="triangle-arrow triangle-arrow-up"></div>
-                        </div>
-
-                        <div class="service-carousel-item text-center white-bg" data-service-details-expand="04">
-                            <a data-service-details-expand="04" href="#">
-                                <img alt="" title="" src="images/services/04.png" />
-                                <h5 class="inner-heading">
-                                    <span class="dark">New ideas</span>
-                                </h5>
-                            </a>
-                            <div class="triangle-arrow triangle-arrow-up"></div>
-                        </div>
-
-
-                    </div>
-                    <!-- service-carousel:ends -->
-
-                    <!-- server-details : starts -->
-                    <div id="service-details-wrap" class="black-bg service-details-wrap pad-top pad-bottom">
-
-                        <!-- container : starts -->
-                        <div class="container">
-
-                            <div class="row">
-
-                                <ul class="service-details-switcher">
-
-                                    <li id="service-details-01" class="service-details col-md-8 col-md-offset-2">
-                                        <article class="text-center">
-                                            <h3 class="sub-heading white">API</h3>
-                                            <div class="liner text-center">
-                                                <span class="dark-bg"></span>
-                                            </div>
-                                            <p>We've setup full-fledged API solutions for several customers. We can help design
-                                                & implement APIs.</p>
-                                            <p>Most new digital innovation relies on APIs. We can connect you to them, or create
-                                                your own - from architecture & design to implementation.</p>
-                                        </article>
-                                    </li>
-
-                                    <li id="service-details-02" class="service-details col-md-8 col-md-offset-2">
-                                        <article class="text-center">
-                                            <h3 class="sub-heading white">Connectivity</h3>
-                                            <div class="liner text-center">
-                                                <span class="dark-bg"></span>
-                                            </div>
-                                            <p>We've worked together within the connectivity/integration space for over 30 years
-                                                combined. We've created, architected and project managed some of the biggest
-                                                integration projects in Sweden.</p>
-                                            <p>We've built Integration Centers from the ground up. From pre-study to implemented
-                                                architecture and processes.</p>
-                                            <p>MULE . CAMEL . WSO2 . BIZTALK . IBM INTEGRATION BUS</p>
-                                            <p>We love order and consistency. Naming conventions. Best Practices. Ways of Working.
-                                                Maintainability. Automation. Testing ...</p>
-                                        </article>
-                                    </li>
-
-                                    <li id="service-details-03" class="service-details col-md-8 col-md-offset-2">
-                                        <article class="text-center">
-                                            <h3 class="sub-heading white">Mobile & Web</h3>
-                                            <div class="liner text-center">
-                                                <span class="dark-bg"></span>
-                                            </div>
-                                            <p>We've built apps for iOS & Andriod. We've created web portals and designed user
-                                                interfaces.
-                                            </p>
-                                            <p>Creating a rich user experience isn't just about making information flow, it's
-                                                also about creating intuitive and stunning experiences for users.</p>
-                                        </article>
-                                    </li>
-
-                                    <li id="service-details-04" class="service-details col-md-8 col-md-offset-2">
-                                        <article class="text-center">
-                                            <h3 class="sub-heading white">New ideas</h3>
-                                            <div class="liner text-center">
-                                                <span class="dark-bg"></span>
-                                            </div>
-                                            <p>We're triggered by innovation. We want to do what's new (but we still love doing
-                                                what's robust and well tested).</p>
-                                            <p>Let us know if you have a new idea in mind. Challenge us to see if we can bring
-                                                it to life, or simply give feedback. We'd love to help out!</p>
-                                            <div class="trigger-button add-top-quarter">
-                                                <a href="mailto:contact@fourmation.se" class="btn btn-reflex btn-reflex-white">Contact us</a>
-                                            </div>
-                                        </article>
-                                    </li>
-                                </ul>
-
-                            </div>
-
-                        </div>
-                        <!-- container : ends -->
-
-                    </div>
-                    <!-- inner-section : ends -->
-
-                </section>
-
-                <!-- end : service-container -->
-
-                <section class="team-container">
-
-                    <div class="row">
-
-                        <article ontouchmove="void(0)" class="col-md-3 team-info white-bg text-center" style="background-image: url(images/team/christian.jpg);background-size: cover;">
-
-                            <div class="team-info-content">
-                                <div class="valign">
-                                    <h3 class="sub-heading dark">Christian Morin</h3>
-                                    <h6>
-                                        <span>Integration Architect</span>
-                                    </h6>
-                                    <p>Java EE, Architecture, Mule ESB, ActiveMQ, WSO2, Front-End, Angular/JS, WebSphere</p>
-                                    <div class="team-social">
-                                        <span>
-                                            <a href="https://www.linkedin.com/in/chrmrn">
-                                                <img class="img-responsive" src="images/in.png" style="display: inherit" />
-                                            </a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article ontouchmove="void(0)" class="col-md-3 team-info white-bg text-center" style="background-image: url(images/team/petter.jpg);background-size: cover;">
-                            <div class="team-info-content">
-                                <div class="valign">
-                                    <h3 class="sub-heading dark">Petter Nordlander</h3>
-                                    <h6>
-                                        <span>Software Engineer</span>
-                                    </h6>
-                                    <p>System architecture, Security, Distributed systems, Integration, Containers and Microservices</p>
-                                    <div class="team-social">
-                                        <span>
-                                            <a href="https://www.linkedin.com/in/petternordlander">
-                                                <img class="img-responsive" src="images/in.png" style="display: inherit" />
-                                            </a>
-                                            <a href="http://stackoverflow.com/users/412763/petter-nordlander">
-                                                <img class="img-responsive" src="images/so.png" style="display: inherit" />
-                                            </a>
-                                            <a href="https://github.com/northlander">
-                                                <img class="img-responsive" src="images/gh.png" style="display: inherit" />
-                                            </a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article ontouchmove="void(0)" class="col-md-3 team-info white-bg text-center" style="background-image: url(images/team/robin2.jpg);background-size: cover;">
-                            <div class="team-info-content">
-                                <div class="valign">
-                                    <h3 class="sub-heading dark">Robin Seybold</h3>
-                                    <h6>
-                                        <span>Integration Architect</span>
-                                    </h6>
-                                    <p>Architecture, WebSphere, Java EE, Mule ESB, ActiveMQ, Front-End, IoT, Node.js, SQL</p>
-                                    <div class="team-social">
-                                        <span>
-                                            <a href="https://www.linkedin.com/in/seybold">
-                                                <img class="img-responsive" src="images/in.png" style="display: inherit" />
-                                            </a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article ontouchmove="void(0)" class="col-md-3 team-info white-bg text-center" style="background-image: url(images/team/magnus.jpg);background-size: cover;">
-                            <div class="team-info-content">
-                                <div class="valign">
-                                    <h3 class="sub-heading dark">Magnus Våge</h3>
-                                    <h6>
-                                        <span>Integration Architect</span>
-                                    </h6>
-                                    <p>Java EE, Architecture, IoT, MQTT, Security, Node.js, Websphere, Azure</p>
-                                    <div class="team-social">
-                                        <span>
-                                            <a href="https://www.linkedin.com/in/magnus-v%C3%A5ge-5036192/">
-                                                <img class="img-responsive" src="images/in.png" style="display: inherit" />
-                                            </a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="row">
-
-                        <article class="col-md-12 team-job color-bg text-center pad-top pad-bottom">
-                            <h3 class="main-heading dark">Got work for us?</h3>
-                            <div class="trigger-button add-top-quarter">
-                                <a href="mailto:hello@fourmation.se" class="btn btn-reflex btn-reflex-dark">Shoot us an email today</a>
-                            </div>
-                        </article>
-                    </div>
-
-                </section>
-                <div class="row">
-
-                    <article class="col-md-12 work-bg text-center pad-top pad-bottom">
-                        <div class="trigger-button join-team">
-                          <h3 class="main-heading white">Want to join our team?</h3>
-                            <a href="mailto:hello@fourmation.se?subject=Hire me!" class="btn btn-reflex btn-reflex-white">Apply here!</a>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- team-container ends -->
-
-
-                <!--
-                <section class="blog-container">
-                    <div class="row">
-
-                        <article class="col-md-12 team-job text-center pad-top pad-bottom">
-                            <h3 class="main-heading white">Wondering what we're up to?</h3>
-                            <div class="trigger-button add-top-quarter">
-                                <a href="https://blog.fourmation.se" class="btn btn-reflex btn-reflex-white">Read our blog</a>
-                            </div>
-                        </article>
-
-                    </div>
-
-                </section>
-
-                -->
-                <!-- blog-container ends -->
-
-
-            </div>
-            <!-- end content -->
-
-            <footer class="container master-footer">
-                <div class="row">
-                    <article class="col-md-4 footer-column text-left white-bg">
-                        <div class="valign">
-                            <p>We love to hack, code & tinker with things.</p>
-                            <p>See what we've made at Github.</p>
-                            <a href="https://www.github.com/fmtn">
-                                <p class="github-handle black">@fmtn</p>
-                            </a>
-                        </div>
-                    </article>
-                    <article class="col-md-4 footer-column text-center black-bg" style=" padding-left:0px;padding-right:0px;">
-
-                        <div class="valign">
-                            <h1 class="black">
-                                <span class="foot-logo">Fourmation</span>
-                            </h1>
-                            <p class="copyright-text">Copyright &copy; 2016 Fourmation AB</p>
-                        </div>
-
-                    </article>
-                    <article class="col-md-4 footer-column text-left white-bg">
-                        <h3>Contact Information</h3>
-                        <ul class="foot-links">
-                            <li>
-                                <span>Fourmation AB
-                                    <br/> 559037-4376
-                                    <br/> Göteborg
-                                </span>
-                                <span>‭+46 (0)31 13 14 80</span>
-                            </li>
-                            <li>
-                                <span>
-                                    <a href="mailto:hello@fourmation.se" class="black">hello@fourmation.se</a>
-                                </span>
-                            </li>
-                        </ul>
-                    </article>
-                </div>
-            </footer>
-
-
-        </div>
-        <!-- end wrap -->
-
-    </section>
-    <!-- end mast-wrap -->
-
-    <!-- JS Plugins -->
-    <script src="javascripts/device.min.js"></script>
-    <script src="javascripts/responsive-nav.js" type="text/javascript"></script>
-    <script src="javascripts/navi-slidedown.js" type="text/javascript"></script>
-    <script src="javascripts/jquery.slimmenu.min.js"></script>
-    <script src="javascripts/jquery.scrollto.js"></script>
-    <script src="javascripts/equalheights.js"></script>
-    <script src="javascripts/okvideo.js"></script>
-    <script src="javascripts/owl.carousel.js"></script>
-    <script src="javascripts/jquery.parallax-1.1.3.js"></script>
-    <script src="javascripts/jquery.bxslider.min.js"></script>
-    <!-- JS Custom Codes -->
-    <script src="javascripts/equalheights-init.js"></script>
-    <script async src="javascripts/bgvideo-init.js"></script>
-    <script src="javascripts/hiding-nav.js"></script>
-    <script src="javascripts/carousel-init.js"></script>
-    <script src="javascripts/parallax-init.js"></script>
-    <script src="javascripts/services-init.js"></script>
-    <!-- <script src="javascripts/pace.min.js"></script> -->
-    <script src="javascripts/retina.js"></script>
-    <script src="javascripts/main.js"></script>
-
-    <script>
-        $(window).on('resize', function () {
-            var cw = $('.team-info').outerWidth();
-            $('.team-info').css({
-                'height': cw + 'px'
-            });
-            $('.team-thumb').css({
-                'height': cw + 'px'
-            });
-            $('.team-thumb>img').css({
-                'height': cw + 'px'
-            });
-            $('.team-thumb>img').css({
-                'width': cw + 'px'
-            });
-        });
-
-        $(function () {
-            $('.team-apply a').hover(function () {
-                $('.team-apply .tinted').css('background-color', 'rgba(0,0,0,0)');
-                $('.team-apply .main-heading').css('color', 'rgba(255,255,255,0.5)');
-            }, function () {
-                // on mouseout, reset the background colour
-                $('.team-apply .tinted').css('background-color', 'rgba(0,0,0,0.5)');
-                $('.team-apply .main-heading').css('color', 'rgba(255,255,255,1)');
-            });
-        });
-    </script>
-
-    <div id="okplayer-mask" style="position: fixed; left: 0px; top: 0px; overflow: hidden; z-index: -998; height: 100%; width: 100%; background-image: url(data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw%3D%3D);"></div>
-    <iframe src="https://fourmation.se/video/" allow="autoplay" frameborder="0" style="position: fixed; left: -10%; top: -10%; overflow: hidden; z-index: -999; height: 120%; width: 120%; visibility: visible; background-color: black;"
-        id="okplayer"></iframe>
-</body>
-
-</html>
-
+<body class="home-page">
+
+	<!-- Overlay Navigation Menu -->
+	<div class="overlay-navigation-wrapper" data-no-scrollbar data-animation="scale-in">
+		<div class="overlay-navigation-scroll-pane">
+			<div class="overlay-navigation-inner">
+				<div class="v-align-middle">
+					<div class="overlay-navigation-header row collapse full-width">
+						<div class="column width-12">
+							<div class="navigation-hide overlay-nav-hide">
+								<a href="#">
+									<span class="icon-cancel"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="row collapse full-width">
+						<div class="column width-12">
+							<nav class="overlay-navigation pull-left clear-float-on-mobile">
+								<span class="menu-title">Pages</span>
+								<ul>
+									<li>
+										<a class="goto close" href="#about" >About us</a>
+									</li>
+									<li>
+										<a class="goto" href="#believe">We believe in</a>
+									</li>
+									<li>
+										<a class="goto" href="#are">We are</a>
+									</li>
+									<li>
+										<a class="goto" href="#team">Our team</a>
+									</li>
+									<li>
+										<a class="goto" href="#contact">Contact</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+					<div class="overlay-navigation-footer row full-width">
+						<div class="column width-12 no-padding">
+							<p class="copyright no-margin-bottom">&copy; 2019 FOURMATION.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Overlay Navigation Menu End -->
+
+	<div class="wrapper reveal-side-navigation">
+		<div class="wrapper-inner">
+
+			<!-- Header -->
+			<header class="page-section header header-fixed header-fixed-on-mobile header-transparent" data-bkg-threshold="100" data-compact-threshold="100">
+				<div class="header-inner">
+					<div class="row collapse full-width nav-bar reveal-side-navigation">
+						<div class="column width-12 nav-bar-inner">
+							<div class="logo">
+								<div class="logo-inner">
+								<a href="#"><img src="images/logo-wide-black.png" alt="FOURMATION"></a>
+								<a href="#"><img src="images/logo-wide-white.png" alt="FOURMATION"></a>
+
+								</div>
+							</div>
+							<nav class="navigation nav-block secondary-navigation nav-right">
+								<ul>
+									<li class="aux-navigation hide">
+										<!-- Aux Navigation -->
+										<a href="#" class="navigation-show overlay-nav-show nav-icon">
+											<span class="icon-menu"></span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+							<nav class="navigation nav-block primary-navigation nav-right">
+								<ul>
+									<li>
+										<a class="goto" href="#about" >About us</a>
+									</li>
+									<li>
+										<a class="goto" href="#believe">We believe in</a>
+									</li>
+									<li>
+										<a class="goto" href="#are">We are</a>
+									</li>
+									<li>
+										<a class="goto" href="#team">Our team</a>
+									</li>
+									<li>
+										<a class="goto" href="#contact">Contact</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</header>
+			<!-- Header End -->
+
+			<!-- Content -->
+			<div class="content clearfix">
+
+				<!-- Back Top -->
+				<div class="scroll-to-top">
+					<a href="#">Back Up Top</a>
+				</div>
+				<!-- Back Top End -->
+
+				<!-- Fullscreen Slider Section -->
+				<div class="section-block featured-media window-height tm-slider-parallax-container">
+					<div class="tm-slider-container full-width-slider" data-parallax data-external-padding="60" data-animation="slide" data-scale-under="960">
+						<ul class="tms-slides">
+							<li class="tms-slide" data-video data-video-bkg data-animation="slideLeftRight" data-overlay-bkg-color="#000000" data-overlay-bkg-opacity="0.2">
+								<div class="tms-content">
+									<div class="tms-content-inner">
+										<div class="row">
+											<div class="column width-12 center">
+												<div class="clear"></div>
+												<h1 class="tms-caption title-xlarge color-white lspacing-medium" data-animate-in="preset:slideInUpShort;duration:1000ms;" data-no-scale>
+													ENABLING THE CONNECTED WORLD
+												</h1>
+												<div class="clear"></div>
+												<span class="tms-caption button cursor-default text-uppercase lspacing-medium weight-bold bkg-hey-day bkg-hover-hey-day color-teal-me-more fade-location" data-animate-in="preset:slideInUpShort;duration:1000ms;delay:200ms;"
+												  data-offsety="60" data-no-scale>
+													Specialising in integration, connectivity, apis and modern software development
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="video-container">
+									<video autoplay loop autobuffer muted playsinline style="position: absolute">
+										<source type="video/mp4" src="video/kungsportsplatsen_small.mp4">
+									</video>
+									<img data-src="images/blank.png" />
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- Fullscreen Slider Section End -->
+
+				<div id="about" class="page-section section-block bkg-white">
+					<div class="row">
+						<div class="column width-12 horizon" data-parallax="direction:vertical;speed:0;opacity:fade;">
+							<p class="lead text-large">
+								We're a consultancy company where every member is an expert in its field.
+							</p>
+							<p class="lead text-large">
+								We love moving data everywhere for the connected world. We create APIs and connect anything that needs data with awesome integrations.
+							</p>
+							<p class="lead text-large">
+								We're architects, developers and everything in between. Let us know how we can be of assistance.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div id="believe" class="page-section section-block bkg-meringue">
+					<div class="row">
+						<div class="column width-12" data-aos-easing="ease-out-sine" data-aos-duration="2000" data-aos-offset="300">
+							<h2>WE BELIEVE IN</h2>
+							<h1>Freedom through friendship</h1>
+							<span class="text-line-horizontal" data-aos-offset="0" data-aos="slide-right" data-aos-duration="2000"></span>
+								<p>
+									Even though we are unique in our own ways – we are united by a dream so vividly strong. The dream about freedom. Freedom to be and do what we want.
+									Enabled by friendship.
+								</p>
+								<p>
+									With admiration, curiosity and love we challenge one another from our different point of views. Because, it is when we discuss – we learn and get even closer.
+									And together we become a solid unit that flies through life in a beautiful and free Fourmation. Ready to solve, any challenge.
+								</p>
+
+						</div>
+					</div>
+				</div>
+
+				<div id="are" class="page-section section-block grid-container full-width no-margins">
+					<div class="row flex">
+						<div class="column width-6 bkg-glacier">
+									<div class="content-block" data-aos="fade-up" data-aos-easing="ease-out-sine" data-aos-duration="1000" data-aos-offset="300">
+										<h1>Solvers by birth</h1>
+										<span class="text-line-horizontal" data-aos="slide-right" data-aos-offset="0" data-aos-duration="2000" style="border-color: #808F85"></span>
+										<p class="mt-50">
+											We love solving problems, bugs and headaches. We are forward leaning solvers, that share every
+											discovery and insight. With each other, with customers.
+										</p>
+										<p>
+											By looking at the bigger picture we do our best in order to understand the complexity. Together we find a way to execute even better than expected.
+										</p>
+									</div>
+								</div>
+								<div class="column width-6 bkg-french-oyster">
+									<div class="content-block" data-aos="fade-up" data-aos-easing="ease-out-sine" data-aos-duration="1000" data-aos-offset="300">
+										<h1>Proud nerds</h1>
+										<span class="text-line-horizontal" data-aos="slide-right" data-aos-offset="0" data-aos-duration="2000"></span>
+										<p class="mt-50">
+											With curiosity about life and its obscurities we might seem as a slightly nerdy gang. Perhaps it is because we love to dig really deep down in to
+											different and often wildly spread topics.
+										</p>
+										<p class="weight-bold">
+											That is what true nerdiness is all about, right?
+										</p>
+										<p>
+											And we are proud ones, equipped with an eagle-eye
+											for details and eagerness to share what we know - with everyone.
+										</p>
+									</div>
+								</div>
+							</div>
+					<div class="row flex">
+						<div class="column width-6 color-white bkg-reign">
+									<div class="content-block" data-aos="fade-up" data-aos-easing="ease-out-sine" data-aos-duration="1000" data-aos-offset="300">
+										<h1>Word keepers, trust seekers</h1>
+										<span class="text-line-horizontal" data-aos="slide-right" data-aos-offset="0" data-aos-duration="2000" style="border-color: #CEDCCA"></span>
+										<p class="mt-50">
+											Trust is everything and we cherish every adventure as we take on both new as already known challenges.
+										</p>
+										<p>
+											Regardless the task, we stand by our word and deliver upon our promises.
+										</p>
+									</div>
+								</div>
+								<div class="column width-6 bkg-hey-day">
+									<div class="content-block" data-aos="fade-up" data-aos-easing="ease-out-sine" data-aos-duration="1000" data-aos-offset="300">
+										<h1>More than Fourmation</h1>
+										<span class="text-line-horizontal" data-aos="slide-right" data-aos-offset="0" data-aos-duration="2000" style="border-color: #293132"></span>
+										<p class="mt-50">
+											Life is the most exciting adventure of them all, and we fly through it together. Through thick and thin. Through the week, projects
+											and game nights.
+										</p>
+										<p class="weight-bold">
+											We are family. Longing to grow in numbers.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Team Grid -->
+						<div id="team" class="page-section section-block grid-container full-width replicable-content team-2">
+							<div class="row content-block" data-aos="fade-left" data-aos-easing="ease-out-sine" data-aos-duration="1000" data-aos-offset="200">
+								<div class="column width-6">
+									<h1 class="title-large">The Creatives <br>Behind Fourmation</h1>
+									<span class="text-line-horizontal" data-aos="slide-right" data-aos-offset="0" data-aos-duration="2000"></span>
+								</div>
+								<div class="column width-6">
+									<p class="lead weight-bold" class="weight-bold">We're consultants, ready to bring our specialities and personalities to your project & company</p>
+									<p>We've been lead architects & engineers for many of the largest integration & software projects in Sweden and we have a combined experience in the field of over 50 years. We pride ourselves on being really good at what we do.</p>
+								</div>
+								<div class="column width-12">
+									<div class="row content-grid-4">
+										<div class="grid-item">
+											<div class="thumbnail no-margin-bottom">
+												<img src="images/team/christian.jpg" data-retina width="760" height="760" alt=""/>
+												<div class="caption-over-outer">
+													<div class="caption-over-inner v-align-bottom">
+														<span class="fade-location color-white color-hover-white team-header">Christian Morin <br>Integration Architect</span>
+													</div>
+												</div>
+											</div>
+											<div class="team-content-info">
+												<p>Java EE, Architecture, Microservices, Mule ESB, ActiveMQ, WSO2, Front-End</p>
+											</div>
+										</div>
+										<div class="grid-item">
+											<div class="thumbnail no-margin-bottom">
+												<img src="images/team/robin.jpg" data-retina width="760" height="760" alt=""/>
+												<div class="caption-over-outer">
+													<div class="caption-over-inner v-align-bottom">
+														<span class="fade-location color-white color-hover-white team-header">Robin Seybold <br>Integration Architect</span>
+													</div>
+												</div>
+											</div>
+											<div class="team-content-info">
+												<p>Architecture, WebSphere, Java EE, Mule ESB, ActiveMQ, Front-End, IoT, Node.js, SQL</p>
+											</div>
+										</div>
+										<div class="grid-item">
+											<div class="thumbnail no-margin-bottom">
+												<img src="images/team/petter.jpg" data-retina width="760" height="760" alt=""/>
+												<div class="caption-over-outer">
+													<div class="caption-over-inner v-align-bottom">
+														<span class="fade-location color-white color-hover-white team-header">Petter Nordlander <br>Software Engineer</span>
+													</div>
+												</div>
+											</div>
+											<div class="team-content-info">
+												<p>System architecture, Security, Distributed systems, Integration, Containers and Microservices</p>
+											</div>
+										</div>
+										<div class="grid-item">
+											<div class="thumbnail no-margin-bottom">
+												<img src="images/team/magnus.jpg" data-retina width="760" height="760" alt=""/>
+												<div class="caption-over-outer">
+													<div class="caption-over-inner v-align-bottom">
+														<span class="fade-location color-white color-hover-white team-header">Magnus Våge<br>Integration Architect</span>
+													</div>
+												</div>
+											</div>
+											<div class="team-content-info">
+												<p>Java EE, Architecture, IoT, MQTT, Security, Node.js, Websphere, Azure</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Team Grid End -->
+
+
+						<!-- Footer -->
+						<footer id="contact" class="page-section footer">
+							<div class="footer-top">
+								<div class="row flex full-width">
+
+									<div class="column width-8 push-6 grid-item center-on-mobile" data-aos="fade-up" data-aos-easing="ease-out-sine" data-aos-duration="1000">
+											<p>
+											Södra Larmgatan 2</br>
+											411 16 Göteborg
+										</p>
+											<p>+46 (0)31 13 14 80</p>
+											<p><a href="mailto:hello@fourmation.se">hello@fourmation.se</a></p>
+											<ul class="social-list list-horizontal pull-left clear-float-on-mobile left center-on-mobile">
+												<li><a href="https://www.linkedin.com/company/10396376/" target="_blank"><span class="icon-linkedin large"></span></a></li>
+												<li><a href="https://github.com/fmtn" target="_blank"><span class="icon-github large"></span></a></li>
+												<li><a href="https://www.facebook.com/fourmation.se/" target="_blank"><span class="icon-facebook large"></span></a></li>
+											</ul>
+									</div>
+									<div class="column width-2 push-1 center grid-item" style="padding-top: 1.4rem" data-aos="fade-left" data-aos-easing="ease-out-sine" data-aos-duration="1000">
+										<img src="images/logo-wide-teal-me-more.png" style="margin-bottom: 4rem; max-width: 90%">
+										<img src="images/logo-square-teal-me-more.png" style="max-height: 15rem;">
+									</div>
+								</div>
+							</div>
+						</footer>
+						<!-- Footer End -->
+			<!-- Footer End -->
+
+			</div>
+		</div>
+
+		<!-- Js -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="js/timber.master.min.js"></script>
+		<script src="js/jquery.scrollto.js"></script>
+		<script src="js/aos.min.js"></script>
+		<script>
+			$('.goto').click(function(e) {
+				$('html,body').scrollTo(this.hash, this.hash, false);
+				e.preventDefault();
+			});
+
+			$(window).resize(function() {
+				$('.page').css({
+					fontSize: Math.max(Math.min($(window).outerWidth() / (1 * 6), parseFloat(Number.POSITIVE_INFINITY)), parseFloat(Number.NEGATIVE_INFINITY)) + 'px',
+					lineHeight: $(window).height() + 'px'
+				});
+			}).resize();
+		</script>
+
+		<script>
+  		AOS.init({
+				once: true
+			});
+		</script>
+
+		<script>
+			$(window).scroll(function() {
+				var scrollDistance = $(window).scrollTop();
+				// Assign active class to nav links while scolling
+				$('.page-section').each(function(i) {
+					if ($(this).position().top - scrollDistance <= -500) {
+						$('.primary-navigation ul li.current').removeClass('current');
+						$('.primary-navigation ul li').eq(i).addClass('current');
+					} else if(scrollDistance <= 50) {
+						$('.primary-navigation ul li.current').removeClass('current');
+					}
+				});
+			}).scroll();
+		</script>
 </body>
 
 </html>
