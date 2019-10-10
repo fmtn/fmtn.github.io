@@ -23,6 +23,7 @@
 19. Media Element Player
 20. Component Styling
 21. Resolution Media Queries
+22. Customizations
 
 -------------------------------------------------------------------*/
 
@@ -2596,3 +2597,29 @@ only screen and (			min-resolution: 192dpi),
 only screen and (				min-resolution: 2dppx) {
 
 }
+
+/*------------------------------------------------------------------
+[22. Customizations]
+*/
+
+/* Background video */
+.video-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	pointer-events: none;
+	overflow: hidden;
+ }
+ .video-wrapper iframe {
+	width: 100vw !important;
+	height: 56.25vw !important;
+	min-height: 100vh !important;
+	min-width: 177.77vh !important;
+	position: absolute;
+	top: 53% !important;
+	left: 50% !important;
+	transform: translate(-50%, -50%) !important;
+ }
