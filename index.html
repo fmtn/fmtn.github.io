@@ -10,11 +10,12 @@
 
 	<meta property="og:url" content="https://fourmation.se" />
 	<meta property="og:title" content="Fourmation - Enabling the connected world" />
-	<meta property="og:image" content="https://fourmation.se/images/fourmation-facebook-share.jpg" />
+	<meta property="og:image" content="https://fourmation.se/images/fourmation-facebook_share.jpg" />
 	<meta property="og:description" content="Consultancy and projects for the connected world" />
 
 	<!-- Standard Favicon-->
 	<link rel="shortcut icon" href="images/favicon.png">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
 	<!-- Font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900|Work+Sans:200,700,900&display=swap" rel="stylesheet">
@@ -24,9 +25,35 @@
 	<link rel="stylesheet" href="css/skin.css" />
 	<link rel="stylesheet" href="css/aos.min.css" />
 
+	<!-- Vimeo Player -->
+	<script src="https://player.vimeo.com/api/player.js"></script>	
+
 	<!--[if lt IE 9]>
     	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+	<![endif]-->
+	
+	<!-- Google Structured Data -->
+	<script type="application/ld+json">
+		{
+		  "@context": "http://schema.org",
+		  "@type": "Organization",
+		  "name": "Fourmation",
+		  "description": "IT Consulting Agency",
+		  "url": "https://www.fourmation.se",
+		  "logo": "https://fourmation.se/images/logo-square-white-on-yellow-rgb.png",
+		  "address": {
+			"@type": "PostalAddress",
+			"streetAddress": "Södra Larmgatan 2",
+			"addressLocality": "Göteborg",
+			"postalCode": "411 16",
+			"addressCountry": "SE"
+		  },
+		  "sameAs": [
+			"https://www.facebook.com/fourmation.se",
+			"https://www.linkedin.com/company/fourmation-ab"
+		  ]
+		}
+	</script>
 
 </head>
 
@@ -163,7 +190,7 @@
 									</div>
 								</div>
 								<div class="video-wrapper">
-									<iframe src="https://player.vimeo.com/video/365135777?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" frameborder="0" allow="autoplay; fullscreen" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+									<iframe src="https://player.vimeo.com/video/368734344?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 								</div>
 							</li>
 						</ul>
