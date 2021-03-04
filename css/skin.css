@@ -2625,6 +2625,9 @@ only screen and (				min-resolution: 2dppx) {
 	z-index: -1;
 	pointer-events: none;
 	overflow: hidden;
+	background-color: #ffffff;
+	background-image: url('../images/video-bg.png');
+	background-size:cover;
  }
  .video-wrapper iframe {
 	width: 100vw !important;
