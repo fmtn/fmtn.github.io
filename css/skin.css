@@ -2639,3 +2639,15 @@ only screen and (				min-resolution: 2dppx) {
 	left: 50% !important;
 	transform: translate(-50%, -50%) !important;
  }
+
+ /* Team grid */
+ .team-2 .team-content-info {
+	padding: 2rem 0rem;
+}
+
+@media only screen and (max-width: 1024px){
+	.grid-item {
+		width: 50% !important;
+	}
+}
+
