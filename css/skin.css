@@ -2644,10 +2644,3 @@ only screen and (				min-resolution: 2dppx) {
  .team-2 .team-content-info {
 	padding: 2rem 0rem;
 }
-
-@media only screen and (max-width: 1024px){
-	.grid-item {
-		width: 50% !important;
-	}
-}
-
