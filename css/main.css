@@ -179,6 +179,11 @@ a { color: inherit; }
 	text-wrap: balance;
 }
 .lead-small { font-size: 1.5rem; line-height: 1.5; }
+.lead-emphasis {
+	border-left: 0.75rem solid var(--hey-day);
+	padding-left: clamp(1.25rem, 3vw, 2rem);
+	margin-top: 3rem;
+}
 
 .button {
 	display: inline-block;
@@ -264,10 +269,13 @@ a { color: inherit; }
 	background: var(--hey-day);
 	transition: right 250ms var(--ease);
 }
-.nav-menu a:not(.nav-cta):hover::after { right: 0; }
-.nav-menu a:hover { color: var(--hey-day); }
+.nav-menu a:not(.nav-cta):hover::after,
+.nav-menu a.current::after { right: 0; }
+.nav-menu a:hover,
+.nav-menu a.current { color: var(--hey-day); }
 .site-header.scrolled .nav-menu a { color: var(--text); }
-.site-header.scrolled .nav-menu a:hover { color: #000; }
+.site-header.scrolled .nav-menu a:hover,
+.site-header.scrolled .nav-menu a.current { color: #000; }
 
 .nav-menu .nav-cta {
 	padding: 0.5rem 1.25rem;
@@ -275,6 +283,41 @@ a { color: inherit; }
 	color: var(--teal-me-more) !important;
 }
 .nav-menu .nav-cta:hover { background: #ffe14d; }
+
+.language-switch { display: flex; align-items: center; }
+
+.lang-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2.4rem;
+	padding: 0.35rem 0.85rem;
+	border: 1.5px solid rgba(255, 255, 255, 0.5);
+	border-radius: 999px;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 0.8rem;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	line-height: 1;
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.9);
+	transition: color 200ms, background-color 200ms, border-color 200ms;
+}
+.nav-menu .lang-toggle::after { display: none; }
+.lang-toggle:hover {
+	color: var(--teal-me-more);
+	background: var(--hey-day);
+	border-color: var(--hey-day);
+}
+.site-header.scrolled .lang-toggle {
+	color: var(--text);
+	border-color: rgba(41, 49, 50, 0.3);
+}
+.site-header.scrolled .lang-toggle:hover {
+	color: var(--teal-me-more);
+	background: var(--hey-day);
+	border-color: var(--hey-day);
+}
 
 .nav-toggle {
 	display: none;
@@ -294,20 +337,22 @@ a { color: inherit; }
 .site-header.scrolled .nav-toggle-bar,
 .site-header.nav-open .nav-toggle-bar { background: var(--text); }
 
-@media (max-width: 799px) {
+@media (max-width: 999px) {
 	.nav-toggle { display: flex; position: relative; z-index: 60; }
 	.nav-menu {
 		position: fixed;
 		inset: 0;
 		flex-direction: column;
 		justify-content: center;
-		gap: 2.5rem;
+		gap: clamp(1.2rem, 4vh, 2.5rem);
 		background: var(--white);
 		transform: translateY(-100%);
 		transition: transform 350ms var(--ease);
 	}
 	.site-header.nav-open .nav-menu { transform: translateY(0); }
 	.nav-menu a { color: var(--text) !important; font-size: 1.2rem; }
+	.lang-toggle { border-color: rgba(41, 49, 50, 0.3) !important; font-size: 0.95rem; }
+	.lang-toggle:hover { color: var(--teal-me-more) !important; background: var(--hey-day); }
 	.site-header.nav-open .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 	.site-header.nav-open .nav-toggle-bar:nth-child(2) { opacity: 0; }
 	.site-header.nav-open .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -433,6 +478,45 @@ a { color: inherit; }
 }
 .service h3 { margin-bottom: 0.75rem; font-size: clamp(1.5rem, 2.4vw, 1.9rem); }
 .service p { color: var(--text-on-dark); max-width: 32rem; }
+
+/* ---- AI ---- */
+.section-ai {
+	background: var(--glacier);
+	position: relative;
+	overflow: hidden;
+}
+.section-ai::after {
+	content: 'AI';
+	position: absolute;
+	right: -0.04em;
+	bottom: -0.28em;
+	font-size: clamp(12rem, 31vw, 30rem);
+	font-weight: 900;
+	line-height: 1;
+	color: rgba(255, 255, 255, 0.24);
+	pointer-events: none;
+}
+.ai-layout {
+	position: relative;
+	z-index: 1;
+	display: grid;
+	grid-template-columns: 1.15fr 0.85fr;
+	gap: clamp(3rem, 8vw, 8rem);
+	align-items: start;
+}
+.ai-layout h2 { font-size: clamp(2.2rem, 4.8vw, 4.6rem); }
+.ai-copy { padding-top: 2.25rem; }
+.ai-copy p:not(.lead-small) { font-size: 1.1rem; }
+.button-dark {
+	margin-top: 1rem;
+	background: var(--teal-me-more);
+	color: var(--white);
+}
+.button-dark:hover { background: #111819; }
+@media (max-width: 719px) {
+	.ai-layout { grid-template-columns: 1fr; gap: 0; }
+	.ai-copy { padding-top: 0; }
+}
 
 /* ---- Flock of four, flying in formation ---- */
 .flock {
@@ -586,6 +670,7 @@ a { color: inherit; }
 	text-underline-offset: 6px;
 }
 .contact-email a:hover { color: var(--hey-day); }
+.contact-intro { max-width: 42rem; color: var(--text-on-dark); }
 .contact-phone {
 	color: var(--text-on-dark);
 	font-size: 1.15rem;

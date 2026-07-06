@@ -42,16 +42,50 @@
 		reveals.forEach(function (el) { el.classList.add('visible'); });
 	}
 
+	/* Scrollspy: highlight the nav link for whichever section is currently
+	   in view, using the same yellow underline as the hover state.
+	   The AI section has no nav item of its own, so it counts towards
+	   "Vårt arbete" (services) since it's a direct continuation of it. */
+	var navLinks = document.querySelectorAll('#nav-menu a[href^="#"]');
+	var spySections = document.querySelectorAll('main section[id]');
+	var sectionToLink = { ai: 'services' };
+
+	function setCurrentSection(id) {
+		var targetHref = '#' + (sectionToLink[id] || id);
+		navLinks.forEach(function (link) {
+			var isCurrent = link.getAttribute('href') === targetHref;
+			link.classList.toggle('current', isCurrent);
+			if (isCurrent) {
+				link.setAttribute('aria-current', 'page');
+			} else {
+				link.removeAttribute('aria-current');
+			}
+		});
+	}
+
+	if ('IntersectionObserver' in window && spySections.length && navLinks.length) {
+		var spy = new IntersectionObserver(function (entries) {
+			var visible = entries.filter(function (entry) { return entry.isIntersecting; });
+			if (!visible.length) { return; }
+			visible.sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });
+			setCurrentSection(visible[0].target.id);
+		}, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+		spySections.forEach(function (section) { spy.observe(section); });
+	}
+
 	/* Hero background video (Vimeo, dnt=1 = no cookies/tracking).
 	   Skipped for users who prefer reduced motion. */
 	var videoHost = document.querySelector('.hero-video');
 	var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-	if (videoHost && !reducedMotion) {
+	var localPreview = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+	if (videoHost && !reducedMotion && !localPreview) {
 		var iframe = document.createElement('iframe');
 		iframe.src = 'https://player.vimeo.com/video/' + videoHost.dataset.vimeoId +
 			'?background=1&autoplay=1&loop=1&muted=1&dnt=1';
 		iframe.allow = 'autoplay; fullscreen';
-		iframe.title = 'Background video of Gothenburg';
+		iframe.title = document.documentElement.lang === 'sv'
+			? 'Bakgrundsvideo från Göteborg'
+			: 'Background video of Gothenburg';
 		iframe.setAttribute('tabindex', '-1');
 		iframe.addEventListener('load', function () {
 			setTimeout(function () { iframe.classList.add('playing'); }, 400);
