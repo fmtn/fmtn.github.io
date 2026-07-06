@@ -2,459 +2,288 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<title>Fourmation - Enabling the connected world</title>
-	<meta content="width=device-width,initial-scale=1.0,maximum-scale=5.0" name="viewport">
-	<meta name="description" content="Fourmation - Enabling the connected world">
+	<meta charset="UTF-8">
+	<title>Fourmation — Enabling the connected world</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Fourmation is a Gothenburg-based consultancy specialising in system integration, APIs, cloud-native architecture and modern software development.">
 	<meta name="author" content="Fourmation">
-	<meta name="keywords" content="api, connectivity, integration, consultancy, architecture, web, mobile" />
 
-	<meta property="og:url" content="https://fourmation.se" />
-	<meta property="og:title" content="Fourmation - Enabling the connected world" />
-	<meta property="og:image" content="https://fourmation.se/images/fourmation_facebook_share.jpg" />
-	<meta property="og:description" content="Consultancy and projects for the connected world" />
+	<meta property="og:url" content="https://fourmation.se">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Fourmation — Enabling the connected world">
+	<meta property="og:image" content="https://fourmation.se/images/fourmation_facebook_share.jpg">
+	<meta property="og:description" content="Consultants in integration, APIs, cloud-native architecture and modern software development. Gothenburg, Sweden.">
 
-	<!-- Standard Favicon-->
-	<link rel="shortcut icon" href="images/favicon.png">
+	<link rel="icon" href="images/favicon.png">
 	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
-	<!-- Font -->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900|Work+Sans:200,700,900&display=swap" rel="stylesheet">
+	<link rel="preload" href="fonts/montserrat-var.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="fonts/worksans-var.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="css/main.css">
 
-	<!-- Css -->
-	<link rel="stylesheet" href="css/core.min.css" />
-	<link rel="stylesheet" href="css/skin.css" />
-	<link rel="stylesheet" href="css/aos.min.css" />
-
-	<!-- Vimeo Player -->
-	<script src="https://player.vimeo.com/api/player.js"></script>
-
-	<!--[if lt IE 9]>
-    	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
-	<!-- Google Structured Data -->
 	<script type="application/ld+json">
-		{
-		  "@context": "http://schema.org",
-		  "@type": "Organization",
-		  "name": "Fourmation",
-		  "description": "IT Consulting Agency",
-		  "url": "https://www.fourmation.se",
-		  "logo": "https://fourmation.se/images/logo-square-white-on-yellow-rgb.png",
-		  "address": {
+	{
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		"name": "Fourmation",
+		"description": "IT consultancy specialising in integration, APIs and modern software development",
+		"url": "https://fourmation.se",
+		"logo": "https://fourmation.se/images/logo-square-white-on-yellow-rgb.png",
+		"email": "hello@fourmation.se",
+		"telephone": "+4631131480",
+		"address": {
 			"@type": "PostalAddress",
-			"streetAddress": "Södra Larmgatan 2",
+			"streetAddress": "Götabergsgatan 2",
 			"addressLocality": "Göteborg",
-			"postalCode": "411 16",
+			"postalCode": "411 34",
 			"addressCountry": "SE"
-		  },
-		  "sameAs": [
-			"https://www.facebook.com/fourmation.se",
-			"https://www.linkedin.com/company/fourmation-ab"
-		  ]
-		}
+		},
+		"sameAs": [
+			"https://www.linkedin.com/company/fourmation-ab",
+			"https://github.com/fmtn",
+			"https://www.facebook.com/fourmation.se"
+		]
+	}
 	</script>
-
 </head>
 
-<body class="home-page">
+<body>
 
-	<!-- Overlay Navigation Menu -->
-	<div class="overlay-navigation-wrapper" data-no-scrollbar data-animation="scale-in">
-		<div class="overlay-navigation-scroll-pane">
-			<div class="overlay-navigation-inner">
-				<div class="v-align-middle">
-					<div class="overlay-navigation-header row collapse full-width">
-						<div class="column width-12">
-							<div class="navigation-hide overlay-nav-hide">
-								<a href="#" aria-label="hide navigation menu">
-									<span class="icon-cancel"></span>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="row collapse full-width">
-						<div class="column width-12">
-							<nav class="overlay-navigation pull-left clear-float-on-mobile">
-								<span class="menu-title">Pages</span>
-								<ul>
-									<li>
-										<a class="goto close" href="#about" >About us</a>
-									</li>
-									<li>
-										<a class="goto" href="#believe">We believe in</a>
-									</li>
-									<li>
-										<a class="goto" href="#are">We are</a>
-									</li>
-									<li>
-										<a class="goto" href="#team">Our team</a>
-									</li>
-									<li>
-										<a class="goto" href="#contact">Contact</a>
-									</li>
-								</ul>
-							</nav>
-						</div>
-					</div>
-					<div class="overlay-navigation-footer row full-width">
-						<div class="column width-12 no-padding">
-							<p class="copyright no-margin-bottom">&copy; 2019 FOURMATION.</p>
-						</div>
-					</div>
+	<a class="skip-link" href="#about">Skip to content</a>
+
+	<header class="site-header" id="top">
+		<div class="header-inner">
+			<a class="logo" href="#top" aria-label="Fourmation — back to top">
+				<img class="logo-dark" src="images/logo-wide-black.png" alt="Fourmation" width="180" height="26">
+				<img class="logo-light" src="images/logo-wide-white.png" alt="" aria-hidden="true" width="180" height="26">
+			</a>
+			<nav class="site-nav" aria-label="Main navigation">
+				<button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+					<span class="nav-toggle-bar"></span>
+					<span class="nav-toggle-bar"></span>
+					<span class="nav-toggle-bar"></span>
+					<span class="visually-hidden">Menu</span>
+				</button>
+				<ul id="nav-menu" class="nav-menu">
+					<li><a href="#about">About</a></li>
+					<li><a href="#services">What we do</a></li>
+					<li><a href="#culture">Who we are</a></li>
+					<li><a href="#team">Team</a></li>
+					<li><a class="nav-cta" href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+
+		<!-- Hero -->
+		<section class="hero">
+			<div class="hero-media" aria-hidden="true">
+				<img class="hero-poster" src="images/hero-poster.webp" srcset="images/hero-poster-small.webp 960w, images/hero-poster.webp 1920w" sizes="100vw" alt="" fetchpriority="high">
+				<div class="hero-video" data-vimeo-id="368734344"></div>
+				<div class="hero-overlay"></div>
+			</div>
+			<div class="hero-content">
+				<p class="eyebrow">Consultancy · Gothenburg, Sweden</p>
+				<h1>Enabling the<br>connected world</h1>
+				<p class="hero-sub">Specialists in integration, APIs, cloud-native architecture and modern software development.</p>
+				<div class="hero-actions">
+					<a class="button button-primary" href="#contact">Talk to us</a>
+					<a class="button button-ghost" href="#team">Meet the team</a>
 				</div>
 			</div>
-		</div>
-	</div>
-	<!-- Overlay Navigation Menu End -->
+			<a class="scroll-hint" href="#about" aria-label="Scroll to content"><span></span></a>
+		</section>
 
-	<div class="wrapper reveal-side-navigation">
-		<div class="wrapper-inner">
-
-			<!-- Header -->
-			<header class="page-section header header-fixed header-fixed-on-mobile header-transparent" data-bkg-threshold="100" data-compact-threshold="100">
-				<div class="header-inner">
-					<div class="row collapse full-width nav-bar reveal-side-navigation">
-						<div class="column width-12 nav-bar-inner">
-							<div class="logo">
-								<div class="logo-inner">
-								<a href="#"><img src="images/logo-wide-black.png" alt="FOURMATION"></a>
-								<a href="#"><img src="images/logo-wide-white.png" alt="FOURMATION"></a>
-
-								</div>
-							</div>
-							<nav class="navigation nav-block secondary-navigation nav-right">
-								<ul>
-									<li class="aux-navigation hide">
-										<!-- Aux Navigation -->
-										<a href="#" class="navigation-show overlay-nav-show nav-icon" aria-label="show navigation menu">
-											<span class="icon-menu"></span>
-										</a>
-									</li>
-								</ul>
-							</nav>
-							<nav class="navigation nav-block primary-navigation nav-right">
-								<ul>
-									<li>
-										<a class="goto" href="#about" >About us</a>
-									</li>
-									<li>
-										<a class="goto" href="#believe">We believe in</a>
-									</li>
-									<li>
-										<a class="goto" href="#are">We are</a>
-									</li>
-									<li>
-										<a class="goto" href="#team">Our team</a>
-									</li>
-									<li>
-										<a class="goto" href="#contact">Contact</a>
-									</li>
-								</ul>
-							</nav>
-						</div>
-					</div>
-				</div>
-			</header>
-			<!-- Header End -->
-
-			<!-- Content -->
-			<div class="content clearfix">
-
-				<!-- Back Top -->
-				<div class="scroll-to-top">
-					<a href="#">Back Up Top</a>
-				</div>
-				<!-- Back Top End -->
-
-				<!-- Fullscreen Slider Section -->
-				<div class="section-block featured-media window-height tm-slider-parallax-container">
-					<div class="tm-slider-container full-width-slider" data-parallax data-external-padding="60" data-animation="slide" data-scale-under="960">
-						<ul class="tms-slides">
-							<li class="tms-slide" data-video data-video-bkg data-animation="slideLeftRight" data-overlay-bkg-color="#000000" data-overlay-bkg-opacity="0.2">
-								<div class="tms-content">
-									<div class="tms-content-inner">
-										<div class="row">
-											<div class="column width-12 center">
-												<div class="clear"></div>
-												<h1 class="tms-caption title-xlarge color-white lspacing-medium" data-animate-in="preset:slideInUpShort;duration:1000ms;" data-no-scale>
-													ENABLING THE CONNECTED WORLD
-												</h1>
-												<div class="clear"></div>
-												<span class="tms-caption button cursor-default text-uppercase lspacing-medium weight-bold bkg-hey-day bkg-hover-hey-day color-teal-me-more fade-location" data-animate-in="preset:slideInUpShort;duration:1000ms;delay:200ms;"
-												  data-offsety="60" data-no-scale>
-													Specialising in integration, connectivity, apis and modern software development
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="video-wrapper">
-									<iframe title="video backdrop of Gothenburg" src="https://player.vimeo.com/video/368734344?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<!-- Fullscreen Slider Section End -->
-
-				<div id="about" class="page-section section-block bkg-white">
-					<div class="row">
-						<div class="column width-12 horizon" data-parallax="direction:vertical;speed:0;opacity:fade;">
-							<p class="lead text-large">
-								We're a consultancy company made up of passionate architects and developers, each bringing deep expertise in modern system development, cloud solutions, and integration.
-							</p>
-							<p class="lead text-large">
-								From designing scalable solutions to crafting seamless integrations, we help businesses unlock the power of connected systems. Whether it's building APIs, navigating Kubernetes, or architecting modern applications, we're here to solve your challenges with practical, sustainable solutions.
-							</p>
-							<p class="lead text-large">
-								Let us know how we can support your journey.
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div id="believe" class="page-section section-block bkg-meringue">
-					<div class="row">
-						<div class="column width-12" data-aos-easing="ease-out-sine" data-aos-duration="2000" data-aos-offset="300">
-							<h2>WE BELIEVE IN</h2>
-							<h1>Freedom through friendship</h1>
-							<span class="text-line-horizontal" data-aos-offset="0" data-aos="slide-right" data-aos-duration="2000"></span>
-								<p>
-									Even though we are unique in our own ways – we are united by a dream so vividly strong. The dream about freedom. Freedom to be and do what we want.
-									Enabled by friendship.
-								</p>
-								<p>
-									With admiration, curiosity and love we challenge one another from our different point of views. Because, it is when we discuss – we learn and get even closer.
-									And together we become a solid unit that flies through life in a beautiful and free Fourmation. Ready to solve, any challenge.
-								</p>
-
-						</div>
-					</div>
-				</div>
-
-				<div id="are" class="page-section section-block grid-container full-width no-margins">
-					<div class="row flex">
-						<div class="column width-6 bkg-glacier">
-									<div class="content-block" data-aos="fade-up" data-aos-easing="ease-out-sine" data-aos-duration="1000" data-aos-offset="300">
-										<h1>Solvers by birth</h1>
-										<span class="text-line-horizontal" data-aos="slide-right" data-aos-offset="0" data-aos-duration="2000" style="border-color: #808F85"></span>
-										<p class="mt-50">
-											We love solving problems, bugs and headaches. We are forward leaning solvers, that share every
-											discovery and insight. With each other, with customers.
-										</p>
-										<p>
-											By looking at the bigger picture we do our best in order to understand the complexity. Together we find a way to execute even better than expected.
-										</p>
-									</div>
-								</div>
-								<div class="column width-6 bkg-french-oyster">
-									<div class="content-block" data-aos="fade-up" data-aos-easing="ease-out-sine" data-aos-duration="1000" data-aos-offset="300">
-										<h1>Proud nerds</h1>
-										<span class="text-line-horizontal" data-aos="slide-right" data-aos-offset="0" data-aos-duration="2000"></span>
-										<p class="mt-50">
-											With curiosity about life and its obscurities we might seem as a slightly nerdy gang. Perhaps it is because we love to dig really deep down in to
-											different and often wildly spread topics.
-										</p>
-										<p class="weight-bold">
-											That is what true nerdiness is all about, right?
-										</p>
-										<p>
-											And we are proud ones, equipped with an eagle-eye
-											for details and eagerness to share what we know - with everyone.
-										</p>
-									</div>
-								</div>
-							</div>
-					<div class="row flex">
-						<div class="column width-6 color-white bkg-reign">
-									<div class="content-block" data-aos="fade-up" data-aos-easing="ease-out-sine" data-aos-duration="1000" data-aos-offset="300">
-										<h1>Word keepers, trust seekers</h1>
-										<span class="text-line-horizontal" data-aos="slide-right" data-aos-offset="0" data-aos-duration="2000" style="border-color: #CEDCCA"></span>
-										<p class="mt-50">
-											Trust is everything and we cherish every adventure as we take on both new as already known challenges.
-										</p>
-										<p>
-											Regardless the task, we stand by our word and deliver upon our promises.
-										</p>
-									</div>
-								</div>
-								<div class="column width-6 bkg-hey-day">
-									<div class="content-block" data-aos="fade-up" data-aos-easing="ease-out-sine" data-aos-duration="1000" data-aos-offset="300">
-										<h1>More than Fourmation</h1>
-										<span class="text-line-horizontal" data-aos="slide-right" data-aos-offset="0" data-aos-duration="2000" style="border-color: #293132"></span>
-										<p class="mt-50">
-											Life is the most exciting adventure of them all, and we fly through it together. Through thick and thin. Through the week, projects
-											and game nights.
-										</p>
-										<p class="weight-bold">
-											We are family. Longing to grow in numbers.
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Team Grid -->
-						<div id="team" class="page-section section-block grid-container full-width replicable-content team-2">
-							<div class="row content-block" data-aos="fade-left" data-aos-easing="ease-out-sine" data-aos-duration="1000" data-aos-offset="200">
-								<div class="column width-6">
-									<h1 class="title-large">The Creatives <br>Behind Fourmation</h1>
-									<span class="text-line-horizontal" data-aos="slide-right" data-aos-offset="0" data-aos-duration="2000"></span>
-								</div>
-								<div class="column width-6">
-									<p class="lead weight-bold" class="weight-bold">We're consultants, ready to bring our specialities and personalities to your project & company</p>
-									<p>We've been lead architects & engineers for many of the largest integration & software projects in Sweden and we have a combined experience in the field of over 100 years. We pride ourselves on being really good at what we do.</p>
-								</div>
-								<div class="row">
-									<div class="column width-3">
-										<div class="thumbnail no-margin-bottom">
-											<img src="images/team/christian.jpg" data-retina width="760" height="760" alt=""/>
-										</div>
-										<div class="team-content-info">
-											<span class="fade-location team-header">Christian Morin <br>Integration Architect</span>
-											<p>Architecture, Java, API-Management, Containers and Microservices, Front-End</p>
-										</div>
-									</div>
-									<div class="column width-3">
-										<div class="thumbnail no-margin-bottom">
-											<img src="images/team/johan.jpg" data-retina width="760" height="760" alt=""/>
-										</div>
-										<div class="team-content-info">
-											<span class="fade-location team-header">Johan Andersson<br>Integration Architect/Full-stack Developer</span>
-											<p>Java, Front-End, Microservices, Kubernetes, CI/CD</p>
-										</div>
-									</div>
-									<div class="column width-3">
-										<div class="thumbnail no-margin-bottom">
-											<img src="images/team/magnus.jpg" data-retina width="760" height="760" alt=""/>
-										</div>
-										<div class="team-content-info">
-											<span class="fade-location team-header">Magnus Våge<br>Integration Architect</span>
-											<p>Java, Architecture, IoT, MQTT, Security, Node.js, Websphere, Azure</p>
-										</div>
-									</div>
-									<div class="column width-3">
-										<div class="thumbnail no-margin-bottom">
-											<img src="images/team/oskar.jpg" data-retina width="760" height="760" alt=""/>
-										</div>
-										<div class="team-content-info">
-											<span class="fade-location team-header">Oskar Jönsson <br>Solution Architect</span>
-											<p>Java, Architecture, Mule ESB, Spring Boot, AWS, WebSphere</p>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="column width-3">
-										<div class="thumbnail no-margin-bottom">
-											<img src="images/team/palle.jpg" data-retina width="760" height="760" alt=""/>
-										</div>
-										<div class="team-content-info">
-											<span class="fade-location team-header">Palle Karlsson <br>Solution Architect</span>
-											<p>Architecture, Kubernetes, React, Python, Node.js</p>
-										</div>
-									</div>
-									<div class="column width-3">
-										<div class="thumbnail no-margin-bottom">
-											<img src="images/team/petter.jpg" data-retina width="760" height="760" alt=""/>
-										</div>
-										<div class="team-content-info">
-											<span class="fade-location team-header">Petter Nordlander <br>Software Architect</span>
-											<p>Cloud Native System architecture, Software design, Distributed systems, Integration, Security, Microservices, Kubernetes</p>
-										</div>
-									</div>
-									<div class="column width-3">
-										<div class="thumbnail no-margin-bottom">
-											<img src="images/team/robin.jpg" data-retina width="760" height="760" alt=""/>
-										</div>
-										<div class="team-content-info">
-											<span class="fade-location team-header">Robin Seybold <br>Integration Architect</span>
-											<p>Architecture, WebSphere, Java, Mule ESB, ActiveMQ, Azure, IoT, Node.js</p>
-										</div>
-									</div>
-									<div class="column width-3">
-										<div class="thumbnail no-margin-bottom">
-											<a href="mailto:hello@fourmation.se?subject=Hire me!"><img src="images/team/join.jpg" data-retina width="760" height="760" alt=""/></a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Team Grid End -->
-
-
-						<!-- Footer -->
-						<footer id="contact" class="page-section footer">
-							<div class="footer-top">
-								<div class="row flex full-width">
-
-									<div class="column width-8 push-6 grid-item center-on-mobile" data-aos="fade-up" data-aos-easing="ease-out-sine" data-aos-duration="1000">
-											<p>
-											Götabergsgatan 2</br>
-											411 34 Göteborg
-										</p>
-											<p>559037-4376</p>
-											<p>+46 (0)31 13 14 80</p>
-											<p><a href="mailto:hello@fourmation.se">hello@fourmation.se</a></p>
-											<ul class="social-list list-horizontal pull-left clear-float-on-mobile left center-on-mobile">
-												<li><a href="https://www.linkedin.com/company/10396376/" target="_blank" aria-label="visit the fourmation linkedin page"><span class="icon-linkedin large"></span></a></li>
-												<li><a href="https://github.com/fmtn" target="_blank" aria-label="visit the fourmation github page"><span class="icon-github large"></span></a></li>
-												<li><a href="https://www.facebook.com/fourmation.se/" target="_blank" aria-label="visit the fourmation facebook page"><span class="icon-facebook large"></span></a></li>
-											</ul>
-									</div>
-									<div class="column width-2 push-1 center grid-item" style="padding-top: 1.4rem" data-aos="fade-left" data-aos-easing="ease-out-sine" data-aos-duration="1000">
-										<img src="images/logo-wide-teal-me-more.png" style="margin-bottom: 4rem; max-width: 90%" alt="FOURMATION">
-										<img src="images/logo-square-teal-me-more.png" style="max-height: 15rem;" alt="FOURMATION">
-									</div>
-								</div>
-							</div>
-						</footer>
-						<!-- Footer End -->
-			<!-- Footer End -->
-
+		<!-- About -->
+		<section id="about" class="section section-white">
+			<div class="container narrow reveal">
+				<p class="lead">We're a small, specialised crew of passionate architects and developers, each bringing deep expertise in system integration, cloud platforms and modern software development.</p>
+				<p class="lead">From designing scalable architectures to crafting seamless integrations, we help businesses unlock the power of connected systems — delivered as practical, sustainable solutions.</p>
 			</div>
+		</section>
+
+		<!-- Services -->
+		<section id="services" class="section section-dark">
+			<div class="container">
+				<div class="section-heading reveal">
+					<p class="eyebrow">What we do</p>
+					<h2>Four ways we can help</h2>
+					<span class="accent-line" aria-hidden="true"></span>
+				</div>
+				<div class="service-grid">
+					<article class="service reveal">
+						<svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="10" cy="24" r="5"/><circle cx="38" cy="10" r="5"/><circle cx="38" cy="38" r="5"/><path d="M14.5 21.8 33.5 12M14.5 26.2l19 9.5" stroke-width="3" fill="none"/></svg>
+						<h3>Integration &amp; APIs</h3>
+						<p>We design, build and run the flows that connect your business — API management, messaging, event streaming and everything in between.</p>
+					</article>
+					<article class="service reveal">
+						<svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M14 34a8 8 0 1 1 1.2-15.9 11 11 0 0 1 21.4 2.4A7.5 7.5 0 0 1 35 34Z" stroke-width="3" fill="none"/><path d="M18 40h12M24 34v6" stroke-width="3" fill="none"/></svg>
+						<h3>Cloud-native architecture</h3>
+						<p>Kubernetes, containers and distributed systems — designed for scale, resilience and observability from day one.</p>
+					</article>
+					<article class="service reveal">
+						<svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="m16 16-8 8 8 8M32 16l8 8-8 8M27 10l-6 28" stroke-width="3" fill="none"/></svg>
+						<h3>Software development</h3>
+						<p>Full-stack development from backend services to modern front-ends — built to last and easy to maintain.</p>
+					</article>
+					<article class="service reveal">
+						<svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18" stroke-width="3" fill="none"/><path d="M24 14v10l7 7" stroke-width="3" fill="none"/></svg>
+						<h3>Architecture &amp; advisory</h3>
+						<p>Lead architects for your hardest initiatives — pre-studies, platform choices, ways of working and hands-on delivery.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- Culture -->
+		<section id="culture" class="section section-meringue">
+			<div class="container narrow reveal">
+				<svg class="flock" viewBox="0 0 140 52" aria-hidden="true">
+					<g><path d="M56 10 q8 -9 16 0 M72 10 q8 -9 16 0"/></g>
+					<g><path d="M30 24 q7 -8 14 0 M44 24 q7 -8 14 0"/></g>
+					<g><path d="M82 26 q7 -8 14 0 M96 26 q7 -8 14 0"/></g>
+					<g><path d="M8 40 q6 -7 12 0 M20 40 q6 -7 12 0"/></g>
+				</svg>
+				<p class="eyebrow">We believe in</p>
+				<h2>Freedom through friendship</h2>
+				<span class="accent-line" aria-hidden="true"></span>
+				<p>Even though we are unique in our own ways, we are united by one vividly strong dream: freedom. Freedom to be and do what we want — enabled by friendship.</p>
+				<p>With admiration, curiosity and love we challenge one another from our different points of view. It is when we discuss that we learn and grow closer. Together we become a solid unit, flying through life in a beautiful, free Fourmation — ready to solve any challenge.</p>
+			</div>
+		</section>
+
+		<div class="value-grid" aria-label="Our values">
+			<article class="value value-glacier reveal">
+				<div class="value-inner">
+					<h3>Solvers by birth</h3>
+					<span class="accent-line accent-reign" aria-hidden="true"></span>
+					<p>We love solving problems, bugs and headaches. We are forward-leaning solvers who share every discovery and insight — with each other and with our customers.</p>
+					<p>By looking at the bigger picture we make complexity understandable, and together we find a way to deliver even better than expected.</p>
+				</div>
+			</article>
+			<article class="value value-oyster reveal">
+				<div class="value-inner">
+					<h3>Proud nerds</h3>
+					<span class="accent-line" aria-hidden="true"></span>
+					<p>With curiosity about life and its obscurities we may come across as a slightly nerdy bunch. Perhaps because we love digging deep into wildly different topics.</p>
+					<p class="strong">That is what true nerdiness is all about, right?</p>
+					<p>We are proud of it — equipped with an eagle eye for detail and an eagerness to share what we know, with everyone.</p>
+				</div>
+			</article>
+			<article class="value value-reign reveal">
+				<div class="value-inner">
+					<h3>Word keepers, trust seekers</h3>
+					<span class="accent-line accent-glacier" aria-hidden="true"></span>
+					<p>Trust is everything. We cherish every adventure, whether the challenge is brand new or well known.</p>
+					<p>Whatever the task, we stand by our word and deliver on our promises.</p>
+				</div>
+			</article>
+			<article class="value value-heyday reveal">
+				<div class="value-inner">
+					<h3>More than Fourmation</h3>
+					<span class="accent-line accent-dark" aria-hidden="true"></span>
+					<p>Life is the most exciting adventure of all, and we fly through it together — through thick and thin, through projects and game nights.</p>
+					<p class="strong">We are family. Longing to grow in numbers.</p>
+				</div>
+			</article>
 		</div>
 
-		<!-- Js -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="js/timber.master.min.js"></script>
-		<script src="js/jquery.scrollto.js"></script>
-		<script src="js/aos.min.js"></script>
-		<script>
-			$('.goto').click(function(e) {
-				$('html,body').scrollTo(this.hash, this.hash, false);
-				e.preventDefault();
-			});
+		<!-- Team -->
+		<section id="team" class="section section-white">
+			<div class="container">
+				<div class="team-intro reveal">
+					<div>
+						<p class="eyebrow">Our team</p>
+						<h2>The creatives behind Fourmation</h2>
+						<span class="accent-line" aria-hidden="true"></span>
+					</div>
+					<div>
+						<p class="lead-small strong">We're consultants ready to bring our specialities — and personalities — to your project and company.</p>
+						<p>We've held lead architect and engineering roles in some of Sweden's largest integration and software projects, with more than 100 years of combined experience. We pride ourselves on being really good at what we do.</p>
+					</div>
+				</div>
+				<ul class="team-grid">
+					<li class="team-card reveal">
+						<img src="images/team/christian-480.webp" srcset="images/team/christian-480.webp 480w, images/team/christian-960.webp 960w" sizes="(min-width: 720px) 33vw, 50vw" width="480" height="480" loading="lazy" alt="Portrait of Christian Morin">
+						<h3>Christian Morin</h3>
+						<p class="team-role">Integration Architect</p>
+						<p class="team-skills">Architecture, Java, API management, containers &amp; microservices, front-end</p>
+					</li>
+					<li class="team-card reveal">
+						<img src="images/team/johan-480.webp" srcset="images/team/johan-480.webp 480w, images/team/johan-960.webp 960w" sizes="(min-width: 720px) 33vw, 50vw" width="480" height="480" loading="lazy" alt="Portrait of Johan Andersson">
+						<h3>Johan Andersson</h3>
+						<p class="team-role">Integration Architect / Full-stack Developer</p>
+						<p class="team-skills">Java, front-end, microservices, Kubernetes, CI/CD</p>
+					</li>
+					<li class="team-card reveal">
+						<img src="images/team/magnus-480.webp" srcset="images/team/magnus-480.webp 480w, images/team/magnus-960.webp 960w" sizes="(min-width: 720px) 33vw, 50vw" width="480" height="480" loading="lazy" alt="Portrait of Magnus Våge">
+						<h3>Magnus Våge</h3>
+						<p class="team-role">Integration Architect</p>
+						<p class="team-skills">Java, architecture, IoT, MQTT, security, Node.js, WebSphere, Azure</p>
+					</li>
+					<li class="team-card reveal">
+						<img src="images/team/oskar-480.webp" srcset="images/team/oskar-480.webp 480w, images/team/oskar-960.webp 960w" sizes="(min-width: 720px) 33vw, 50vw" width="480" height="480" loading="lazy" alt="Portrait of Oskar Jönsson">
+						<h3>Oskar Jönsson</h3>
+						<p class="team-role">Solution Architect</p>
+						<p class="team-skills">Java, architecture, Mule ESB, Spring Boot, AWS, WebSphere</p>
+					</li>
+					<li class="team-card reveal">
+						<img src="images/team/palle-480.webp" srcset="images/team/palle-480.webp 480w, images/team/palle-960.webp 960w" sizes="(min-width: 720px) 33vw, 50vw" width="480" height="480" loading="lazy" alt="Portrait of Palle Karlsson">
+						<h3>Palle Karlsson</h3>
+						<p class="team-role">Solution Architect</p>
+						<p class="team-skills">Architecture, Kubernetes, React, Python, Node.js</p>
+					</li>
+					<li class="team-card reveal">
+						<img src="images/team/robin-480.webp" srcset="images/team/robin-480.webp 480w, images/team/robin-960.webp 960w" sizes="(min-width: 720px) 33vw, 50vw" width="480" height="480" loading="lazy" alt="Portrait of Robin Seybold">
+						<h3>Robin Seybold</h3>
+						<p class="team-role">Integration Architect</p>
+						<p class="team-skills">Architecture, WebSphere, Java, Mule ESB, ActiveMQ, Azure, IoT, Node.js</p>
+					</li>
+				</ul>
+			</div>
+		</section>
 
-			$(window).resize(function() {
-				$('.page').css({
-					fontSize: Math.max(Math.min($(window).outerWidth() / (1 * 6), parseFloat(Number.POSITIVE_INFINITY)), parseFloat(Number.NEGATIVE_INFINITY)) + 'px',
-					lineHeight: $(window).height() + 'px'
-				});
-			}).resize();
-		</script>
+		<!-- Contact -->
+		<section id="contact" class="section section-dark contact">
+			<div class="container contact-inner">
+				<div class="reveal">
+					<p class="eyebrow">Contact</p>
+					<h2>Let's build something connected</h2>
+					<span class="accent-line" aria-hidden="true"></span>
+					<p class="contact-email"><a href="mailto:hello@fourmation.se">hello@fourmation.se</a></p>
+					<p><a class="contact-phone" href="tel:+4631131480">+46 (0)31 13 14 80</a></p>
+					<ul class="social-list" aria-label="Social media">
+						<li><a href="https://www.linkedin.com/company/fourmation-ab" target="_blank" rel="noopener" aria-label="Fourmation on LinkedIn">
+							<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.31h4.52V23H.24V8.31zM8.34 8.31h4.33v2h.06c.6-1.14 2.08-2.34 4.28-2.34 4.57 0 5.42 3.01 5.42 6.92V23h-4.52v-7.13c0-1.7-.03-3.89-2.37-3.89-2.37 0-2.73 1.85-2.73 3.76V23H8.34V8.31z"/></svg>
+						</a></li>
+						<li><a href="https://github.com/fmtn" target="_blank" rel="noopener" aria-label="Fourmation on GitHub">
+							<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.16 1.18a11 11 0 0 1 5.76 0c2.19-1.49 3.15-1.18 3.15-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.26 5.66.41.36.78 1.05.78 2.12v3.15c0 .3.2.67.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+						</a></li>
+						<li><a href="https://www.facebook.com/fourmation.se" target="_blank" rel="noopener" aria-label="Fourmation on Facebook">
+							<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.09 24 18.1 24 12.07z"/></svg>
+						</a></li>
+					</ul>
+				</div>
+				<div class="contact-details reveal">
+					<img class="footer-logo" src="images/logo-square-teal-me-more.png" alt="Fourmation logo" width="120" height="160" loading="lazy">
+					<address>
+						Götabergsgatan 2<br>
+						411 34 Göteborg<br>
+						Sweden
+					</address>
+					<p class="orgnr">Org.nr 559037-4376</p>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; <span id="year">2026</span> Fourmation AB</p>
+			</div>
+		</section>
 
-		<script>
-  		AOS.init({
-				once: true
-			});
-		</script>
+	</main>
 
-		<script>
-			$(window).scroll(function() {
-				var scrollDistance = $(window).scrollTop();
-				// Assign active class to nav links while scolling
-				$('.page-section').each(function(i) {
-					if ($(this).position().top - scrollDistance <= -500) {
-						$('.primary-navigation ul li.current').removeClass('current');
-						$('.primary-navigation ul li').eq(i).addClass('current');
-					} else if(scrollDistance <= 50) {
-						$('.primary-navigation ul li.current').removeClass('current');
-					}
-				});
-			}).scroll();
-		</script>
+	<script src="js/main.js" defer></script>
 </body>
 
 </html>
