@@ -553,7 +553,16 @@ a { color: inherit; }
 	margin-inline: auto;
 	transform-origin: center;
 }
-#culture p:not(.eyebrow) {
+#culture .culture-context {
+	font-size: clamp(1.05rem, 2vw, 1.35rem);
+	font-weight: 400;
+	line-height: 1.65;
+	max-width: 46rem;
+	margin-inline: auto;
+	margin-bottom: clamp(1.8rem, 4vw, 3rem);
+	color: color-mix(in srgb, var(--shady-character) 82%, transparent);
+}
+#culture .manifesto-text {
 	font-size: clamp(1.15rem, 2.3vw, 1.75rem);
 	font-weight: 300;
 	line-height: 1.6;
