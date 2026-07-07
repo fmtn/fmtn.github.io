@@ -2,12 +2,16 @@
 	'use strict';
 
 	var header = document.querySelector('.site-header');
+	var logo = document.querySelector('.logo');
 	var toggle = document.querySelector('.nav-toggle');
 	var menu = document.getElementById('nav-menu');
 
 	/* Header background on scroll */
 	function onScroll() {
 		header.classList.toggle('scrolled', window.scrollY > 40);
+		if (window.scrollY < 80) {
+			clearCurrentSection();
+		}
 	}
 	window.addEventListener('scroll', onScroll, { passive: true });
 	onScroll();
@@ -24,6 +28,20 @@
 			toggle.setAttribute('aria-expanded', 'false');
 			document.body.style.overflow = '';
 		}
+	});
+
+	/* Logo: reliably return to the top.
+	   The header is fixed, so relying only on #top can be inconsistent. */
+	logo.addEventListener('click', function (e) {
+		e.preventDefault();
+		header.classList.remove('nav-open');
+		toggle.setAttribute('aria-expanded', 'false');
+		document.body.style.overflow = '';
+		clearCurrentSection();
+		if (history.replaceState) {
+			history.replaceState(null, '', location.pathname + location.search);
+		}
+		window.scrollTo({ top: 0, behavior: 'smooth' });
 	});
 
 	/* Scroll reveal */
@@ -49,6 +67,14 @@
 	var navLinks = document.querySelectorAll('#nav-menu a[href^="#"]');
 	var spySections = document.querySelectorAll('main section[id]');
 	var sectionToLink = { ai: 'services' };
+
+	function clearCurrentSection() {
+		if (!navLinks) { return; }
+		navLinks.forEach(function (link) {
+			link.classList.remove('current');
+			link.removeAttribute('aria-current');
+		});
+	}
 
 	function setCurrentSection(id) {
 		var targetHref = '#' + (sectionToLink[id] || id);
