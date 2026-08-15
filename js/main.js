@@ -129,7 +129,7 @@
 		'          ~v~\n' +
 		'     ~v~       ~v~\n' +
 		'          ~v~\n' +
-		'\n  Flying in formation.' +
+		'\n  Flying in fourmation.' +
 		'\n  Nerdy enough to look under the hood? We should talk:' +
 		'\n  hello@fourmation.se\n',
 		'color:#FFD700; background:#293132; font-family:monospace; font-size:14px; padding:8px;'

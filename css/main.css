@@ -3,61 +3,38 @@
    Brand palette & typography per Grafisk-profil.pdf
    ========================================================================== */
 
-/* ---- Fonts (self-hosted variable fonts) ---- */
-@font-face {
-	font-family: 'Montserrat';
-	src: url('../fonts/montserrat-var.woff2') format('woff2');
-	font-weight: 100 900;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Work Sans';
-	src: url('../fonts/worksans-var.woff2') format('woff2');
-	font-weight: 100 900;
-	font-display: swap;
-}
-@font-face {
-	font-family: 'Libre Baskerville';
-	src: url('../fonts/libre-baskerville.woff2') format('woff2');
-	font-weight: 400 700;
-	font-display: swap;
-}
-
-/* ---- Design tokens ---- */
+/* ---- Fonts & design tokens ----
+   Canonical values live in css/tokens.css (Fourmation Design System
+   v0.1.0, loaded before this file): font-face rules and the color,
+   font, container, section-pad, ease and pad-x tokens all come from
+   there now. */
 :root {
-	/* Brand colors */
-	--hey-day: #FFD700;
-	--teal-me-more: #293132;
-	--meringue: #F6F2ED;
-	--reign: #808F85;
-	--glacier: #CEDCCA;
-	--french-oyster: #FAF9F6;
-	--white: #FFFFFF;
-	--paper: #FFFCF6;
+	--hey-day: var(--color-hey-day);
+	--teal-me-more: var(--color-teal-me-more);
+	--meringue: var(--color-meringue);
+	--reign: var(--color-reign);
+	--glacier: var(--color-glacier);
+	--white: var(--color-white);
+	--paper: var(--color-paper);
+	--terracotta: var(--color-terracotta);
+	--clay: var(--color-clay);
 	--blueprint-line: rgba(41, 49, 50, 0.055);
 
 	--text: var(--teal-me-more);
-	--text-muted: #5c6667;
-	--text-on-dark: #E9ECEA;
-	--serif: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+	--text-muted: var(--color-text-muted);
+	--text-on-dark: var(--color-text-on-dark);
+	--serif: var(--font-family-serif);
 
 	/* Type scale (fluid) */
-	--fs-hero: clamp(2.6rem, 7.6vw, 6rem);
-	--fs-h2: clamp(2.15rem, 5.2vw, 4.8rem);
-	--fs-h3: clamp(1.4rem, 2.2vw, 1.75rem);
-	--fs-lead: clamp(1.35rem, 2.6vw, 2.35rem);
-	--fs-body: 1.1875rem;
-	--fs-small: 1.0625rem;
+	--fs-hero: var(--font-size-hero);
+	--fs-h2: var(--font-size-h2);
+	--fs-h3: var(--font-size-h3);
+	--fs-lead: var(--font-size-lead);
+	--fs-body: var(--font-size-body);
+	--fs-small: var(--font-size-small);
 
-	--container: 72rem;
-	--container-narrow: 52rem;
-	--section-pad: clamp(4.5rem, 10vw, 9rem);
-	--header-h: 5rem;
-	--frame: clamp(14px, 2.2vw, 32px);
-	/* horizontal padding = frame width + real breathing room */
-	--pad-x: calc(var(--frame) + clamp(1.25rem, 2.5vw, 2.5rem));
-
-	--ease: cubic-bezier(0.22, 1, 0.36, 1);
+	--header-h: var(--header-height);
+	--frame: var(--frame-width);
 }
 
 /* ---- Reset & base ---- */
@@ -170,11 +147,7 @@ a { color: inherit; }
 	position: relative;
 	z-index: 1;
 }
-.section-white::before,
-#culture::before,
-.section-ai::before {
-	opacity: 0.22;
-}
+/* light sections inherit the base 0.22; only the darker surfaces differ */
 .section-dark::before {
 	opacity: 0.18;
 }
@@ -187,7 +160,7 @@ a { color: inherit; }
 .section-meringue { background: var(--meringue); }
 .section-dark {
 	--blueprint-line: rgba(255, 255, 255, 0.055);
-	background: linear-gradient(135deg, #202829 0%, var(--teal-me-more) 58%, #182122 100%);
+	background: var(--gradient-dark-section);
 	color: var(--text-on-dark);
 }
 .section-dark h2, .section-dark h3 { color: var(--white); }
@@ -215,7 +188,8 @@ a { color: inherit; }
 .reveal.visible .accent-line { transform: scaleX(1); }
 .accent-line.accent-reign { background: var(--reign); }
 .accent-line.accent-glacier { background: var(--glacier); }
-.accent-line.accent-dark { background: var(--teal-me-more); }
+.accent-line.accent-terracotta { background: var(--terracotta); }
+.accent-line.accent-clay { background: var(--clay); }
 
 .lead {
 	font-size: var(--fs-lead);
@@ -258,7 +232,7 @@ a { color: inherit; }
 }
 .button:hover {
 	transform: translateY(-2px);
-	box-shadow: 0 4px 0 rgba(41, 49, 50, 0.18);
+	box-shadow: var(--shadow-button-hover);
 }
 
 .button-primary {
@@ -295,7 +269,7 @@ a { color: inherit; }
 
 .site-header.scrolled {
 	background: var(--white);
-	box-shadow: 0 1px 0 rgba(41, 49, 50, 0.08);
+	box-shadow: var(--shadow-header-scrolled);
 }
 .site-header.scrolled .logo-dark,
 .site-header.nav-open .logo-dark { display: block; }
@@ -316,7 +290,6 @@ a { color: inherit; }
 	text-transform: uppercase;
 	letter-spacing: 0.12em;
 	text-decoration: none;
-	color: rgba(255, 255, 255, 0.85);
 	transition: color 200ms;
 }
 .nav-menu a:not(.nav-cta) {
@@ -334,28 +307,29 @@ a { color: inherit; }
 }
 .nav-menu a:not(.nav-cta):hover::after,
 .nav-menu a.current::after { right: 0; }
-.nav-menu a:hover,
-.nav-menu a.current { color: var(--hey-day); }
-.site-header.scrolled .nav-menu a { color: var(--text); }
-.site-header.scrolled .nav-menu a:hover,
-.site-header.scrolled .nav-menu a.current { color: #000; }
+
+/* Mobile-first default: the mobile menu is a white overlay, so nav type is dark.
+   The light-on-transparent-header colours are desktop-only (see the min-width
+   block below). Colour rules deliberately skip .nav-cta and .lang-toggle —
+   those two own their colours, so they can't be turned yellow-on-yellow. */
+.nav-menu a:not(.nav-cta):not(.lang-toggle) { color: var(--text); }
 
 .nav-menu .nav-cta {
 	padding: 0.5rem 1.25rem;
 	background: var(--hey-day);
-	color: var(--teal-me-more) !important;
+	color: var(--teal-me-more);
 }
 .nav-menu .nav-cta:hover { background: #ffe14d; }
 
 .language-switch { display: flex; align-items: center; }
 
-.lang-toggle {
+.nav-menu .lang-toggle {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	min-width: 2.4rem;
 	padding: 0.35rem 0.85rem;
-	border: 1.5px solid rgba(255, 255, 255, 0.5);
+	border: 1.5px solid rgba(41, 49, 50, 0.3);
 	border-radius: 999px;
 	font-family: 'Work Sans', sans-serif;
 	font-size: 0.8rem;
@@ -363,23 +337,41 @@ a { color: inherit; }
 	letter-spacing: 0.06em;
 	line-height: 1;
 	text-decoration: none;
-	color: rgba(255, 255, 255, 0.9);
+	color: var(--text);
 	transition: color 200ms, background-color 200ms, border-color 200ms;
 }
 .nav-menu .lang-toggle::after { display: none; }
-.lang-toggle:hover {
+.nav-menu .lang-toggle:hover {
 	color: var(--teal-me-more);
 	background: var(--hey-day);
 	border-color: var(--hey-day);
 }
-.site-header.scrolled .lang-toggle {
-	color: var(--text);
-	border-color: rgba(41, 49, 50, 0.3);
-}
-.site-header.scrolled .lang-toggle:hover {
-	color: var(--teal-me-more);
-	background: var(--hey-day);
-	border-color: var(--hey-day);
+
+/* Desktop horizontal nav sits on the transparent header over the hero, so its
+   type is light — and turns dark once the header gains its white background.
+   Confined to the desktop breakpoint so the mobile overlay never has to
+   override any of it. */
+@media (min-width: 1000px) {
+	.nav-menu a:not(.nav-cta):not(.lang-toggle) { color: rgba(255, 255, 255, 0.85); }
+	.nav-menu a:not(.nav-cta):not(.lang-toggle):hover,
+	.nav-menu a:not(.nav-cta):not(.lang-toggle).current { color: var(--hey-day); }
+	.site-header.scrolled .nav-menu a:not(.nav-cta):not(.lang-toggle) { color: var(--text); }
+	.site-header.scrolled .nav-menu a:not(.nav-cta):not(.lang-toggle):hover,
+	.site-header.scrolled .nav-menu a:not(.nav-cta):not(.lang-toggle).current { color: #000; }
+
+	.nav-menu .lang-toggle {
+		color: rgba(255, 255, 255, 0.9);
+		border-color: rgba(255, 255, 255, 0.5);
+	}
+	.site-header.scrolled .nav-menu .lang-toggle {
+		color: var(--text);
+		border-color: rgba(41, 49, 50, 0.3);
+	}
+	/* needed explicitly: the .scrolled rule above outranks the plain :hover rule */
+	.site-header.scrolled .nav-menu .lang-toggle:hover {
+		color: var(--teal-me-more);
+		border-color: var(--hey-day);
+	}
 }
 
 .nav-toggle {
@@ -413,9 +405,9 @@ a { color: inherit; }
 		transition: transform 350ms var(--ease);
 	}
 	.site-header.nav-open .nav-menu { transform: translateY(0); }
-	.nav-menu a { color: var(--text) !important; font-size: 1.2rem; }
-	.lang-toggle { border-color: rgba(41, 49, 50, 0.3) !important; font-size: 0.95rem; }
-	.lang-toggle:hover { color: var(--teal-me-more) !important; background: var(--hey-day); }
+	/* colours come from the mobile-first defaults above — only sizing differs here */
+	.nav-menu a { font-size: 1.2rem; }
+	.nav-menu .lang-toggle { font-size: 0.95rem; }
 	.site-header.nav-open .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 	.site-header.nav-open .nav-toggle-bar:nth-child(2) { opacity: 0; }
 	.site-header.nav-open .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -479,7 +471,7 @@ a { color: inherit; }
 	letter-spacing: -0.04em;
 	line-height: 1.04;
 	margin-bottom: 1.75rem;
-	text-shadow: 0 2px 30px rgba(41, 49, 50, 0.45);
+	text-shadow: var(--text-shadow-hero);
 }
 .hero-sub {
 	font-family: 'Work Sans', sans-serif;
@@ -561,7 +553,7 @@ a { color: inherit; }
 /* ---- AI ---- */
 .section-ai {
 	--blueprint-line: rgba(41, 49, 50, 0.065);
-	background: linear-gradient(135deg, var(--glacier), #e5eee2 58%, var(--meringue));
+	background: var(--gradient-ai-section);
 	position: relative;
 	overflow: hidden;
 }
@@ -598,7 +590,7 @@ a { color: inherit; }
 	.ai-copy { padding-top: 0; }
 }
 
-/* ---- Flock of four, flying in formation ---- */
+/* ---- Flock of four, flying in fourmation ---- */
 .flock {
 	display: block;
 	width: clamp(7rem, 12vw, 10rem);
@@ -686,10 +678,11 @@ a { color: inherit; }
 }
 
 .value-glacier { background: var(--glacier); }
-.value-oyster { background: var(--french-oyster); }
+.value-clay { background: var(--clay); }
 .value-reign { background: var(--reign); color: var(--white); }
 .value-reign h3 { color: var(--white); }
-.value-heyday { background: var(--hey-day); }
+.value-terracotta { background: var(--terracotta); color: var(--white); }
+.value-terracotta h3 { color: var(--white); }
 
 @media (max-width: 719px) {
 	.value-grid { grid-template-columns: 1fr; }
@@ -729,7 +722,7 @@ a { color: inherit; }
 .team-card:hover img {
 	filter: grayscale(0%);
 	transform: translateY(-2px);
-	box-shadow: 0 10px 24px rgba(41, 49, 50, 0.16);
+	box-shadow: var(--shadow-card-hover-lift);
 }
 .team-card h3 {
 	font-size: 1.35rem;
@@ -746,8 +739,6 @@ a { color: inherit; }
 }
 .team-skills { font-size: var(--fs-small); color: var(--text-muted); }
 
-.team-card-join a { text-decoration: none; display: block; }
-.team-card-join h3::after { content: ' →'; color: var(--hey-day); }
 
 /* ---- Contact / footer ---- */
 .contact { padding-bottom: 0; }
