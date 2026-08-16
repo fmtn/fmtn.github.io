@@ -541,12 +541,11 @@ a { color: inherit; }
 .service h3 {
 	margin-bottom: var(--space-12);
 	font-size: var(--font-size-subheading);
-	letter-spacing: -0.02em;
 }
 .service p {
 	color: var(--text-on-dark);
 	max-width: 32rem;
-	line-height: 1.68;
+	line-height: var(--line-height-body);
 }
 
 /* ---- AI ---- */
@@ -728,7 +727,6 @@ a { color: inherit; }
 }
 .team-card h3 {
 	font-size: 1.375rem;
-	letter-spacing: -0.02em;
 	margin-bottom: var(--space-4);
 }
 .team-role {
