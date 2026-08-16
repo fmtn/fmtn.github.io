@@ -5,7 +5,7 @@
 
 /* ---- Design tokens ----
    Canonical values live in css/tokens.css (Fourmation Design System
-   v0.3.0, loaded before this file). Type roles are used by their
+   v0.4.0, loaded before this file). Type roles are used by their
    design-system names directly (--font-size-title/-heading/-lead/...),
    so there is no local translation layer to drift. This block only
    shortens the colour names the rest of this file already uses. */
@@ -64,7 +64,7 @@ h1, h2, h3 {
 	font-family: var(--font-family-sans);
 	font-weight: 700;
 	line-height: 1.1;
-	margin: 0 0 1.5rem;
+	margin: 0 0 var(--space-24);
 	text-wrap: balance;
 }
 
@@ -81,7 +81,7 @@ h3 {
 	line-height: var(--line-height-subheading);
 }
 
-p { margin: 0 0 1.25rem; }
+p { margin: 0 0 var(--space-16); }
 p:last-child { margin-bottom: 0; }
 
 a { color: inherit; }
@@ -108,7 +108,7 @@ a { color: inherit; }
 	top: -100%;
 	left: 1rem;
 	z-index: 100;
-	padding: 0.75rem 1.25rem;
+	padding: var(--space-12) var(--space-16);
 	background: var(--teal-me-more);
 	color: var(--white);
 	font-weight: 700;
@@ -168,7 +168,7 @@ a { color: inherit; }
 	font-size: var(--font-size-label);
 	text-transform: uppercase;
 	letter-spacing: var(--letter-spacing-label);
-	margin-bottom: 1rem;
+	margin-bottom: var(--space-16);
 }
 .section-dark .eyebrow { color: var(--hey-day); }
 
@@ -176,7 +176,7 @@ a { color: inherit; }
 	display: block;
 	width: var(--accent-line-width);
 	height: var(--accent-line-height);
-	margin: 0 0 2.5rem;
+	margin: 0 0 var(--space-32);
 	background: var(--hey-day);
 	transform: scaleX(0);
 	transform-origin: left center;
@@ -192,7 +192,7 @@ a { color: inherit; }
 	font-size: var(--font-size-lead);
 	font-weight: var(--font-weight-lead);
 	line-height: var(--line-height-lead);
-	margin-bottom: 2rem;
+	margin-bottom: var(--space-32);
 	text-wrap: balance;
 }
 .lead-small {
@@ -202,8 +202,8 @@ a { color: inherit; }
 .lead-emphasis {
 	position: relative;
 	border-left: 0;
-	padding-left: clamp(1.25rem, 3vw, 2rem);
-	margin-top: 3rem;
+	padding-left: clamp(var(--space-16), 3vw, var(--space-32));
+	margin-top: var(--space-48);
 }
 .lead-emphasis::before {
 	content: '';
@@ -217,7 +217,7 @@ a { color: inherit; }
 
 .button {
 	display: inline-block;
-	padding: 1rem 2.25rem;
+	padding: var(--space-16) var(--space-32);
 	font-weight: var(--font-weight-action);
 	font-size: var(--font-size-action);
 	text-transform: uppercase;
@@ -256,9 +256,11 @@ a { color: inherit; }
 	align-items: center;
 	justify-content: space-between;
 	height: var(--header-h);
-	max-width: calc(var(--container) + 2 * clamp(1.25rem, 2.5vw, 2.5rem));
+	/* Uses --pad-x-extra (the inner half of --pad-x) rather than a copy of its
+	   value, so the header's inner padding cannot drift from the content below. */
+	max-width: calc(var(--container) + 2 * var(--pad-x-extra));
 	margin-inline: auto;
-	padding-inline: clamp(1.25rem, 2.5vw, 2.5rem);
+	padding-inline: var(--pad-x-extra);
 }
 .logo { display: block; position: relative; z-index: 60; }
 .logo img { width: 10rem; height: auto; }
@@ -275,7 +277,7 @@ a { color: inherit; }
 
 .nav-menu {
 	display: flex;
-	gap: 2rem;
+	gap: var(--space-32);
 	align-items: center;
 	list-style: none;
 	margin: 0;
@@ -312,7 +314,7 @@ a { color: inherit; }
 .nav-menu a:not(.nav-cta):not(.lang-toggle) { color: var(--text); }
 
 .nav-menu .nav-cta {
-	padding: 0.5rem 1.25rem;
+	padding: var(--space-8) var(--space-16);
 	background: var(--hey-day);
 	color: var(--teal-me-more);
 }
@@ -325,7 +327,7 @@ a { color: inherit; }
 	align-items: center;
 	justify-content: center;
 	min-width: 2.4rem;
-	padding: 0.35rem 0.85rem;
+	padding: var(--space-4) var(--space-12);
 	border: 1.5px solid rgba(41, 49, 50, 0.3);
 	border-radius: 999px;
 	font-family: var(--font-family-label);
@@ -377,7 +379,7 @@ a { color: inherit; }
 	gap: 5px;
 	background: none;
 	border: 0;
-	padding: 0.5rem;
+	padding: var(--space-8);
 	cursor: pointer;
 }
 .nav-toggle-bar {
@@ -396,7 +398,7 @@ a { color: inherit; }
 		inset: 0;
 		flex-direction: column;
 		justify-content: center;
-		gap: clamp(1.2rem, 4vh, 2.5rem);
+		gap: clamp(var(--space-16), 4vh, var(--space-32));
 		background: var(--white);
 		transform: translateY(-100%);
 		transition: transform 350ms var(--ease);
@@ -456,7 +458,7 @@ a { color: inherit; }
 	position: relative;
 	z-index: 1;
 	text-align: center;
-	padding: 7rem var(--pad-x) 5rem;
+	padding: var(--space-96) var(--pad-x) var(--space-64);
 	max-width: calc(72rem + 2 * var(--pad-x));
 }
 .hero-content .eyebrow { color: var(--hey-day); }
@@ -467,7 +469,7 @@ a { color: inherit; }
 	text-transform: none;
 	letter-spacing: var(--letter-spacing-title);
 	line-height: var(--line-height-title);
-	margin-bottom: 1.75rem;
+	margin-bottom: var(--space-32);
 	text-shadow: var(--text-shadow-hero);
 }
 .hero-sub {
@@ -476,11 +478,11 @@ a { color: inherit; }
 	font-size: var(--font-size-body-large);
 	line-height: var(--line-height-body-large);
 	max-width: 46rem;
-	margin: 0 auto 2.75rem;
+	margin: 0 auto var(--space-48);
 }
 .hero-actions {
 	display: flex;
-	gap: 1rem;
+	gap: var(--space-16);
 	justify-content: center;
 	flex-wrap: wrap;
 }
@@ -517,12 +519,12 @@ a { color: inherit; }
 #about .container.narrow { max-width: 68rem; }
 
 /* ---- Services ---- */
-.section-heading { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.section-heading { margin-bottom: clamp(var(--space-32), 5vw, var(--space-64)); }
 
 .service-grid {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	gap: clamp(2.5rem, 5vw, 4.5rem) clamp(2.5rem, 6vw, 6rem);
+	gap: clamp(var(--space-32), 5vw, var(--space-64)) clamp(var(--space-32), 6vw, var(--space-96));
 }
 @media (max-width: 719px) {
 	.service-grid { grid-template-columns: 1fr; }
@@ -530,14 +532,14 @@ a { color: inherit; }
 .service-icon {
 	width: 3.5rem;
 	height: 3.5rem;
-	margin-bottom: 1.5rem;
+	margin-bottom: var(--space-24);
 	fill: var(--hey-day);
 	stroke: var(--hey-day);
 	stroke-linecap: round;
 	stroke-linejoin: round;
 }
 .service h3 {
-	margin-bottom: 0.75rem;
+	margin-bottom: var(--space-12);
 	font-size: var(--font-size-subheading);
 	letter-spacing: -0.02em;
 }
@@ -570,14 +572,14 @@ a { color: inherit; }
 	z-index: 1;
 	display: grid;
 	grid-template-columns: 1.15fr 0.85fr;
-	gap: clamp(3rem, 8vw, 8rem);
+	gap: clamp(var(--space-48), 8vw, var(--space-144));
 	align-items: start;
 }
 .ai-layout h2 { font-size: var(--font-size-heading); }
-.ai-copy { padding-top: 2.25rem; }
+.ai-copy { padding-top: var(--space-32); }
 .ai-copy p:not(.lead-small) { font-size: var(--font-size-caption); }
 .button-dark {
-	margin-top: 1rem;
+	margin-top: var(--space-16);
 	background: var(--teal-me-more);
 	color: var(--white);
 }
@@ -591,7 +593,7 @@ a { color: inherit; }
 .flock {
 	display: block;
 	width: clamp(7rem, 12vw, 10rem);
-	margin: 0 auto 2rem;
+	margin: 0 auto var(--space-32);
 	overflow: visible;
 }
 .flock path {
@@ -616,7 +618,7 @@ a { color: inherit; }
 #culture {
 	text-align: center;
 	/* keep the manifesto close to the four value tiles below */
-	padding-bottom: clamp(3rem, 6vw, 5rem);
+	padding-bottom: clamp(var(--space-48), 6vw, var(--space-64));
 }
 #culture h2 {
 	font-size: var(--font-size-display);
@@ -633,7 +635,7 @@ a { color: inherit; }
 	line-height: var(--line-height-body);
 	max-width: 46rem;
 	margin-inline: auto;
-	margin-bottom: clamp(1.8rem, 4vw, 3rem);
+	margin-bottom: clamp(var(--space-32), 4vw, var(--space-48));
 	color: color-mix(in srgb, var(--teal-me-more) 82%, transparent);
 }
 #culture .manifesto-text {
@@ -642,7 +644,7 @@ a { color: inherit; }
 	line-height: var(--line-height-body-large);
 	max-width: 48rem;
 	margin-inline: auto;
-	margin-bottom: 1.75rem;
+	margin-bottom: var(--space-24);
 }
 
 /* ---- Values grid ---- */
@@ -653,7 +655,7 @@ a { color: inherit; }
 .value {
 	display: flex;
 	justify-content: center;
-	padding: clamp(3.5rem, 8vw, 9rem) var(--pad-x);
+	padding: clamp(var(--space-48), 8vw, var(--space-144)) var(--pad-x);
 }
 .value-inner {
 	width: 100%;
@@ -669,9 +671,9 @@ a { color: inherit; }
 	line-height: 1.02;
 	letter-spacing: -0.04em;
 	text-transform: none;
-	margin-bottom: 1.5rem;
+	margin-bottom: var(--space-24);
 }
-.value .accent-line { margin-bottom: 2rem; }
+.value .accent-line { margin-bottom: var(--space-32); }
 .value p {
 	font-size: var(--font-size-body-large);
 	line-height: var(--line-height-body-large);
@@ -692,9 +694,9 @@ a { color: inherit; }
 .team-intro {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: clamp(2rem, 5vw, 4rem);
+	gap: clamp(var(--space-32), 5vw, var(--space-64));
 	align-items: start;
-	margin-bottom: clamp(3rem, 6vw, 5rem);
+	margin-bottom: clamp(var(--space-48), 6vw, var(--space-64));
 }
 .team-intro h2 { font-size: var(--font-size-heading); }
 @media (max-width: 719px) {
@@ -704,7 +706,7 @@ a { color: inherit; }
 .team-grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: clamp(2rem, 4vw, 3.5rem);
+	gap: clamp(var(--space-32), 4vw, var(--space-48));
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -715,7 +717,7 @@ a { color: inherit; }
 	width: 100%;
 	aspect-ratio: 1;
 	object-fit: cover;
-	margin-bottom: 1.5rem;
+	margin-bottom: var(--space-24);
 	filter: grayscale(12%);
 	transition: filter 300ms, transform 300ms var(--ease), box-shadow 300ms var(--ease);
 }
@@ -727,7 +729,7 @@ a { color: inherit; }
 .team-card h3 {
 	font-size: 1.375rem;
 	letter-spacing: -0.02em;
-	margin-bottom: 0.25rem;
+	margin-bottom: var(--space-4);
 }
 .team-role {
 	font-weight: 700;
@@ -735,7 +737,7 @@ a { color: inherit; }
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
 	color: var(--reign);
-	margin-bottom: 0.6rem;
+	margin-bottom: var(--space-8);
 }
 .team-skills { font-size: var(--font-size-caption); color: var(--text-muted); }
 
@@ -745,7 +747,7 @@ a { color: inherit; }
 .contact-inner {
 	display: grid;
 	grid-template-columns: 1.6fr 1fr;
-	gap: clamp(2.5rem, 6vw, 5rem);
+	gap: clamp(var(--space-32), 6vw, var(--space-64));
 	align-items: start;
 	padding-bottom: var(--section-pad);
 }
@@ -772,9 +774,9 @@ a { color: inherit; }
 
 .social-list {
 	display: flex;
-	gap: 1.25rem;
+	gap: var(--space-16);
 	list-style: none;
-	margin: 2rem 0 0;
+	margin: var(--space-32) 0 0;
 	padding: 0;
 }
 .social-list svg {
@@ -787,14 +789,14 @@ a { color: inherit; }
 
 .contact-details { justify-self: end; text-align: right; }
 @media (max-width: 719px) { .contact-details { justify-self: start; text-align: left; } }
-.footer-logo { width: 7rem; margin-bottom: 1.5rem; margin-left: auto; }
+.footer-logo { width: 7rem; margin-bottom: var(--space-24); margin-left: auto; }
 @media (max-width: 719px) { .footer-logo { margin-left: 0; } }
-address { font-style: normal; margin-bottom: 1rem; }
+address { font-style: normal; margin-bottom: var(--space-16); }
 .orgnr { color: var(--text-on-dark); font-size: var(--font-size-caption); opacity: 0.7; }
 
 .footer-bottom {
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
-	padding: 1.5rem 1.5rem calc(1.5rem + var(--frame));
+	padding: var(--space-24) var(--space-24) calc(var(--space-24) + var(--frame));
 	text-align: center;
 	font-size: 0.875rem;
 	opacity: 0.6;
@@ -837,14 +839,14 @@ address { font-style: normal; margin-bottom: 1rem; }
 	}
 
 	/* Team: two smaller columns instead of one endless one */
-	.team-grid { gap: 2rem 1.25rem; }
-	.team-card img { margin-bottom: 1rem; }
+	.team-grid { gap: var(--space-32) var(--space-16); }
+	.team-card img { margin-bottom: var(--space-16); }
 	.team-card h3 { font-size: 1.125rem; }
-	.team-role { font-size: 0.75rem; margin-bottom: 0.4rem; }
+	.team-role { font-size: 0.75rem; margin-bottom: var(--space-8); }
 	.team-skills { font-size: 0.875rem; line-height: 1.5; }
 
 	/* narrower on small screens; thickness stays on the design-system token */
-	.accent-line { width: 5rem; margin-bottom: 2rem; }
+	.accent-line { width: 5rem; margin-bottom: var(--space-32); }
 
 	.contact-email a { word-break: break-all; }
 }
