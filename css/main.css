@@ -3,11 +3,12 @@
    Brand palette & typography per Grafisk-profil.pdf
    ========================================================================== */
 
-/* ---- Fonts & design tokens ----
+/* ---- Design tokens ----
    Canonical values live in css/tokens.css (Fourmation Design System
-   v0.1.0, loaded before this file): font-face rules and the color,
-   font, container, section-pad, ease and pad-x tokens all come from
-   there now. */
+   v0.3.0, loaded before this file). Type roles are used by their
+   design-system names directly (--font-size-title/-heading/-lead/...),
+   so there is no local translation layer to drift. This block only
+   shortens the colour names the rest of this file already uses. */
 :root {
 	--hey-day: var(--color-hey-day);
 	--teal-me-more: var(--color-teal-me-more);
@@ -25,14 +26,6 @@
 	--text-on-dark: var(--color-text-on-dark);
 	--serif: var(--font-family-serif);
 
-	/* Type scale (fluid) */
-	--fs-hero: var(--font-size-hero);
-	--fs-h2: var(--font-size-h2);
-	--fs-h3: var(--font-size-h3);
-	--fs-lead: var(--font-size-lead);
-	--fs-body: var(--font-size-body);
-	--fs-small: var(--font-size-small);
-
 	--header-h: var(--header-height);
 	--frame: var(--frame-width);
 }
@@ -47,10 +40,10 @@ html {
 
 body {
 	margin: 0;
-	font-family: 'Montserrat', system-ui, sans-serif;
-	font-weight: 400;
-	font-size: var(--fs-body);
-	line-height: 1.7;
+	font-family: var(--font-family-sans);
+	font-weight: var(--font-weight-body);
+	font-size: var(--font-size-body);
+	line-height: var(--line-height-body);
 	color: var(--text);
 	background: var(--paper);
 }
@@ -68,7 +61,7 @@ body::after {
 }
 
 h1, h2, h3 {
-	font-family: 'Montserrat', system-ui, sans-serif;
+	font-family: var(--font-family-sans);
 	font-weight: 700;
 	line-height: 1.1;
 	margin: 0 0 1.5rem;
@@ -77,12 +70,16 @@ h1, h2, h3 {
 
 h2 {
 	font-family: var(--serif);
-	font-size: var(--fs-h2);
-	font-weight: 400;
-	letter-spacing: -0.035em;
-	line-height: 1.08;
+	font-size: var(--font-size-heading);
+	font-weight: var(--font-weight-heading);
+	letter-spacing: var(--letter-spacing-heading);
+	line-height: var(--line-height-heading);
 }
-h3 { font-size: var(--fs-h3); }
+h3 {
+	font-size: var(--font-size-subheading);
+	letter-spacing: var(--letter-spacing-subheading);
+	line-height: var(--line-height-subheading);
+}
 
 p { margin: 0 0 1.25rem; }
 p:last-child { margin-bottom: 0; }
@@ -166,19 +163,19 @@ a { color: inherit; }
 .section-dark h2, .section-dark h3 { color: var(--white); }
 
 .eyebrow {
-	font-family: 'Work Sans', sans-serif;
-	font-weight: 300;
-	font-size: 0.95rem;
+	font-family: var(--font-family-label);
+	font-weight: var(--font-weight-label);
+	font-size: var(--font-size-label);
 	text-transform: uppercase;
-	letter-spacing: 0.28em;
+	letter-spacing: var(--letter-spacing-label);
 	margin-bottom: 1rem;
 }
 .section-dark .eyebrow { color: var(--hey-day); }
 
 .accent-line {
 	display: block;
-	width: 7rem;
-	height: 0.28rem;
+	width: var(--accent-line-width);
+	height: var(--accent-line-height);
 	margin: 0 0 2.5rem;
 	background: var(--hey-day);
 	transform: scaleX(0);
@@ -192,15 +189,15 @@ a { color: inherit; }
 .accent-line.accent-clay { background: var(--clay); }
 
 .lead {
-	font-size: var(--fs-lead);
-	font-weight: 320;
-	line-height: 1.48;
+	font-size: var(--font-size-lead);
+	font-weight: var(--font-weight-lead);
+	line-height: var(--line-height-lead);
 	margin-bottom: 2rem;
 	text-wrap: balance;
 }
 .lead-small {
-	font-size: clamp(1.25rem, 2vw, 1.5rem);
-	line-height: 1.5;
+	font-size: var(--font-size-body-large);
+	line-height: var(--line-height-body-large);
 }
 .lead-emphasis {
 	position: relative;
@@ -214,17 +211,17 @@ a { color: inherit; }
 	left: 0;
 	top: 0.18em;
 	bottom: 0.18em;
-	width: 0.28rem;
+	width: var(--accent-line-height);
 	background: var(--hey-day);
 }
 
 .button {
 	display: inline-block;
 	padding: 1rem 2.25rem;
-	font-weight: 700;
-	font-size: 0.95rem;
+	font-weight: var(--font-weight-action);
+	font-size: var(--font-size-action);
 	text-transform: uppercase;
-	letter-spacing: 0.12em;
+	letter-spacing: var(--letter-spacing-action);
 	text-decoration: none;
 	border: 2px solid transparent;
 	box-shadow: 0 0 0 rgba(255, 215, 0, 0);
@@ -285,10 +282,10 @@ a { color: inherit; }
 	padding: 0;
 }
 .nav-menu a {
-	font-size: 0.95rem;
-	font-weight: 700;
+	font-size: var(--font-size-action);
+	font-weight: var(--font-weight-action);
 	text-transform: uppercase;
-	letter-spacing: 0.12em;
+	letter-spacing: var(--letter-spacing-action);
 	text-decoration: none;
 	transition: color 200ms;
 }
@@ -331,8 +328,8 @@ a { color: inherit; }
 	padding: 0.35rem 0.85rem;
 	border: 1.5px solid rgba(41, 49, 50, 0.3);
 	border-radius: 999px;
-	font-family: 'Work Sans', sans-serif;
-	font-size: 0.8rem;
+	font-family: var(--font-family-label);
+	font-size: 0.8125rem;
 	font-weight: 600;
 	letter-spacing: 0.06em;
 	line-height: 1;
@@ -406,8 +403,8 @@ a { color: inherit; }
 	}
 	.site-header.nav-open .nav-menu { transform: translateY(0); }
 	/* colours come from the mobile-first defaults above — only sizing differs here */
-	.nav-menu a { font-size: 1.2rem; }
-	.nav-menu .lang-toggle { font-size: 0.95rem; }
+	.nav-menu a { font-size: 1.1875rem; }
+	.nav-menu .lang-toggle { font-size: var(--font-size-action); }
 	.site-header.nav-open .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 	.site-header.nav-open .nav-toggle-bar:nth-child(2) { opacity: 0; }
 	.site-header.nav-open .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -465,19 +462,19 @@ a { color: inherit; }
 .hero-content .eyebrow { color: var(--hey-day); }
 .hero h1 {
 	font-family: var(--serif);
-	font-size: var(--fs-hero);
-	font-weight: 400;
+	font-size: var(--font-size-title);
+	font-weight: var(--font-weight-title);
 	text-transform: none;
-	letter-spacing: -0.04em;
-	line-height: 1.04;
+	letter-spacing: var(--letter-spacing-title);
+	line-height: var(--line-height-title);
 	margin-bottom: 1.75rem;
 	text-shadow: var(--text-shadow-hero);
 }
 .hero-sub {
-	font-family: 'Work Sans', sans-serif;
+	font-family: var(--font-family-label);
 	font-weight: 300;
-	font-size: clamp(1.22rem, 2vw, 1.55rem);
-	line-height: 1.55;
+	font-size: var(--font-size-body-large);
+	line-height: var(--line-height-body-large);
 	max-width: 46rem;
 	margin: 0 auto 2.75rem;
 }
@@ -541,7 +538,7 @@ a { color: inherit; }
 }
 .service h3 {
 	margin-bottom: 0.75rem;
-	font-size: clamp(1.45rem, 2.2vw, 1.8rem);
+	font-size: var(--font-size-subheading);
 	letter-spacing: -0.02em;
 }
 .service p {
@@ -576,9 +573,9 @@ a { color: inherit; }
 	gap: clamp(3rem, 8vw, 8rem);
 	align-items: start;
 }
-.ai-layout h2 { font-size: clamp(2.1rem, 4.4vw, 4.35rem); }
+.ai-layout h2 { font-size: var(--font-size-heading); }
 .ai-copy { padding-top: 2.25rem; }
-.ai-copy p:not(.lead-small) { font-size: 1.1rem; }
+.ai-copy p:not(.lead-small) { font-size: var(--font-size-caption); }
 .button-dark {
 	margin-top: 1rem;
 	background: var(--teal-me-more);
@@ -622,27 +619,27 @@ a { color: inherit; }
 	padding-bottom: clamp(3rem, 6vw, 5rem);
 }
 #culture h2 {
-	font-size: clamp(2.8rem, 6vw, 6.4rem);
-	letter-spacing: -0.045em;
-	line-height: 1.12;
+	font-size: var(--font-size-display);
+	letter-spacing: var(--letter-spacing-display);
+	line-height: var(--line-height-display);
 }
 #culture .accent-line {
 	margin-inline: auto;
 	transform-origin: center;
 }
 #culture .culture-context {
-	font-size: clamp(1.05rem, 2vw, 1.35rem);
-	font-weight: 400;
-	line-height: 1.65;
+	font-size: var(--font-size-body);
+	font-weight: var(--font-weight-body);
+	line-height: var(--line-height-body);
 	max-width: 46rem;
 	margin-inline: auto;
 	margin-bottom: clamp(1.8rem, 4vw, 3rem);
 	color: color-mix(in srgb, var(--teal-me-more) 82%, transparent);
 }
 #culture .manifesto-text {
-	font-size: clamp(1.1rem, 2vw, 1.55rem);
-	font-weight: 400;
-	line-height: 1.62;
+	font-size: var(--font-size-body-large);
+	font-weight: var(--font-weight-body-large);
+	line-height: var(--line-height-body-large);
 	max-width: 48rem;
 	margin-inline: auto;
 	margin-bottom: 1.75rem;
@@ -663,8 +660,11 @@ a { color: inherit; }
 	max-width: 37rem;
 }
 .value h3 {
+	/* Deliberate local treatment, not a system voice: the heading voice made bolder
+	   and capped at 65px — at the full heading size these tile headings wrap to a
+	   third line and unbalance the grid. Single-use, so it stays local by design. */
 	font-family: var(--serif);
-	font-size: clamp(2rem, 4.25vw, 4.05rem);
+	font-size: clamp(2rem, 5.078125vw, 4.0625rem);
 	font-weight: 700;
 	line-height: 1.02;
 	letter-spacing: -0.04em;
@@ -673,8 +673,8 @@ a { color: inherit; }
 }
 .value .accent-line { margin-bottom: 2rem; }
 .value p {
-	font-size: clamp(1.1rem, 1.7vw, 1.45rem);
-	line-height: 1.6;
+	font-size: var(--font-size-body-large);
+	line-height: var(--line-height-body-large);
 }
 
 .value-glacier { background: var(--glacier); }
@@ -696,7 +696,7 @@ a { color: inherit; }
 	align-items: start;
 	margin-bottom: clamp(3rem, 6vw, 5rem);
 }
-.team-intro h2 { font-size: clamp(2rem, 4.2vw, 3.85rem); }
+.team-intro h2 { font-size: var(--font-size-heading); }
 @media (max-width: 719px) {
 	.team-intro { grid-template-columns: 1fr; }
 }
@@ -725,19 +725,19 @@ a { color: inherit; }
 	box-shadow: var(--shadow-card-hover-lift);
 }
 .team-card h3 {
-	font-size: 1.35rem;
+	font-size: 1.375rem;
 	letter-spacing: -0.02em;
 	margin-bottom: 0.25rem;
 }
 .team-role {
 	font-weight: 700;
-	font-size: 0.9rem;
+	font-size: 0.875rem;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
 	color: var(--reign);
 	margin-bottom: 0.6rem;
 }
-.team-skills { font-size: var(--fs-small); color: var(--text-muted); }
+.team-skills { font-size: var(--font-size-caption); color: var(--text-muted); }
 
 
 /* ---- Contact / footer ---- */
@@ -754,7 +754,7 @@ a { color: inherit; }
 }
 
 .contact-email a {
-	font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+	font-size: var(--font-size-lead);
 	font-weight: 700;
 	color: var(--white);
 	text-decoration-color: var(--hey-day);
@@ -765,7 +765,7 @@ a { color: inherit; }
 .contact-intro { max-width: 42rem; color: var(--text-on-dark); }
 .contact-phone {
 	color: var(--text-on-dark);
-	font-size: 1.15rem;
+	font-size: 1.125rem;
 	text-decoration: none;
 }
 .contact-phone:hover { color: var(--hey-day); }
@@ -778,8 +778,8 @@ a { color: inherit; }
 	padding: 0;
 }
 .social-list svg {
-	width: 1.4rem;
-	height: 1.4rem;
+	width: 1.375rem;
+	height: 1.375rem;
 	fill: var(--text-on-dark);
 	transition: fill 200ms;
 }
@@ -790,13 +790,13 @@ a { color: inherit; }
 .footer-logo { width: 7rem; margin-bottom: 1.5rem; margin-left: auto; }
 @media (max-width: 719px) { .footer-logo { margin-left: 0; } }
 address { font-style: normal; margin-bottom: 1rem; }
-.orgnr { color: var(--text-on-dark); font-size: var(--fs-small); opacity: 0.7; }
+.orgnr { color: var(--text-on-dark); font-size: var(--font-size-caption); opacity: 0.7; }
 
 .footer-bottom {
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
 	padding: 1.5rem 1.5rem calc(1.5rem + var(--frame));
 	text-align: center;
-	font-size: 0.85rem;
+	font-size: 0.875rem;
 	opacity: 0.6;
 }
 .footer-bottom p { margin: 0; }
@@ -822,7 +822,7 @@ address { font-style: normal; margin-bottom: 1rem; }
 /* ---- Mobile rhythm & air ---- */
 @media (max-width: 599px) {
 	.eyebrow {
-		font-size: 0.85rem;
+		font-size: 0.875rem;
 		letter-spacing: 0.25em;
 	}
 
@@ -839,11 +839,12 @@ address { font-style: normal; margin-bottom: 1rem; }
 	/* Team: two smaller columns instead of one endless one */
 	.team-grid { gap: 2rem 1.25rem; }
 	.team-card img { margin-bottom: 1rem; }
-	.team-card h3 { font-size: 1.1rem; }
+	.team-card h3 { font-size: 1.125rem; }
 	.team-role { font-size: 0.75rem; margin-bottom: 0.4rem; }
-	.team-skills { font-size: 0.9rem; line-height: 1.5; }
+	.team-skills { font-size: 0.875rem; line-height: 1.5; }
 
-	.accent-line { height: 0.7rem; width: 5rem; margin-bottom: 2rem; }
+	/* narrower on small screens; thickness stays on the design-system token */
+	.accent-line { width: 5rem; margin-bottom: 2rem; }
 
 	.contact-email a { word-break: break-all; }
 }

@@ -1,7 +1,7 @@
 /* ==========================================================================
    Vendored from: fmtn/design-system, dist/tokens.css
-   Tag:           v0.1.1
-   Commit:        4eb39337da2ce5716491813586c591f6850ea33d ("Updated clay color")
+   Tag:           v0.3.0
+   Commit:        bf6d1fe0978de10421c4adaa56e1d52766d59c84 ("Generalized system")
    Copied:        2026-07-21
    Do not hand-edit. To update: copy dist/tokens.css from a newer tag in
    that repo over this file, then update the Tag/Commit/Copied lines above.
@@ -18,7 +18,6 @@
   --color-teal-me-more: #293132;
   --color-paper: #FFFCF6;
   --color-meringue: #F6F2ED;
-  --color-french-oyster: #FAF9F6;
   --color-white: #FFFFFF;
   --color-reign: #808F85;
   --color-glacier: #CEDCCA;
@@ -29,32 +28,49 @@
   --font-family-serif: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   --font-family-sans: 'Montserrat', system-ui, sans-serif;
   --font-family-label: 'Work Sans', sans-serif;
-  --font-size-hero: clamp(2.6rem, 7.6vw, 6rem);
-  --font-weight-hero: 400;
-  --letter-spacing-hero: -0.04em;
-  --line-height-hero: 1.04;
-  --font-size-h2: clamp(2.15rem, 5.2vw, 4.8rem);
-  --font-weight-h2: 400;
-  --letter-spacing-h2: -0.035em;
-  --line-height-h2: 1.08;
-  --font-size-h3: clamp(1.4rem, 2.2vw, 1.75rem);
-  --font-weight-h3: 700;
-  --letter-spacing-h3: -0.02em;
-  --line-height-h3: 1.1;
-  --font-size-lead: clamp(1.35rem, 2.6vw, 2.35rem);
+  --font-size-display: clamp(2.75rem, 7.96875vw, 6.375rem);
+  --font-size-display-print: 42pt;
+  --font-weight-display: 400;
+  --letter-spacing-display: -0.045em;
+  --line-height-display: 1.12;
+  --font-size-title: clamp(2.5rem, 7.5vw, 6rem);
+  --font-size-title-print: 39pt;
+  --font-weight-title: 400;
+  --letter-spacing-title: -0.04em;
+  --line-height-title: 1.04;
+  --font-size-heading: clamp(2.125rem, 5.9375vw, 4.75rem);
+  --font-size-heading-print: 31pt;
+  --font-weight-heading: 400;
+  --letter-spacing-heading: -0.03em;
+  --line-height-heading: 1.08;
+  --font-size-subheading: clamp(1.375rem, 2.1875vw, 1.75rem);
+  --font-size-subheading-print: 13pt;
+  --font-weight-subheading: 700;
+  --letter-spacing-subheading: -0.02em;
+  --line-height-subheading: 1.1;
+  --font-size-lead: clamp(1.375rem, 2.96875vw, 2.375rem);
+  --font-size-lead-print: 15pt;
   --font-weight-lead: 320;
-  --line-height-lead: 1.48;
+  --line-height-lead: 1.5;
+  --font-size-body-large: clamp(1.1875rem, 1.875vw, 1.5rem);
+  --font-size-body-large-print: 12pt;
+  --font-weight-body-large: 400;
+  --line-height-body-large: 1.6;
   --font-size-body: 1.1875rem;
+  --font-size-body-print: 9.5pt;
   --font-weight-body: 400;
   --line-height-body: 1.7;
-  --font-size-small: 1.0625rem;
-  --font-weight-small: 400;
-  --font-size-eyebrow: 0.95rem;
-  --font-weight-eyebrow: 300;
-  --letter-spacing-eyebrow: 0.28em;
-  --font-size-button: 0.95rem;
-  --font-weight-button: 700;
-  --letter-spacing-button: 0.12em;
+  --font-size-caption: 1.0625rem;
+  --font-size-caption-print: 8pt;
+  --font-weight-caption: 400;
+  --font-size-label: 0.9375rem;
+  --font-size-label-print: 11pt;
+  --font-weight-label: 300;
+  --letter-spacing-label: 0.28em;
+  --font-size-action: 0.9375rem;
+  --font-size-action-print: 11pt;
+  --font-weight-action: 700;
+  --letter-spacing-action: 0.12em;
   --container: 72rem;
   --container-narrow: 52rem;
   --section-pad: clamp(4.5rem, 10vw, 9rem);
@@ -62,7 +78,7 @@
   --frame-width: clamp(14px, 2.2vw, 32px);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --accent-line-width: 7rem;
-  --accent-line-height: 0.28rem;
+  --accent-line-height: 0.25rem;
   --gradient-dark-section: linear-gradient(135deg, #202829 0%, #293132 58%, #182122 100%);
   --gradient-ai-section: linear-gradient(135deg, #CEDCCA, #e5eee2 58%, #F6F2ED);
   --shadow-button-hover: 0 4px 0 rgba(41, 49, 50, 0.18);
