@@ -5,7 +5,7 @@
 
 /* ---- Design tokens ----
    Canonical values live in css/tokens.css (Fourmation Design System
-   v0.4.0, loaded before this file). Type roles are used by their
+   v0.5.1, loaded before this file). Type roles are used by their
    design-system names directly (--font-size-title/-heading/-lead/...),
    so there is no local translation layer to drift. This block only
    shortens the colour names the rest of this file already uses. */
@@ -157,10 +157,12 @@ a { color: inherit; }
 .section-meringue { background: var(--meringue); }
 .section-dark {
 	--blueprint-line: rgba(255, 255, 255, 0.055);
+	--surface-ink-title: var(--color-teal-me-more-ink-title);
+	--surface-pair: var(--color-teal-me-more-pair);
 	background: var(--gradient-dark-section);
-	color: var(--text-on-dark);
+	color: var(--color-teal-me-more-ink-body);
 }
-.section-dark h2, .section-dark h3 { color: var(--white); }
+.section-dark h2, .section-dark h3 { color: var(--surface-ink-title); }
 
 .eyebrow {
 	font-family: var(--font-family-label);
@@ -177,16 +179,14 @@ a { color: inherit; }
 	width: var(--accent-line-width);
 	height: var(--accent-line-height);
 	margin: 0 0 var(--space-32);
-	background: var(--hey-day);
+	/* Each surface declares its own --surface-pair (from the design system's
+	   colors.<surface>.pair); light sections fall back to paper's pair. */
+	background: var(--surface-pair, var(--color-paper-pair));
 	transform: scaleX(0);
 	transform-origin: left center;
 	transition: transform 1600ms var(--ease) 350ms;
 }
 .reveal.visible .accent-line { transform: scaleX(1); }
-.accent-line.accent-reign { background: var(--reign); }
-.accent-line.accent-glacier { background: var(--glacier); }
-.accent-line.accent-terracotta { background: var(--terracotta); }
-.accent-line.accent-clay { background: var(--clay); }
 
 .lead {
 	font-size: var(--font-size-lead);
@@ -678,12 +678,33 @@ a { color: inherit; }
 	line-height: var(--line-height-body-large);
 }
 
-.value-glacier { background: var(--glacier); }
-.value-clay { background: var(--clay); }
-.value-reign { background: var(--reign); color: var(--white); }
-.value-reign h3 { color: var(--white); }
-.value-terracotta { background: var(--terracotta); color: var(--white); }
-.value-terracotta h3 { color: var(--white); }
+/* Each tile takes its ink and its accent colour from its own surface, so the
+   complementary-pair rule is read from the system rather than restated here. */
+.value-glacier {
+	background: var(--glacier);
+	color: var(--color-glacier-ink-body);
+	--surface-ink-title: var(--color-glacier-ink-title);
+	--surface-pair: var(--color-glacier-pair);
+}
+.value-clay {
+	background: var(--clay);
+	color: var(--color-clay-ink-body);
+	--surface-ink-title: var(--color-clay-ink-title);
+	--surface-pair: var(--color-clay-pair);
+}
+.value-reign {
+	background: var(--reign);
+	color: var(--color-reign-ink-body);
+	--surface-ink-title: var(--color-reign-ink-title);
+	--surface-pair: var(--color-reign-pair);
+}
+.value-terracotta {
+	background: var(--terracotta);
+	color: var(--color-terracotta-ink-body);
+	--surface-ink-title: var(--color-terracotta-ink-title);
+	--surface-pair: var(--color-terracotta-pair);
+}
+.value h3 { color: var(--surface-ink-title, var(--text)); }
 
 @media (max-width: 719px) {
 	.value-grid { grid-template-columns: 1fr; }

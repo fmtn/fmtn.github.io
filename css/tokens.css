@@ -1,8 +1,8 @@
 /* ==========================================================================
    Vendored from: fmtn/design-system, dist/tokens.css
-   Tag:           v0.4.0
-   Commit:        ceead5b751f950a3288f729d2d5875531a18b6ce
-                  ("Added spacing scale and surface rhythm")
+   Tag:           v0.5.1
+   Commit:        3a103d1a95f2de73a3c626ddc833afb51eedd559
+                  ("Updated exemptions text")
    Copied:        2026-07-21
    Do not hand-edit. To update: copy dist/tokens.css from a newer tag in
    that repo over this file, then update the Tag/Commit/Copied lines above.
@@ -26,50 +26,81 @@
   --color-clay: #D6A78F;
   --color-text-muted: #5c6667;
   --color-text-on-dark: #E9ECEA;
+  --color-teal-me-more-ink-title: #FFFFFF;
+  --color-teal-me-more-ink-body: #E9ECEA;
+  --color-teal-me-more-pair: #FFD700;
+  --color-paper-ink-title: #293132;
+  --color-paper-ink-body: #293132;
+  --color-paper-pair: #FFD700;
+  --color-meringue-ink-title: #293132;
+  --color-meringue-ink-body: #293132;
+  --color-meringue-pair: #FFD700;
+  --color-reign-ink-title: #FFFFFF;
+  --color-reign-ink-body: #FFFFFF;
+  --color-reign-pair: #CEDCCA;
+  --color-glacier-ink-title: #293132;
+  --color-glacier-ink-body: #293132;
+  --color-glacier-pair: #808F85;
+  --color-terracotta-ink-title: #FFFFFF;
+  --color-terracotta-ink-body: #FFFFFF;
+  --color-terracotta-pair: #D6A78F;
+  --color-clay-ink-title: #293132;
+  --color-clay-ink-body: #293132;
+  --color-clay-pair: #A65430;
   --font-family-serif: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   --font-family-sans: 'Montserrat', system-ui, sans-serif;
   --font-family-label: 'Work Sans', sans-serif;
   --font-size-display: clamp(2.75rem, 7.96875vw, 6.375rem);
   --font-size-display-print: 42pt;
+  --font-size-display-deck: 9.83cqw;
   --font-weight-display: 400;
   --letter-spacing-display: -0.045em;
   --line-height-display: 1.12;
   --font-size-title: clamp(2.5rem, 7.5vw, 6rem);
   --font-size-title-print: 39pt;
+  --font-size-title-deck: 9.25cqw;
   --font-weight-title: 400;
   --letter-spacing-title: -0.04em;
   --line-height-title: 1.04;
   --font-size-heading: clamp(2.125rem, 5.9375vw, 4.75rem);
   --font-size-heading-print: 31pt;
+  --font-size-heading-deck: 7.4cqw;
   --font-weight-heading: 400;
   --letter-spacing-heading: -0.03em;
   --line-height-heading: 1.08;
   --font-size-subheading: clamp(1.375rem, 2.1875vw, 1.75rem);
   --font-size-subheading-print: 13pt;
+  --font-size-subheading-deck: 4.5cqw;
   --font-weight-subheading: 700;
   --letter-spacing-subheading: -0.02em;
   --line-height-subheading: 1.1;
   --font-size-lead: clamp(1.375rem, 2.96875vw, 2.375rem);
   --font-size-lead-print: 15pt;
+  --font-size-lead-deck: 5cqw;
   --font-weight-lead: 320;
   --line-height-lead: 1.5;
   --font-size-body-large: clamp(1.1875rem, 1.875vw, 1.5rem);
   --font-size-body-large-print: 12pt;
+  --font-size-body-large-deck: 4cqw;
   --font-weight-body-large: 400;
   --line-height-body-large: 1.6;
   --font-size-body: 1.1875rem;
   --font-size-body-print: 9.5pt;
+  --font-size-body-deck: 3.16cqw;
   --font-weight-body: 400;
   --line-height-body: 1.7;
   --font-size-caption: 1.0625rem;
   --font-size-caption-print: 8pt;
+  --font-size-caption-deck: 2.75cqw;
   --font-weight-caption: 400;
   --font-size-label: 0.9375rem;
   --font-size-label-print: 11pt;
+  --font-size-label-deck: 2.5cqw;
   --font-weight-label: 300;
   --letter-spacing-label: 0.28em;
   --font-size-action: 0.9375rem;
   --font-size-action-print: 11pt;
+  --font-size-action-deck: 2.5cqw;
   --font-weight-action: 700;
   --letter-spacing-action: 0.12em;
   --space-4: 0.25rem;
@@ -84,12 +115,21 @@
   --space-144: 9rem;
   --container: 72rem;
   --container-narrow: 52rem;
-  --section-pad: clamp(4rem, 10vw, 9rem);
+  --section-pad: clamp(4rem, 11.25vw, 9rem);
   --header-height: 5rem;
-  --frame-width: clamp(14px, 2.2vw, 32px);
+  --frame-width: clamp(1rem, 2.5vw, 2rem);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --accent-line-width: 7rem;
   --accent-line-height: 0.25rem;
+  --frame-width-deck: 1.95cqw;
+  --accent-line-width-deck: 6.375cqw;
+  --accent-line-height-deck: 0.47cqw;
+  --data-series-0: #FFD700;
+  --data-series-1: #808F85;
+  --data-series-2: #A65430;
+  --data-series-3: #CEDCCA;
+  --data-series-4: #D6A78F;
+  --data-series-5: #293132;
   --gradient-dark-section: linear-gradient(135deg, #202829 0%, #293132 58%, #182122 100%);
   --gradient-ai-section: linear-gradient(135deg, #CEDCCA, #e5eee2 58%, #F6F2ED);
   --shadow-button-hover: 0 4px 0 rgba(41, 49, 50, 0.18);
