@@ -5,7 +5,7 @@
 
 /* ---- Design tokens ----
    Canonical values live in css/tokens.css (Fourmation Design System
-   v0.5.1, loaded before this file). Type roles are used by their
+   v0.6.1, loaded before this file). Type roles are used by their
    design-system names directly (--font-size-title/-heading/-lead/...),
    so there is no local translation layer to drift. This block only
    shortens the colour names the rest of this file already uses. */
@@ -158,7 +158,7 @@ a { color: inherit; }
 .section-dark {
 	--blueprint-line: rgba(255, 255, 255, 0.055);
 	--surface-ink-title: var(--color-teal-me-more-ink-title);
-	--surface-pair: var(--color-teal-me-more-pair);
+	--surface-accent: var(--accent-line-color-teal-me-more);
 	background: var(--gradient-dark-section);
 	color: var(--color-teal-me-more-ink-body);
 }
@@ -179,9 +179,9 @@ a { color: inherit; }
 	width: var(--accent-line-width);
 	height: var(--accent-line-height);
 	margin: 0 0 var(--space-32);
-	/* Each surface declares its own --surface-pair (from the design system's
-	   colors.<surface>.pair); light sections fall back to paper's pair. */
-	background: var(--surface-pair, var(--color-paper-pair));
+	/* Each surface declares its own --surface-accent from the design system's
+	   --accent-line-color-<surface>; light sections fall back to paper's. */
+	background: var(--surface-accent, var(--accent-line-color-paper));
 	transform: scaleX(0);
 	transform-origin: left center;
 	transition: transform 1600ms var(--ease) 350ms;
@@ -212,7 +212,7 @@ a { color: inherit; }
 	top: 0.18em;
 	bottom: 0.18em;
 	width: var(--accent-line-height);
-	background: var(--hey-day);
+	background: var(--accent-line-color-paper);
 }
 
 .button {
@@ -234,7 +234,7 @@ a { color: inherit; }
 
 .button-primary {
 	background: var(--hey-day);
-	color: var(--teal-me-more);
+	color: var(--color-hey-day-ink-body);
 }
 .button-primary:hover { background: #ffe14d; }
 
@@ -316,7 +316,7 @@ a { color: inherit; }
 .nav-menu .nav-cta {
 	padding: var(--space-8) var(--space-16);
 	background: var(--hey-day);
-	color: var(--teal-me-more);
+	color: var(--color-hey-day-ink-body);
 }
 .nav-menu .nav-cta:hover { background: #ffe14d; }
 
@@ -684,25 +684,25 @@ a { color: inherit; }
 	background: var(--glacier);
 	color: var(--color-glacier-ink-body);
 	--surface-ink-title: var(--color-glacier-ink-title);
-	--surface-pair: var(--color-glacier-pair);
+	--surface-accent: var(--accent-line-color-glacier);
 }
 .value-clay {
 	background: var(--clay);
 	color: var(--color-clay-ink-body);
 	--surface-ink-title: var(--color-clay-ink-title);
-	--surface-pair: var(--color-clay-pair);
+	--surface-accent: var(--accent-line-color-clay);
 }
 .value-reign {
 	background: var(--reign);
 	color: var(--color-reign-ink-body);
 	--surface-ink-title: var(--color-reign-ink-title);
-	--surface-pair: var(--color-reign-pair);
+	--surface-accent: var(--accent-line-color-reign);
 }
 .value-terracotta {
 	background: var(--terracotta);
 	color: var(--color-terracotta-ink-body);
 	--surface-ink-title: var(--color-terracotta-ink-title);
-	--surface-pair: var(--color-terracotta-pair);
+	--surface-accent: var(--accent-line-color-terracotta);
 }
 .value h3 { color: var(--surface-ink-title, var(--text)); }
 

@@ -1,8 +1,8 @@
 /* ==========================================================================
    Vendored from: fmtn/design-system, dist/tokens.css
-   Tag:           v0.5.1
-   Commit:        3a103d1a95f2de73a3c626ddc833afb51eedd559
-                  ("Updated exemptions text")
+   Tag:           v0.6.1
+   Commit:        3273e6fb678a0a35862515f43347446d994915e3
+                  ("Updated line-heights")
    Copied:        2026-07-21
    Do not hand-edit. To update: copy dist/tokens.css from a newer tag in
    that repo over this file, then update the Tag/Commit/Copied lines above.
@@ -26,6 +26,9 @@
   --color-clay: #D6A78F;
   --color-text-muted: #5c6667;
   --color-text-on-dark: #E9ECEA;
+  --color-hey-day-ink-title: #293132;
+  --color-hey-day-ink-body: #293132;
+  --color-hey-day-pair: #293132;
   --color-teal-me-more-ink-title: #FFFFFF;
   --color-teal-me-more-ink-body: #E9ECEA;
   --color-teal-me-more-pair: #FFD700;
@@ -61,7 +64,7 @@
   --font-size-title-deck: 9.25cqw;
   --font-weight-title: 400;
   --letter-spacing-title: -0.04em;
-  --line-height-title: 1.04;
+  --line-height-title: 1.12;
   --font-size-heading: clamp(2.125rem, 5.9375vw, 4.75rem);
   --font-size-heading-print: 31pt;
   --font-size-heading-deck: 7.4cqw;
@@ -120,6 +123,14 @@
   --frame-width: clamp(1rem, 2.5vw, 2rem);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --accent-line-width: 7rem;
+  --accent-line-color-hey-day: #293132;
+  --accent-line-color-teal-me-more: #FFD700;
+  --accent-line-color-paper: #FFD700;
+  --accent-line-color-meringue: #FFD700;
+  --accent-line-color-reign: #CEDCCA;
+  --accent-line-color-glacier: #808F85;
+  --accent-line-color-terracotta: #D6A78F;
+  --accent-line-color-clay: #A65430;
   --accent-line-height: 0.25rem;
   --frame-width-deck: 1.95cqw;
   --accent-line-width-deck: 6.375cqw;
