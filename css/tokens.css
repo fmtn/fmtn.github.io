@@ -1,9 +1,9 @@
 /* ==========================================================================
    Vendored from: fmtn/design-system, dist/tokens.css
-   Tag:           v0.6.1
-   Commit:        3273e6fb678a0a35862515f43347446d994915e3
-                  ("Updated line-heights")
-   Copied:        2026-07-21
+   Tag:           v0.6.3
+   Commit:        58eb06377996dd0c0866a58c9237f170f67c7444
+                  ("Updated presentation information")
+   Copied:        2026-08-31
    Do not hand-edit. To update: copy dist/tokens.css from a newer tag in
    that repo over this file, then update the Tag/Commit/Copied lines above.
    To verify this copy still matches that tag, run from this repo root
@@ -116,6 +116,18 @@
   --space-64: 4rem;
   --space-96: 6rem;
   --space-144: 9rem;
+  --radius-0: 0px;
+  --radius-2: 2px;
+  --radius-pill: 999px;
+  --border-width-hairline: 1px;
+  --border-width-standard: 2px;
+  --breakpoint-600: 600px;
+  --breakpoint-720: 720px;
+  --breakpoint-1000: 1000px;
+  --focus-ring-color: #FFD700;
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --focus-ring: 2px solid #FFD700;
   --container: 72rem;
   --container-narrow: 52rem;
   --section-pad: clamp(4rem, 11.25vw, 9rem);

@@ -5,7 +5,7 @@
 
 /* ---- Design tokens ----
    Canonical values live in css/tokens.css (Fourmation Design System
-   v0.6.1, loaded before this file). Type roles are used by their
+   v0.6.3, loaded before this file). Type roles are used by their
    design-system names directly (--font-size-title/-heading/-lead/...),
    so there is no local translation layer to drift. This block only
    shortens the colour names the rest of this file already uses. */
@@ -116,6 +116,24 @@ a { color: inherit; }
 }
 .skip-link:focus { top: 1rem; }
 
+/* Keyboard focus. New in design system v0.6.2: the system defines this ring
+   rather than measuring one off this site, which had none beyond the skip link.
+   Decomposed into width/colour rather than using the composed --focus-ring, so
+   that surfaces filled with hey-day can swap the colour without restating the
+   rule. :focus-visible keeps it off pointer clicks. */
+:focus-visible {
+	outline: var(--focus-ring-width) solid var(--focus-ring-color);
+	outline-offset: var(--focus-ring-offset);
+}
+/* A hey-day ring on a hey-day fill is invisible. hey-day's pair colour is the
+   system's answer for anything drawn on top of it. .lang-toggle turns yellow
+   only on hover, which can coincide with focus. */
+.button-primary:focus-visible,
+.nav-menu .nav-cta:focus-visible,
+.lang-toggle:hover:focus-visible {
+	--focus-ring-color: var(--color-hey-day-pair);
+}
+
 /* ---- Shared building blocks ---- */
 .container {
 	max-width: calc(var(--container) + 2 * var(--pad-x));
@@ -223,7 +241,7 @@ a { color: inherit; }
 	text-transform: uppercase;
 	letter-spacing: var(--letter-spacing-action);
 	text-decoration: none;
-	border: 2px solid transparent;
+	border: var(--border-width-standard) solid transparent;
 	box-shadow: 0 0 0 rgba(255, 215, 0, 0);
 	transition: transform 200ms var(--ease), background-color 200ms, color 200ms, border-color 200ms, box-shadow 200ms;
 }
@@ -329,7 +347,7 @@ a { color: inherit; }
 	min-width: 2.4rem;
 	padding: var(--space-4) var(--space-12);
 	border: 1.5px solid rgba(41, 49, 50, 0.3);
-	border-radius: 999px;
+	border-radius: var(--radius-pill);
 	font-family: var(--font-family-label);
 	font-size: 0.8125rem;
 	font-weight: 600;
@@ -495,8 +513,8 @@ a { color: inherit; }
 	z-index: 1;
 	width: 1.75rem;
 	height: 2.75rem;
-	border: 2px solid rgba(255,255,255,0.7);
-	border-radius: 1rem;
+	border: var(--border-width-standard) solid rgba(255,255,255,0.7);
+	border-radius: var(--radius-pill);
 }
 .scroll-hint span {
 	position: absolute;
@@ -505,7 +523,7 @@ a { color: inherit; }
 	width: 4px;
 	height: 8px;
 	margin-left: -2px;
-	border-radius: 2px;
+	border-radius: var(--radius-2);
 	background: var(--hey-day);
 	animation: scroll-hint 2s infinite var(--ease);
 }
@@ -814,7 +832,7 @@ address { font-style: normal; margin-bottom: var(--space-16); }
 .orgnr { color: var(--text-on-dark); font-size: var(--font-size-caption); opacity: 0.7; }
 
 .footer-bottom {
-	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	border-top: var(--border-width-hairline) solid rgba(255, 255, 255, 0.1);
 	padding: var(--space-24) var(--space-24) calc(var(--space-24) + var(--frame));
 	text-align: center;
 	font-size: 0.875rem;
