@@ -1,9 +1,9 @@
 /* ==========================================================================
    Vendored from: fmtn/design-system, dist/tokens.css
-   Tag:           v0.6.3
-   Commit:        58eb06377996dd0c0866a58c9237f170f67c7444
-                  ("Updated presentation information")
-   Copied:        2026-08-31
+   Tag:           v0.7.0
+   Commit:        e0c8c670199f9c57b572d6947469d01e64dde165
+                  ("Refined texts and sections")
+   Copied:        2026-09-04
    Do not hand-edit. To update: copy dist/tokens.css from a newer tag in
    that repo over this file, then update the Tag/Commit/Copied lines above.
    To verify this copy still matches that tag, run from this repo root
@@ -16,6 +16,7 @@
 @font-face { font-family: 'Work Sans'; src: url('../fonts/worksans-var.woff2') format('woff2'); font-weight: 100 900; font-style: normal; font-display: swap; }
 :root {
   --color-hey-day: #FFD700;
+  --color-hey-day-hover: #FFE14D;
   --color-teal-me-more: #293132;
   --color-paper: #FFFCF6;
   --color-meringue: #F6F2ED;
@@ -28,27 +29,35 @@
   --color-text-on-dark: #E9ECEA;
   --color-hey-day-ink-title: #293132;
   --color-hey-day-ink-body: #293132;
+  --color-hey-day-ink-label: #293132;
   --color-hey-day-pair: #293132;
   --color-teal-me-more-ink-title: #FFFFFF;
   --color-teal-me-more-ink-body: #E9ECEA;
+  --color-teal-me-more-ink-label: #FFD700;
   --color-teal-me-more-pair: #FFD700;
   --color-paper-ink-title: #293132;
   --color-paper-ink-body: #293132;
+  --color-paper-ink-label: #5c6667;
   --color-paper-pair: #FFD700;
   --color-meringue-ink-title: #293132;
   --color-meringue-ink-body: #293132;
+  --color-meringue-ink-label: #5c6667;
   --color-meringue-pair: #FFD700;
   --color-reign-ink-title: #FFFFFF;
   --color-reign-ink-body: #FFFFFF;
+  --color-reign-ink-label: #FFFFFF;
   --color-reign-pair: #CEDCCA;
   --color-glacier-ink-title: #293132;
   --color-glacier-ink-body: #293132;
+  --color-glacier-ink-label: #293132;
   --color-glacier-pair: #808F85;
   --color-terracotta-ink-title: #FFFFFF;
   --color-terracotta-ink-body: #FFFFFF;
+  --color-terracotta-ink-label: #FFFFFF;
   --color-terracotta-pair: #D6A78F;
   --color-clay-ink-title: #293132;
   --color-clay-ink-body: #293132;
+  --color-clay-ink-label: #293132;
   --color-clay-pair: #A65430;
   --font-family-serif: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
   --font-family-sans: 'Montserrat', system-ui, sans-serif;
@@ -106,6 +115,8 @@
   --font-size-action-deck: 2.5cqw;
   --font-weight-action: 700;
   --letter-spacing-action: 0.12em;
+  --measure: 34em;
+  --measure-deck: 24em;
   --space-4: 0.25rem;
   --space-8: 0.5rem;
   --space-12: 0.75rem;
@@ -144,6 +155,16 @@
   --accent-line-color-terracotta: #D6A78F;
   --accent-line-color-clay: #A65430;
   --accent-line-height: 0.25rem;
+  --space-4-deck: 0.3125cqw;
+  --space-8-deck: 0.625cqw;
+  --space-12-deck: 0.9375cqw;
+  --space-16-deck: 1.25cqw;
+  --space-24-deck: 1.875cqw;
+  --space-32-deck: 2.5cqw;
+  --space-48-deck: 3.75cqw;
+  --space-64-deck: 5cqw;
+  --space-96-deck: 7.5cqw;
+  --space-144-deck: 11.25cqw;
   --frame-width-deck: 1.95cqw;
   --accent-line-width-deck: 6.375cqw;
   --accent-line-height-deck: 0.47cqw;

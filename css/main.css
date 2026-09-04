@@ -5,7 +5,7 @@
 
 /* ---- Design tokens ----
    Canonical values live in css/tokens.css (Fourmation Design System
-   v0.6.3, loaded before this file). Type roles are used by their
+   v0.7.0, loaded before this file). Type roles are used by their
    design-system names directly (--font-size-title/-heading/-lead/...),
    so there is no local translation layer to drift. This block only
    shortens the colour names the rest of this file already uses. */
@@ -259,7 +259,7 @@ main[tabindex] { outline: none; }
 	background: var(--hey-day);
 	color: var(--color-hey-day-ink-body);
 }
-.button-primary:hover { background: #ffe14d; }
+.button-primary:hover { background: var(--color-hey-day-hover); }
 
 .button-ghost {
 	border-color: rgba(255, 255, 255, 0.6);
@@ -341,7 +341,7 @@ main[tabindex] { outline: none; }
 	background: var(--hey-day);
 	color: var(--color-hey-day-ink-body);
 }
-.nav-menu .nav-cta:hover { background: #ffe14d; }
+.nav-menu .nav-cta:hover { background: var(--color-hey-day-hover); }
 
 .language-switch { display: flex; align-items: center; }
 
