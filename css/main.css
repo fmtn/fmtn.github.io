@@ -898,8 +898,21 @@ address { font-style: normal; margin-bottom: var(--space-16); }
 		text-align: center;
 	}
 
-	/* Team: two smaller columns instead of one endless one */
-	.team-grid { gap: var(--space-32) var(--space-16); }
+	/* Team: two smaller columns instead of one endless one.
+	   minmax(0, 1fr) instead of 1fr: a plain 1fr carries an implicit minimum of
+	   the content's min-content width, and a Swedish compound like
+	   "Integrationsarkitekt" measures 177px against a ~147px column here, which
+	   pushed the whole grid past the viewport. Hyphenation lets the word break
+	   properly (html[lang] supplies the language); break-word is the net for
+	   anything the hyphenation dictionary does not know. */
+	.team-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: var(--space-32) var(--space-16);
+	}
+	.team-role, .team-skills, .team-card h3 {
+		hyphens: auto;
+		overflow-wrap: break-word;
+	}
 	.team-card img { margin-bottom: var(--space-16); }
 	.team-card h3 { font-size: 1.125rem; }
 	.team-role { font-size: 0.75rem; margin-bottom: var(--space-8); }
