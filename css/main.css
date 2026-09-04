@@ -374,6 +374,13 @@ main[tabindex] { outline: none; }
    Confined to the desktop breakpoint so the mobile overlay never has to
    override any of it. */
 @media (min-width: 1000px) {
+	/* Labels must never break mid-word. The desktop nav switches on at 1000px
+	   but its six labels need ~1030px at the full gap, so 1000-1028px rendered
+	   every item on two lines — 1024px, iPad landscape, sat inside that window.
+	   nowrap makes the constraint explicit; the gap step below supplies the
+	   missing width instead of letting the text absorb it. */
+	.nav-menu a { white-space: nowrap; }
+
 	.nav-menu a:not(.nav-cta):not(.lang-toggle) { color: rgba(255, 255, 255, 0.85); }
 	.nav-menu a:not(.nav-cta):not(.lang-toggle):hover,
 	.nav-menu a:not(.nav-cta):not(.lang-toggle).current { color: var(--hey-day); }
@@ -394,6 +401,12 @@ main[tabindex] { outline: none; }
 		color: var(--teal-me-more);
 		border-color: var(--hey-day);
 	}
+}
+
+/* One step down the spacing scale buys the ~28px the nav is short of just
+   above its own breakpoint. Above 1100px there is room for the full gap. */
+@media (min-width: 1000px) and (max-width: 1099px) {
+	.nav-menu { gap: var(--space-24); }
 }
 
 .nav-toggle {
