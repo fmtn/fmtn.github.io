@@ -176,11 +176,18 @@ main[tabindex] { outline: none; }
 }
 .section[id] { scroll-margin-top: calc(var(--header-h) + var(--frame)); }
 
-.section-white { background: var(--paper); }
-.section-meringue { background: var(--meringue); }
+.section-white {
+	background: var(--paper);
+	--surface-ink-label: var(--color-paper-ink-label);
+}
+.section-meringue {
+	background: var(--meringue);
+	--surface-ink-label: var(--color-meringue-ink-label);
+}
 .section-dark {
 	--blueprint-line: rgba(255, 255, 255, 0.055);
 	--surface-ink-title: var(--color-teal-me-more-ink-title);
+	--surface-ink-label: var(--color-teal-me-more-ink-label);
 	--surface-accent: var(--accent-line-color-teal-me-more);
 	background: var(--gradient-dark-section);
 	color: var(--color-teal-me-more-ink-body);
@@ -194,8 +201,13 @@ main[tabindex] { outline: none; }
 	text-transform: uppercase;
 	letter-spacing: var(--letter-spacing-label);
 	margin-bottom: var(--space-16);
+	/* Each surface declares --surface-ink-label from the design system's
+	   --color-<surface>-ink-label. It repeats the body ink everywhere except on
+	   the dark base, where it is hey-day, and on paper and meringue, where it
+	   recedes to text-muted so the heading carries the weight. An unclassed
+	   surface is paper. */
+	color: var(--surface-ink-label, var(--color-paper-ink-label));
 }
-.section-dark .eyebrow { color: var(--hey-day); }
 
 .accent-line {
 	display: block;
@@ -497,7 +509,8 @@ main[tabindex] { outline: none; }
 	padding: var(--space-96) var(--pad-x) var(--space-64);
 	max-width: calc(72rem + 2 * var(--pad-x));
 }
-.hero-content .eyebrow { color: var(--hey-day); }
+/* The hero reads as the dark base: a photo behind a dark overlay. */
+.hero-content { --surface-ink-label: var(--color-teal-me-more-ink-label); }
 .hero h1 {
 	font-family: var(--serif);
 	font-size: var(--font-size-title);
@@ -513,6 +526,12 @@ main[tabindex] { outline: none; }
 	font-weight: 300;
 	font-size: var(--font-size-body-large);
 	line-height: var(--line-height-body-large);
+	/* Not var(--measure). The measure is 34em, which holds a constant character
+	   count within one typeface but not across three: measured here, 34em is 67
+	   characters in Montserrat, 65 in Libre Baskerville and 75 in Work Sans Light
+	   — and this is the only Work Sans block on the site. At 34em this centred
+	   lead runs to 76 characters and grows wider than the headline above it. 46rem
+	   holds it to 68, which is what the measure means everywhere else. */
 	max-width: 46rem;
 	margin: 0 auto var(--space-48);
 }
@@ -580,13 +599,14 @@ main[tabindex] { outline: none; }
 }
 .service p {
 	color: var(--text-on-dark);
-	max-width: 32rem;
+	max-width: var(--measure);
 	line-height: var(--line-height-body);
 }
 
 /* ---- AI ---- */
 .section-ai {
 	--blueprint-line: rgba(41, 49, 50, 0.065);
+	--surface-ink-label: var(--color-glacier-ink-label);
 	background: var(--gradient-ai-section);
 	position: relative;
 	overflow: hidden;
@@ -668,7 +688,7 @@ main[tabindex] { outline: none; }
 	font-size: var(--font-size-body);
 	font-weight: var(--font-weight-body);
 	line-height: var(--line-height-body);
-	max-width: 46rem;
+	max-width: var(--measure);
 	margin-inline: auto;
 	margin-bottom: clamp(var(--space-32), 4vw, var(--space-48));
 	color: color-mix(in srgb, var(--teal-me-more) 82%, transparent);
@@ -677,7 +697,7 @@ main[tabindex] { outline: none; }
 	font-size: var(--font-size-body-large);
 	font-weight: var(--font-weight-body-large);
 	line-height: var(--line-height-body-large);
-	max-width: 48rem;
+	max-width: var(--measure);
 	margin-inline: auto;
 	margin-bottom: var(--space-24);
 }
@@ -819,7 +839,7 @@ main[tabindex] { outline: none; }
 	text-underline-offset: 6px;
 }
 .contact-email a:hover { color: var(--hey-day); }
-.contact-intro { max-width: 42rem; color: var(--text-on-dark); }
+.contact-intro { max-width: var(--measure); color: var(--text-on-dark); }
 .contact-phone {
 	color: var(--text-on-dark);
 	font-size: 1.125rem;
