@@ -8,8 +8,9 @@
 	<meta name="description" content="Fourmation är en teknisk arkitektbyrå i Göteborg. Seniora arkitekter inom integration, API:er, cloud native, mjukvaruutveckling och AI.">
 	<meta name="author" content="Fourmation">
 
-	<meta property="og:url" content="https://fourmation.se">
+	<meta property="og:url" content="https://fourmation.se/">
 	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Fourmation">
 	<meta property="og:title" content="Fourmation — Arkitektur för verkligheten">
 	<meta property="og:image" content="https://fourmation.se/images/fourmation_facebook_share.jpg">
 	<meta property="og:description" content="Seniora arkitekter inom integration, API:er, cloud native, mjukvaruutveckling och AI. Göteborg.">
@@ -37,11 +38,12 @@
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
-		"@type": "Organization",
+		"@type": "LocalBusiness",
 		"name": "Fourmation",
 		"description": "Teknisk arkitektbyrå inom integration, API:er, cloud native, mjukvaruutveckling och AI",
-		"url": "https://fourmation.se",
+		"url": "https://fourmation.se/",
 		"logo": "https://fourmation.se/images/logo-square-white-on-yellow-rgb.png",
+		"image": "https://fourmation.se/images/fourmation_facebook_share.jpg",
 		"email": "hello@fourmation.se",
 		"telephone": "+4631131480",
 		"address": {
@@ -62,7 +64,7 @@
 
 <body>
 
-	<a class="skip-link" href="#about">Hoppa till innehållet</a>
+	<a class="skip-link" href="#main">Hoppa till innehållet</a>
 
 	<header class="site-header" id="top">
 		<div class="header-inner">
@@ -91,7 +93,7 @@
 		</div>
 	</header>
 
-	<main>
+	<main id="main" tabindex="-1">
 
 		<!-- Hero -->
 		<section class="hero">
@@ -115,6 +117,7 @@
 		<!-- About -->
 		<section id="about" class="section section-white">
 			<div class="container narrow reveal">
+				<h2 class="visually-hidden">Om Fourmation</h2>
 				<p class="lead">Fourmation är en konsultbyrå bestående av seniora arkitekter. Vi arbetar där teknikvalen får verkliga konsekvenser — mellan system, team, molnplattformar och verksamheter.</p>
 				<p class="lead">Vårt arbete kan börja i en strategisk riktning, ett krånglande flöde eller en kodbas som behöver komma vidare. Oavsett storlek slutar det med något som fungerar i produktion.</p>
 				<p class="lead lead-emphasis">Vi analyserar, ritar, bygger och förbättrar — och tar ansvar hela vägen.</p>
@@ -311,12 +314,15 @@
 					<p class="orgnr">Org.nr 559037-4376</p>
 				</div>
 			</div>
-			<div class="footer-bottom">
-				<p>&copy; <span id="year">2026</span> Fourmation AB</p>
-			</div>
 		</section>
 
 	</main>
+
+	<footer class="site-footer section-dark">
+		<div class="footer-bottom">
+			<p>&copy; <span id="year">2026</span> Fourmation AB</p>
+		</div>
+	</footer>
 
 	<script src="js/main.js" defer></script>
 </body>

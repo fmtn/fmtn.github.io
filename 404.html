@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sidan finns inte — Fourmation</title>
+	<meta name="robots" content="noindex, follow">
+	<meta name="theme-color" content="#293132">
+
+	<link rel="icon" type="image/png" href="/images/favicon.png">
+	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+	<!-- SELF-CONTAINED BY DESIGN. Everything this page needs to look right is in
+	     the style block below, and it references no external stylesheet or image.
+	     The reason is that GitHub Pages serves this one file for every unmatched
+	     path: at /a/b/c a relative href would resolve to /a/b/css/, and a
+	     root-absolute one breaks when the file is opened straight off disk over
+	     file://. A page whose whole job is to appear when a URL is wrong should
+	     not itself depend on a URL resolving.
+
+	     The consequence is a copy of the design tokens this page uses, listed
+	     below. It is the one place in this repo where tokens are duplicated
+	     rather than read from css/tokens.css, so when a value changes there,
+	     change it here too. Only the fonts and the favicon load from the server,
+	     and both degrade silently: opened locally the page falls back to Georgia
+	     and system-ui and still lays out correctly. -->
+	<style>
+		@font-face { font-family: 'Libre Baskerville'; src: url('/fonts/libre-baskerville.woff2') format('woff2'); font-weight: 400 700; font-style: normal; font-display: swap; }
+		@font-face { font-family: 'Montserrat'; src: url('/fonts/montserrat-var.woff2') format('woff2'); font-weight: 100 900; font-style: normal; font-display: swap; }
+		@font-face { font-family: 'Work Sans'; src: url('/fonts/worksans-var.woff2') format('woff2'); font-weight: 100 900; font-style: normal; font-display: swap; }
+
+		:root {
+			/* copied from css/tokens.css — see the note above */
+			--serif: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+			--sans: 'Montserrat', system-ui, sans-serif;
+			--label: 'Work Sans', sans-serif;
+			--ink-title: #FFFFFF;
+			--ink-body: #E9ECEA;
+			--hey-day: #FFD700;
+			--hey-day-hover: #FFE14D;
+			--teal-me-more: #293132;
+			--white: #FFFFFF;
+			--dark-surface: linear-gradient(135deg, #202829 0%, #293132 58%, #182122 100%);
+			--accent: #FFD700;
+			--space-16: 1rem;
+			--space-24: 1.5rem;
+			--space-32: 2rem;
+			--space-48: 3rem;
+			--space-96: 6rem;
+			--frame: clamp(1rem, 2.5vw, 2rem);
+			--pad-x: calc(var(--frame) + clamp(1rem, 2.5vw, 2rem));
+			--container-narrow: 52rem;
+			--ease: cubic-bezier(0.22, 1, 0.36, 1);
+			--hairline: 1px;
+		}
+
+		*, *::before, *::after { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			min-height: 100vh;
+			display: grid;
+			place-items: center;
+			font-family: var(--sans);
+			font-size: 1.1875rem;
+			font-weight: 400;
+			line-height: 1.7;
+			color: var(--ink-body);
+			background: var(--dark-surface);
+		}
+
+		/* Signature white frame, same as the rest of the site */
+		body::after {
+			content: '';
+			position: fixed;
+			inset: 0;
+			border: var(--frame) solid var(--white);
+			pointer-events: none;
+			z-index: 90;
+		}
+
+		.wrap {
+			width: 100%;
+			max-width: var(--container-narrow);
+			margin-inline: auto;
+			padding: var(--space-96) var(--pad-x);
+		}
+
+		/* The wordmark as live text rather than the PNG, so the page needs no
+		   image to look finished. Matches the header's letter-spaced treatment. */
+		.wordmark {
+			display: inline-block;
+			margin-bottom: var(--space-48);
+			font-weight: 700;
+			font-size: 1rem;
+			letter-spacing: 0.22em;
+			text-transform: uppercase;
+			text-decoration: none;
+			color: var(--white);
+		}
+		.wordmark:hover { color: var(--hey-day); }
+
+		.eyebrow {
+			font-family: var(--label);
+			font-weight: 300;
+			font-size: 0.9375rem;
+			text-transform: uppercase;
+			letter-spacing: 0.28em;
+			margin: 0 0 var(--space-16);
+			color: var(--hey-day);
+		}
+
+		h1 {
+			font-family: var(--serif);
+			font-size: clamp(2.125rem, 5.9375vw, 4.75rem);
+			font-weight: 400;
+			letter-spacing: -0.03em;
+			line-height: 1.08;
+			color: var(--ink-title);
+			margin: 0 0 var(--space-32);
+			text-wrap: balance;
+		}
+
+		.accent-line {
+			display: block;
+			width: 7rem;
+			height: 0.25rem;
+			margin: 0 0 var(--space-32);
+			background: var(--accent);
+		}
+
+		.lead {
+			font-size: clamp(1.1875rem, 1.875vw, 1.5rem);
+			line-height: 1.6;
+			margin: 0;
+			text-wrap: balance;
+		}
+
+		.actions {
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--space-16);
+			margin-top: var(--space-48);
+		}
+
+		.button {
+			display: inline-block;
+			padding: var(--space-16) var(--space-32);
+			font-weight: 700;
+			font-size: 0.9375rem;
+			text-transform: uppercase;
+			letter-spacing: 0.12em;
+			text-decoration: none;
+			border: 2px solid transparent;
+			transition: transform 200ms var(--ease), background-color 200ms, color 200ms, border-color 200ms, box-shadow 200ms;
+		}
+		.button:hover { transform: translateY(-2px); box-shadow: 0 4px 0 rgba(41, 49, 50, 0.18); }
+		.button-primary { background: var(--hey-day); color: var(--teal-me-more); }
+		.button-primary:hover { background: var(--hey-day-hover); }
+		.button-ghost { border-color: rgba(255, 255, 255, 0.6); color: var(--white); }
+		.button-ghost:hover { border-color: var(--white); background: rgba(255, 255, 255, 0.1); }
+
+		.alt {
+			margin-top: var(--space-96);
+			padding-top: var(--space-32);
+			border-top: var(--hairline) solid rgba(255, 255, 255, 0.1);
+			font-size: 1rem;
+			opacity: 0.75;
+		}
+		.alt a { color: var(--hey-day); }
+
+		:focus-visible { outline: 2px solid var(--hey-day); outline-offset: 2px; }
+		.button-primary:focus-visible { outline-color: var(--teal-me-more); }
+
+		@media (prefers-reduced-motion: reduce) {
+			.button:hover { transform: none; }
+		}
+	</style>
+</head>
+
+<body>
+	<main class="wrap">
+		<a class="wordmark" href="/">Fourmation</a>
+
+		<p class="eyebrow">Fel 404</p>
+		<h1>Den här sidan finns inte</h1>
+		<span class="accent-line" aria-hidden="true"></span>
+
+		<p class="lead">Länken du följde leder ingenstans — den kan ha flyttat, eller aldrig ha funnits.
+			Ingen fara, det är sällan användarens fel när en adress inte stämmer.</p>
+
+		<div class="actions">
+			<a class="button button-primary" href="/">Till startsidan</a>
+			<a class="button button-ghost" href="/#contact">Kontakta oss</a>
+		</div>
+
+		<div class="alt" lang="en">
+			<p><strong>Page not found.</strong> The link you followed doesn&rsquo;t lead anywhere.
+				<a href="/en/">Go to the English homepage</a>.</p>
+		</div>
+	</main>
+</body>
+
+</html>

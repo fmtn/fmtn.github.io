@@ -10,6 +10,7 @@
 
 	<meta property="og:url" content="https://fourmation.se/en/">
 	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Fourmation">
 	<meta property="og:title" content="Fourmation — Architecture for the real world">
 	<meta property="og:image" content="https://fourmation.se/images/fourmation_facebook_share.jpg">
 	<meta property="og:description" content="Senior architects in integration, APIs, cloud native, software engineering and AI. Gothenburg, Sweden.">
@@ -37,11 +38,12 @@
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
-		"@type": "Organization",
+		"@type": "LocalBusiness",
 		"name": "Fourmation",
 		"description": "Technology architecture practice specialising in integration, APIs, cloud native, software engineering and AI",
-		"url": "https://fourmation.se",
+		"url": "https://fourmation.se/",
 		"logo": "https://fourmation.se/images/logo-square-white-on-yellow-rgb.png",
+		"image": "https://fourmation.se/images/fourmation_facebook_share.jpg",
 		"email": "hello@fourmation.se",
 		"telephone": "+4631131480",
 		"address": {
@@ -62,7 +64,7 @@
 
 <body>
 
-	<a class="skip-link" href="#about">Skip to content</a>
+	<a class="skip-link" href="#main">Skip to content</a>
 
 	<header class="site-header" id="top">
 		<div class="header-inner">
@@ -91,7 +93,7 @@
 		</div>
 	</header>
 
-	<main>
+	<main id="main" tabindex="-1">
 
 		<!-- Hero -->
 		<section class="hero">
@@ -115,6 +117,7 @@
 		<!-- About -->
 		<section id="about" class="section section-white">
 			<div class="container narrow reveal">
+				<h2 class="visually-hidden">About Fourmation</h2>
 				<p class="lead">Fourmation is a consultancy of senior architects. We work where technology choices have real consequences — across systems, teams, cloud platforms and organisations.</p>
 				<p class="lead">Our work can begin with a strategic direction, a troublesome flow or a codebase that needs to move forward. Whatever the size, it ends with something running in production.</p>
 				<p class="lead lead-emphasis">We analyse, design, build and improve — and take responsibility from the first decision to production.</p>
@@ -311,12 +314,15 @@
 					<p class="orgnr">Org.nr 559037-4376</p>
 				</div>
 			</div>
-			<div class="footer-bottom">
-				<p>&copy; <span id="year">2026</span> Fourmation AB</p>
-			</div>
 		</section>
 
 	</main>
+
+	<footer class="site-footer section-dark">
+		<div class="footer-bottom">
+			<p>&copy; <span id="year">2026</span> Fourmation AB</p>
+		</div>
+	</footer>
 
 	<script src="../js/main.js" defer></script>
 </body>

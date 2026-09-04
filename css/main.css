@@ -134,6 +134,11 @@ a { color: inherit; }
 	--focus-ring-color: var(--color-hey-day-pair);
 }
 
+/* Skip-link target. main carries tabindex="-1" only so the skip link moves
+   focus and not merely the viewport; it must never draw the focus ring around
+   the entire page. */
+main[tabindex] { outline: none; }
+
 /* ---- Shared building blocks ---- */
 .container {
 	max-width: calc(var(--container) + 2 * var(--pad-x));
@@ -839,6 +844,11 @@ address { font-style: normal; margin-bottom: var(--space-16); }
 	opacity: 0.6;
 }
 .footer-bottom p { margin: 0; }
+
+/* Page footer. Lives outside main so it is a contentinfo landmark, which means
+   it carries the dark surface itself rather than inheriting it from the contact
+   section it used to sit inside. */
+.site-footer { position: relative; }
 
 /* ---- Scroll reveal ---- */
 .reveal {
