@@ -5,7 +5,7 @@
 
 /* ---- Design tokens ----
    Canonical values live in css/tokens.css (Fourmation Design System
-   v0.7.0, loaded before this file). Type roles are used by their
+   v0.8.0, loaded before this file). Type roles are used by their
    design-system names directly (--font-size-title/-heading/-lead/...),
    so there is no local translation layer to drift. This block only
    shortens the colour names the rest of this file already uses. */
@@ -57,7 +57,7 @@ body::after {
 	inset: 0;
 	border: var(--frame) solid var(--white);
 	pointer-events: none;
-	z-index: 90;
+	z-index: var(--layer-frame);
 }
 
 h1, h2, h3 {
@@ -107,7 +107,7 @@ a { color: inherit; }
 	position: absolute;
 	top: -100%;
 	left: 1rem;
-	z-index: 100;
+	z-index: var(--layer-toast);
 	padding: var(--space-12) var(--space-16);
 	background: var(--teal-me-more);
 	color: var(--white);
@@ -165,7 +165,7 @@ main[tabindex] { outline: none; }
 }
 .section > * {
 	position: relative;
-	z-index: 1;
+	z-index: var(--layer-raised);
 }
 /* light sections inherit the base 0.22; only the darker surfaces differ */
 .section-dark::before {
@@ -283,7 +283,7 @@ main[tabindex] { outline: none; }
 .site-header {
 	position: fixed;
 	inset: var(--frame) var(--frame) auto;
-	z-index: 50;
+	z-index: var(--layer-nav);
 	transition: background-color 300ms, box-shadow 300ms;
 }
 .header-inner {
@@ -297,7 +297,7 @@ main[tabindex] { outline: none; }
 	margin-inline: auto;
 	padding-inline: var(--pad-x-extra);
 }
-.logo { display: block; position: relative; z-index: 60; }
+.logo { display: block; position: relative; z-index: var(--layer-dropdown); }
 .logo img { width: 10rem; height: auto; }
 .logo .logo-dark { display: none; }
 
@@ -440,7 +440,7 @@ main[tabindex] { outline: none; }
 .site-header.nav-open .nav-toggle-bar { background: var(--text); }
 
 @media (max-width: 999px) {
-	.nav-toggle { display: flex; position: relative; z-index: 60; }
+	.nav-toggle { display: flex; position: relative; z-index: var(--layer-dropdown); }
 	.nav-menu {
 		position: fixed;
 		inset: 0;
@@ -504,7 +504,7 @@ main[tabindex] { outline: none; }
 }
 .hero-content {
 	position: relative;
-	z-index: 1;
+	z-index: var(--layer-raised);
 	text-align: center;
 	padding: var(--space-96) var(--pad-x) var(--space-64);
 	max-width: calc(72rem + 2 * var(--pad-x));
@@ -547,7 +547,7 @@ main[tabindex] { outline: none; }
 	bottom: calc(1.25rem + var(--frame));
 	left: 50%;
 	transform: translateX(-50%);
-	z-index: 1;
+	z-index: var(--layer-raised);
 	width: 1.75rem;
 	height: 2.75rem;
 	border: var(--border-width-standard) solid rgba(255,255,255,0.7);
@@ -585,8 +585,8 @@ main[tabindex] { outline: none; }
 	.service-grid { grid-template-columns: 1fr; }
 }
 .service-icon {
-	width: 3.5rem;
-	height: 3.5rem;
+	width: var(--icon-feature-square);
+	height: var(--icon-feature-square);
 	margin-bottom: var(--space-24);
 	fill: var(--hey-day);
 	stroke: var(--hey-day);
@@ -624,7 +624,7 @@ main[tabindex] { outline: none; }
 }
 .ai-layout {
 	position: relative;
-	z-index: 1;
+	z-index: var(--layer-raised);
 	display: grid;
 	grid-template-columns: 1.15fr 0.85fr;
 	gap: clamp(var(--space-48), 8vw, var(--space-144));
@@ -870,7 +870,7 @@ address { font-style: normal; margin-bottom: var(--space-16); }
 .orgnr { color: var(--text-on-dark); font-size: var(--font-size-caption); opacity: 0.7; }
 
 .footer-bottom {
-	border-top: var(--border-width-hairline) solid rgba(255, 255, 255, 0.1);
+	border-top: var(--border-width-hairline) solid var(--rule-hairline-color-teal-me-more);
 	padding: var(--space-24) var(--space-24) calc(var(--space-24) + var(--frame));
 	text-align: center;
 	font-size: 0.875rem;

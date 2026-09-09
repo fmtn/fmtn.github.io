@@ -1,9 +1,9 @@
 /* ==========================================================================
    Vendored from: fmtn/design-system, dist/tokens.css
-   Tag:           v0.7.0
-   Commit:        e0c8c670199f9c57b572d6947469d01e64dde165
-                  ("Refined texts and sections")
-   Copied:        2026-09-04
+   Tag:           v0.8.0
+   Commit:        e0c68bec20dad85086d595e6e7a898e536b6a925
+                  ("Added CV and web-portal information")
+   Copied:        2026-09-09
    Do not hand-edit. To update: copy dist/tokens.css from a newer tag in
    that repo over this file, then update the Tag/Commit/Copied lines above.
    To verify this copy still matches that tag, run from this repo root
@@ -65,54 +65,64 @@
   --font-size-display: clamp(2.75rem, 7.96875vw, 6.375rem);
   --font-size-display-print: 42pt;
   --font-size-display-deck: 9.83cqw;
+  --font-size-display-doc: 32pt;
   --font-weight-display: 400;
   --letter-spacing-display: -0.045em;
   --line-height-display: 1.12;
   --font-size-title: clamp(2.5rem, 7.5vw, 6rem);
   --font-size-title-print: 39pt;
   --font-size-title-deck: 9.25cqw;
+  --font-size-title-doc: 24pt;
   --font-weight-title: 400;
   --letter-spacing-title: -0.04em;
   --line-height-title: 1.12;
   --font-size-heading: clamp(2.125rem, 5.9375vw, 4.75rem);
   --font-size-heading-print: 31pt;
   --font-size-heading-deck: 7.4cqw;
+  --font-size-heading-doc: 15pt;
   --font-weight-heading: 400;
   --letter-spacing-heading: -0.03em;
   --line-height-heading: 1.08;
   --font-size-subheading: clamp(1.375rem, 2.1875vw, 1.75rem);
   --font-size-subheading-print: 13pt;
   --font-size-subheading-deck: 4.5cqw;
+  --font-size-subheading-doc: 11.5pt;
   --font-weight-subheading: 700;
   --letter-spacing-subheading: -0.02em;
   --line-height-subheading: 1.1;
   --font-size-lead: clamp(1.375rem, 2.96875vw, 2.375rem);
   --font-size-lead-print: 15pt;
   --font-size-lead-deck: 5cqw;
+  --font-size-lead-doc: 13pt;
   --font-weight-lead: 320;
   --line-height-lead: 1.5;
   --font-size-body-large: clamp(1.1875rem, 1.875vw, 1.5rem);
   --font-size-body-large-print: 12pt;
   --font-size-body-large-deck: 4cqw;
+  --font-size-body-large-doc: 10.5pt;
   --font-weight-body-large: 400;
   --line-height-body-large: 1.6;
   --font-size-body: 1.1875rem;
   --font-size-body-print: 9.5pt;
   --font-size-body-deck: 3.16cqw;
+  --font-size-body-doc: 9pt;
   --font-weight-body: 400;
   --line-height-body: 1.7;
   --font-size-caption: 1.0625rem;
   --font-size-caption-print: 8pt;
   --font-size-caption-deck: 2.75cqw;
+  --font-size-caption-doc: 7.5pt;
   --font-weight-caption: 400;
   --font-size-label: 0.9375rem;
   --font-size-label-print: 11pt;
   --font-size-label-deck: 2.5cqw;
+  --font-size-label-doc: 10pt;
   --font-weight-label: 300;
   --letter-spacing-label: 0.28em;
   --font-size-action: 0.9375rem;
   --font-size-action-print: 11pt;
   --font-size-action-deck: 2.5cqw;
+  --font-size-action-doc: 10pt;
   --font-weight-action: 700;
   --letter-spacing-action: 0.12em;
   --measure: 34em;
@@ -135,10 +145,31 @@
   --breakpoint-600: 600px;
   --breakpoint-720: 720px;
   --breakpoint-1000: 1000px;
+  --font-size-display-fixed: 2.75rem;
+  --font-size-title-fixed: 2.5rem;
+  --font-size-heading-fixed: 2.125rem;
+  --font-size-subheading-fixed: 1.375rem;
+  --font-size-lead-fixed: 1.375rem;
+  --font-size-body-large-fixed: 1.1875rem;
+  --layer-content: 0;
+  --layer-raised: 10;
+  --layer-nav: 50;
+  --layer-dropdown: 60;
+  --layer-scrim: 70;
+  --layer-dialog: 80;
+  --layer-frame: 90;
+  --layer-toast: 100;
+  --icon-size-inline: 1rem;
+  --icon-size-control: 1.5rem;
+  --icon-stroke: 2px;
+  --icon-gap: 0.25rem;
+  --icon-feature-square: 3.5rem;
   --focus-ring-color: #FFD700;
   --focus-ring-width: 2px;
   --focus-ring-offset: 2px;
   --focus-ring: 2px solid #FFD700;
+  --focus-ring-outer-color: #293132;
+  --focus-ring-outer-width: 1px;
   --container: 72rem;
   --container-narrow: 52rem;
   --section-pad: clamp(4rem, 11.25vw, 9rem);
@@ -155,6 +186,14 @@
   --accent-line-color-terracotta: #D6A78F;
   --accent-line-color-clay: #A65430;
   --accent-line-height: 0.25rem;
+  --rule-hairline-color-hey-day: #E1C007;
+  --rule-hairline-color-teal-me-more: #444B4C;
+  --rule-hairline-color-paper: #E1E0DB;
+  --rule-hairline-color-meringue: #D9D7D3;
+  --rule-hairline-color-reign: #929F96;
+  --rule-hairline-color-glacier: #B7C4B5;
+  --rule-hairline-color-terracotta: #B26C4D;
+  --rule-hairline-color-clay: #BE9682;
   --space-4-deck: 0.3125cqw;
   --space-8-deck: 0.625cqw;
   --space-12-deck: 0.9375cqw;
@@ -168,6 +207,27 @@
   --frame-width-deck: 1.95cqw;
   --accent-line-width-deck: 6.375cqw;
   --accent-line-height-deck: 0.47cqw;
+  --space-4-doc: 1.86pt;
+  --space-8-doc: 3.72pt;
+  --space-12-doc: 5.58pt;
+  --space-16-doc: 7.44pt;
+  --space-24-doc: 11.2pt;
+  --space-32-doc: 14.9pt;
+  --space-48-doc: 22.3pt;
+  --space-64-doc: 29.8pt;
+  --space-96-doc: 44.6pt;
+  --space-144-doc: 67pt;
+  --frame-width-doc: 0.161in;
+  --accent-line-width-doc: 0.527in;
+  --accent-line-height-doc: 2.8pt;
+  --document-margin: 20mm;
+  --status-error: #6E2A36;
+  --status-error-on-dark: #CF818F;
+  --status-success: #1E6E4A;
+  --status-success-on-dark: #2EAA72;
+  --status-warning: #7E6A15;
+  --status-warning-on-dark: #B2961E;
+  --status-ink-on-fill: #FFFFFF;
   --data-series-0: #FFD700;
   --data-series-1: #808F85;
   --data-series-2: #A65430;
