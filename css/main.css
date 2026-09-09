@@ -595,9 +595,10 @@ main[tabindex] { outline: none; }
 /* ---- AI ---- */
 .section-ai {
 	--blueprint-line: rgba(41, 49, 50, 0.065);
-	/* A gradient cannot be a ring colour; the 2px gap takes the gradient's mid
-	   tone, which is imperceptibly off at that width. */
-	--surface-bg: #e5eee2;
+	/* A gradient cannot be a ring colour, so the ground hook takes meringue —
+	   the gradient's own end stop, and the choice the design system makes for
+	   this surface. At the 2px the focus ring uses it is exact enough. */
+	--surface-bg: var(--meringue);
 	--surface-ink-label: var(--color-glacier-ink-label);
 	background: var(--gradient-ai-section);
 	position: relative;
