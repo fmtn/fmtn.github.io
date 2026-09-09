@@ -116,24 +116,6 @@ a { color: inherit; }
 }
 .skip-link:focus { top: 1rem; }
 
-/* Keyboard focus. New in design system v0.6.2: the system defines this ring
-   rather than measuring one off this site, which had none beyond the skip link.
-   Decomposed into width/colour rather than using the composed --focus-ring, so
-   that surfaces filled with hey-day can swap the colour without restating the
-   rule. :focus-visible keeps it off pointer clicks. */
-:focus-visible {
-	outline: var(--focus-ring-width) solid var(--focus-ring-color);
-	outline-offset: var(--focus-ring-offset);
-}
-/* A hey-day ring on a hey-day fill is invisible. hey-day's pair colour is the
-   system's answer for anything drawn on top of it. .lang-toggle turns yellow
-   only on hover, which can coincide with focus. */
-.button-primary:focus-visible,
-.nav-menu .nav-cta:focus-visible,
-.lang-toggle:hover:focus-visible {
-	--focus-ring-color: var(--color-hey-day-pair);
-}
-
 /* Skip-link target. main carries tabindex="-1" only so the skip link moves
    focus and not merely the viewport; it must never draw the focus ring around
    the entire page. */
@@ -178,14 +160,17 @@ main[tabindex] { outline: none; }
 
 .section-white {
 	background: var(--paper);
+	--surface-bg: var(--paper);
 	--surface-ink-label: var(--color-paper-ink-label);
 }
 .section-meringue {
 	background: var(--meringue);
+	--surface-bg: var(--meringue);
 	--surface-ink-label: var(--color-meringue-ink-label);
 }
 .section-dark {
 	--blueprint-line: rgba(255, 255, 255, 0.055);
+	--surface-bg: var(--teal-me-more);
 	--surface-ink-title: var(--color-teal-me-more-ink-title);
 	--surface-ink-label: var(--color-teal-me-more-ink-label);
 	--surface-accent: var(--accent-line-color-teal-me-more);
@@ -301,6 +286,10 @@ main[tabindex] { outline: none; }
 .logo img { width: 10rem; height: auto; }
 .logo .logo-dark { display: none; }
 
+.site-header.scrolled,
+.site-header.nav-open {
+	--surface-bg: var(--white);
+}
 .site-header.scrolled {
 	background: var(--white);
 	box-shadow: var(--shadow-header-scrolled);
@@ -606,6 +595,9 @@ main[tabindex] { outline: none; }
 /* ---- AI ---- */
 .section-ai {
 	--blueprint-line: rgba(41, 49, 50, 0.065);
+	/* A gradient cannot be a ring colour; the 2px gap takes the gradient's mid
+	   tone, which is imperceptibly off at that width. */
+	--surface-bg: #e5eee2;
 	--surface-ink-label: var(--color-glacier-ink-label);
 	background: var(--gradient-ai-section);
 	position: relative;
@@ -952,4 +944,55 @@ address { font-style: normal; margin-bottom: var(--space-16); }
 	.scroll-hint span { animation: none; }
 	.flock g { animation: none; }
 	.button:hover, .team-card:hover img { transform: none; }
+}
+
+/* ---- Keyboard focus ----
+   THIS BLOCK MUST STAY LAST. :focus-visible is a single pseudo-class, so it
+   carries the same specificity as .button — and the later rule wins a tie.
+   With the block placed earlier, .button's own box-shadow beat the ring and the
+   indicator vanished on every light surface while still working on the dark
+   ones, because there the .hero/.section-dark descendant selectors outranked it.
+   Anything added below this comment has to be checked against that. */
+/* Keyboard focus, two-tone per the design system's focus.contrastNote. A
+   hey-day ring alone does not clear the 3:1 a focus indicator needs against the
+   colour next to it — measured here it is 1.37:1 on paper, 1.26:1 on meringue
+   and 1.02:1 on the AI gradient's glacier end, which is effectively invisible.
+   So the ring is three rings in one box-shadow: the surface colour at the offset
+   distance, the hey-day band, then a 1px teal-me-more line that carries the
+   contrast while hey-day carries the brand. The transparent outline is the
+   forced-colors fallback — box-shadow is not painted in that mode, an outline
+   is, and the browser gives a transparent one a visible colour there. */
+:focus-visible {
+	outline: var(--focus-ring-width) solid transparent;
+	outline-offset: var(--focus-ring-offset);
+	/* The stack lives in its own property so a surface can shorten it and a
+	   hover state can extend it without either restating the geometry. */
+	--ring-stack:
+		0 0 0 var(--focus-ring-offset) var(--surface-bg, var(--paper)),
+		0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--focus-ring-color),
+		0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width) + var(--focus-ring-outer-width))
+			var(--focus-ring-outer-color);
+	box-shadow: var(--ring-stack);
+}
+/* On the dark base the outer line adds nothing — hey-day is 9.48:1 against
+   teal-me-more on its own, and a dark line on a dark surface is invisible. */
+.hero :focus-visible,
+.section-dark :focus-visible,
+.site-footer :focus-visible,
+.site-header:not(.scrolled) :focus-visible {
+	--ring-stack:
+		0 0 0 var(--focus-ring-offset) var(--surface-bg, var(--teal-me-more)),
+		0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--focus-ring-color);
+}
+/* A hey-day ring on a hey-day fill is invisible. hey-day's pair colour is the
+   system's answer for anything drawn on top of it. .lang-toggle turns yellow
+   only on hover, which can coincide with focus. */
+.button-primary:focus-visible,
+.nav-menu .nav-cta:focus-visible,
+.lang-toggle:hover:focus-visible {
+	--focus-ring-color: var(--color-hey-day-pair);
+}
+
+.button:hover:focus-visible {
+	box-shadow: var(--ring-stack), var(--shadow-button-hover);
 }
