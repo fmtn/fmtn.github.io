@@ -577,10 +577,16 @@ main[tabindex] { outline: none; }
 	width: var(--icon-feature-square);
 	height: var(--icon-feature-square);
 	margin-bottom: var(--space-24);
-	fill: var(--hey-day);
-	stroke: var(--hey-day);
-	stroke-linecap: round;
-	stroke-linejoin: round;
+	/* The surface's title ink, not hey-day. The design system's icons.inkNote is
+	   explicit: "Never a status colour" — hey-day is the signal, so a yellow icon
+	   claims a meaning it does not have. These sit on the dark base, where the
+	   title ink is white. */
+	fill: var(--surface-ink-title, var(--text));
+	stroke: var(--surface-ink-title, var(--text));
+	/* icons.style: "square terminals, no radius", and setRequirements asks for
+	   square butt caps and mitre joins. These were rounded. */
+	stroke-linecap: butt;
+	stroke-linejoin: miter;
 }
 .service h3 {
 	margin-bottom: var(--space-12);
@@ -600,6 +606,10 @@ main[tabindex] { outline: none; }
 	   this surface. At the 2px the focus ring uses it is exact enough. */
 	--surface-bg: var(--meringue);
 	--surface-ink-label: var(--color-glacier-ink-label);
+	/* Declared rather than inherited: without this the accent rule falls back to
+	   paper's pair, which is hey-day. This surface is glacier, and glacier's own
+	   pair is reign. */
+	--surface-accent: var(--accent-line-color-glacier);
 	background: var(--gradient-ai-section);
 	position: relative;
 	overflow: hidden;
