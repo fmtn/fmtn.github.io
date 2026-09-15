@@ -1,9 +1,9 @@
 /* ==========================================================================
    Vendored from: fmtn/design-system, dist/tokens.css
-   Tag:           v0.8.0
-   Commit:        e0c68bec20dad85086d595e6e7a898e536b6a925
-                  ("Added CV and web-portal information")
-   Copied:        2026-09-09
+   Tag:           v0.9.0
+   Commit:        8bf7778826e9afaa06143f443cd45b144d504ab9
+                  ("Moved the workflow actions to the Node 24 majors")
+   Copied:        2026-09-15
    Do not hand-edit. To update: copy dist/tokens.css from a newer tag in
    that repo over this file, then update the Tag/Commit/Copied lines above.
    To verify this copy still matches that tag, run from this repo root
@@ -127,6 +127,7 @@
   --letter-spacing-action: 0.12em;
   --measure: 34em;
   --measure-deck: 24em;
+  --font-size-large-text-floor: 1.5rem;
   --space-4: 0.25rem;
   --space-8: 0.5rem;
   --space-12: 0.75rem;
