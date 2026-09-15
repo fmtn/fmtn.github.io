@@ -732,8 +732,17 @@ main[tabindex] { outline: none; }
 	margin-bottom: var(--space-24);
 }
 .value .accent-line { margin-bottom: var(--space-32); }
+/* The large-text floor, applied to all four tiles rather than only to the one
+   that needs it. reign is that one: with white it measures 3.40:1, constant —
+   it clears AA's 3:1 but never 4.5:1, and 3:1 only applies at or above this
+   floor. body-large falls to 19px below the fluid ceiling, which is where the
+   reign tile used to fall short; the headings already clear the floor at every
+   width. Holding only reign would work, but the tiles sit two abreast between
+   720 and 1280px and one tile with larger body copy reads as a mistake, so the
+   floor is the grid's rule and not one tile's exception. The colours are
+   untouched. See the design system's typeScale.largeTextFloorNote. */
 .value p {
-	font-size: var(--font-size-body-large);
+	font-size: max(var(--font-size-body-large), var(--font-size-large-text-floor));
 	line-height: var(--line-height-body-large);
 }
 
