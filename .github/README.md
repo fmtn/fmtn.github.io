@@ -54,6 +54,20 @@ diff <(tail -n +13 css/tokens.css) <path-to-design-system>/dist/tokens.css
 
 `css/main.css` names its own version reference near the top; keep it in step.
 
+Before copying, work out what actually changed. From v0.10.0 the system ships
+`dist/manifest.json` — every token path, every rule path and every asset, with
+its type — so diffing two tags' copies of that file says what moved. Note what
+it does **not** say: it lists shapes, not values, so a colour that changes while
+keeping its name does not appear there. That has happened (the status colours in
+v0.9.2). The values still have to be diffed:
+
+```
+diff <(git show <old-tag>:dist/tokens.css) <(git show <new-tag>:dist/tokens.css)
+```
+
+Most releases turn out not to touch this site at all — the design system also
+serves decks, CVs and a portal, and most of what it adds belongs to those.
+
 ## Three rules that span more than one file
 
 **The two language pages stay structurally in sync.** Same elements in the same
