@@ -1,9 +1,9 @@
 /* ==========================================================================
    Vendored from: fmtn/design-system, dist/tokens.css
-   Tag:           v0.9.2
-   Commit:        62384dd8d59daa8b34bc0b03bc793353b20754b7
-                  ("Recorded the three parts of deriving the same colour lighter")
-   Copied:        2026-09-17
+   Tag:           v0.11.1
+   Commit:        6132736ecfb66d3a3fe3dad7e582c3a1dab91465
+                  ("Documented the whole sync loop, including the save nobody can skip")
+   Copied:        2026-09-22
    Do not hand-edit. To update: copy dist/tokens.css from a newer tag in
    that repo over this file, then update the Tag/Commit/Copied lines above.
    To verify this copy still matches that tag, run from this repo root
@@ -176,6 +176,7 @@
   --section-pad: clamp(4rem, 11.25vw, 9rem);
   --header-height: 5rem;
   --frame-width: clamp(1rem, 2.5vw, 2rem);
+  --pad-x-extra: clamp(1rem, 2.5vw, 2rem);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --accent-line-width: 7rem;
   --accent-line-color-hey-day: #293132;
@@ -247,6 +248,5 @@
   --duration-mobile-nav: 350ms;
   --duration-reveal: 700ms;
   --duration-accent-line-draw: 1600ms;
-  --pad-x-extra: clamp(1rem, 2.5vw, 2rem);
   --pad-x: calc(var(--frame-width) + var(--pad-x-extra));
 }
