@@ -54,19 +54,42 @@ diff <(tail -n +13 css/tokens.css) <path-to-design-system>/dist/tokens.css
 
 `css/main.css` names its own version reference near the top; keep it in step.
 
-Before copying, work out what actually changed. From v0.10.0 the system ships
-`dist/manifest.json` — every token path, every rule path and every asset, with
-its type — so diffing two tags' copies of that file says what moved. Note what
-it does **not** say: it lists shapes, not values, so a colour that changes while
-keeping its name does not appear there. That has happened (the status colours in
-v0.9.2). The values still have to be diffed:
+Before copying, work out what actually changed. **A release diff takes three
+files, and none of them substitutes for the others** — the system states this
+itself, in its own README:
+
+| Question | File | Why this one |
+|---|---|---|
+| Did the **shape** change? | `dist/manifest.json` | A path added, dropped, or keeping its name while changing type. From v0.10.0. |
+| Did a **value** change? | `dist/tokens.json` | A flat `name: value` map, so it cannot be fooled by reordering — `dist/tokens.css` can, and was in v0.11.1. |
+| Did a **decision** change? | `src/design-tokens.json` | The prose: usage, `surfaceUse`, the notes. **Neither `dist/` file carries a word of it, including the one this site vendors.** |
 
 ```
-diff <(git show <old-tag>:dist/tokens.css) <(git show <new-tag>:dist/tokens.css)
+D=<path-to-design-system>
+diff <(git -C $D show <old>:dist/manifest.json)     <(git -C $D show <new>:dist/manifest.json)
+diff <(git -C $D show <old>:dist/tokens.json)       <(git -C $D show <new>:dist/tokens.json)
+diff <(git -C $D show <old>:src/design-tokens.json) <(git -C $D show <new>:src/design-tokens.json)
 ```
+
+The third row is the one that catches this site out, because `css/tokens.css`
+contains no prose at all — not one note. Two changes here came from it:
+
+- **The icons.** Five icon tokens exist and not one of them is a colour, so no
+  value diff could ever have said that an icon takes its surface's ink and never
+  the signal colour. That rule lives only in `icons.inkNote`, and until it was
+  read the icons on this site were yellow.
+- **The two-tone focus ring**, which fixed a real contrast defect here. A value
+  diff would have shown two new names, `focus-ring-outer-color` and
+  `-width`, and stopped there — inert on their own. That the existing ring
+  measured 1.37:1 on paper, and how to compose three rings in one box-shadow to
+  fix it, was all in `focus.contrastNote`.
+
+Read the commit subjects between the two tags as well; they say why something
+moved, which none of the three files does.
 
 Most releases turn out not to touch this site at all — the design system also
-serves decks, CVs and a portal, and most of what it adds belongs to those.
+serves decks, CVs, a portal and a Claude Design bundle, and most of what it adds
+belongs to those.
 
 ## Three rules that span more than one file
 
