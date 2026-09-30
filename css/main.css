@@ -5,7 +5,7 @@
 
 /* ---- Design tokens ----
    Canonical values live in css/tokens.css (Fourmation Design System
-   v0.11.2, loaded before this file). Type roles are used by their
+   v0.13.0, loaded before this file). Type roles are used by their
    design-system names directly (--font-size-title/-heading/-lead/...),
    so there is no local translation layer to drift. This block only
    shortens the colour names the rest of this file already uses. */
@@ -732,17 +732,18 @@ main[tabindex] { outline: none; }
 	margin-bottom: var(--space-24);
 }
 .value .accent-line { margin-bottom: var(--space-32); }
-/* The large-text floor, applied to all four tiles rather than only to the one
-   that needs it. reign is that one: with white it measures 3.40:1, constant —
-   it clears AA's 3:1 but never 4.5:1, and 3:1 only applies at or above this
-   floor. body-large falls to 19px below the fluid ceiling, which is where the
-   reign tile used to fall short; the headings already clear the floor at every
-   width. Holding only reign would work, but the tiles sit two abreast between
-   720 and 1280px and one tile with larger body copy reads as a mistake, so the
-   floor is the grid's rule and not one tile's exception. The colours are
-   untouched. See the design system's typeScale.largeTextFloorNote. */
+/* Body copy at its own size. These four tiles carried a large-text floor until
+   v0.13.0, put there so the reign tile's white-on-green — 3.40:1, constant —
+   sat inside WCAG's large-text band, where 3:1 is the bar. v0.13.0 replaced
+   WCAG AA with the house bar: 3:1 for text that is read, at every size and in
+   every medium (contrast.readingText). 3.40:1 clears it at 19px, so the floor
+   has nothing left to do, and largeTextFloorNote now calls the token
+   information rather than a bar. The system names this very section as the
+   pattern for reign — "a heading, a standing statement, a value name and a
+   short paragraph or two at reading size, the values section is the model"
+   (colors.reign.inkNote) — with no size condition attached. Colours unchanged. */
 .value p {
-	font-size: max(var(--font-size-body-large), var(--font-size-large-text-floor));
+	font-size: var(--font-size-body-large);
 	line-height: var(--line-height-body-large);
 }
 
@@ -973,15 +974,20 @@ address { font-style: normal; margin-bottom: var(--space-16); }
    indicator vanished on every light surface while still working on the dark
    ones, because there the .hero/.section-dark descendant selectors outranked it.
    Anything added below this comment has to be checked against that. */
-/* Keyboard focus, two-tone per the design system's focus.contrastNote. A
-   hey-day ring alone does not clear the 3:1 a focus indicator needs against the
-   colour next to it — measured here it is 1.37:1 on paper, 1.26:1 on meringue
-   and 1.02:1 on the AI gradient's glacier end, which is effectively invisible.
-   So the ring is three rings in one box-shadow: the surface colour at the offset
-   distance, the hey-day band, then a 1px teal-me-more line that carries the
-   contrast while hey-day carries the brand. The transparent outline is the
-   forced-colors fallback — box-shadow is not painted in that mode, an outline
-   is, and the browser gives a transparent one a visible colour there. */
+/* Keyboard focus: the hey-day band alone, per the design system's
+   focus.contrastNote. It is still composed as three rings in one box-shadow —
+   the surface colour at the offset distance, the hey-day band, then the outer
+   ring — because that is the composition the system prescribes and because the
+   offset and the band have to stay in one declaration. The outer ring is
+   --focus-ring-outer-width, which v0.13.0 set to 0px, so the stack draws the
+   band alone without this file deciding anything. It used to be 1px of
+   teal-me-more, added here when the bar was WCAG's 3:1 for a focus indicator;
+   v0.13.0 replaced that with the house bar, under which a ring is judged by eye
+   (contrast.nonText) and a saturated band separates on chroma, which a
+   luminance ratio does not measure. Should the system put the outer ring back,
+   it returns here with no edit. The transparent outline is the forced-colors
+   fallback — box-shadow is not painted in that mode, an outline is, and the
+   browser gives a transparent one a visible colour there. */
 :focus-visible {
 	outline: var(--focus-ring-width) solid transparent;
 	outline-offset: var(--focus-ring-offset);
