@@ -78,11 +78,19 @@ contains no prose at all — not one note. Two changes here came from it:
   value diff could ever have said that an icon takes its surface's ink and never
   the signal colour. That rule lives only in `icons.inkNote`, and until it was
   read the icons on this site were yellow.
-- **The two-tone focus ring**, which fixed a real contrast defect here. A value
-  diff would have shown two new names, `focus-ring-outer-color` and
-  `-width`, and stopped there — inert on their own. That the existing ring
-  measured 1.37:1 on paper, and how to compose three rings in one box-shadow to
-  fix it, was all in `focus.contrastNote`.
+- **The focus ring**, twice, in opposite directions. In v0.9.0 a value diff
+  showed two new names, `focus-ring-outer-color` and `-width`, and nothing else
+  — inert on their own. That the existing ring measured 1.37:1 on paper, and
+  how to compose three rings in one box-shadow, was all in
+  `focus.contrastNote`. In v0.13.0 the same note took the outer ring back: the
+  system replaced WCAG AA with its own bar, under which a ring is judged by eye
+  and a saturated band separates on chroma, which a luminance ratio does not
+  measure. The value diff for that reversal is one line, `-width: 1px → 0px`,
+  and it reads like a rounding change.
+- **The reign tiles' type size.** The same release softened reign from a
+  type-size floor to a rule on how much text belongs on it. No token moved at
+  all — `--font-size-large-text-floor` is still `1.5rem`. Only
+  `largeTextFloorNote` changed, from a bar to information.
 
 Read the commit subjects between the two tags as well; they say why something
 moved, which none of the three files does.
