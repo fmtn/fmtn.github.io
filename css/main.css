@@ -1,0 +1,1024 @@
+/* ==========================================================================
+   Fourmation — main stylesheet
+   Brand palette & typography per Grafisk-profil.pdf
+   ========================================================================== */
+
+/* ---- Design tokens ----
+   Canonical values live in css/tokens.css (Fourmation Design System
+   v0.13.0, loaded before this file). Type roles are used by their
+   design-system names directly (--font-size-title/-heading/-lead/...),
+   so there is no local translation layer to drift. This block only
+   shortens the colour names the rest of this file already uses. */
+:root {
+	--hey-day: var(--color-hey-day);
+	--teal-me-more: var(--color-teal-me-more);
+	--meringue: var(--color-meringue);
+	--reign: var(--color-reign);
+	--glacier: var(--color-glacier);
+	--white: var(--color-white);
+	--paper: var(--color-paper);
+	--terracotta: var(--color-terracotta);
+	--clay: var(--color-clay);
+	--blueprint-line: rgba(41, 49, 50, 0.055);
+
+	--text: var(--teal-me-more);
+	--text-muted: var(--color-text-muted);
+	--text-on-dark: var(--color-text-on-dark);
+	--serif: var(--font-family-serif);
+
+	--header-h: var(--header-height);
+	--frame: var(--frame-width);
+}
+
+/* ---- Reset & base ---- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+	scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: var(--font-family-sans);
+	font-weight: var(--font-weight-body);
+	font-size: var(--font-size-body);
+	line-height: var(--line-height-body);
+	color: var(--text);
+	background: var(--paper);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* Signature white frame around the whole viewport */
+body::after {
+	content: '';
+	position: fixed;
+	inset: 0;
+	border: var(--frame) solid var(--white);
+	pointer-events: none;
+	z-index: var(--layer-frame);
+}
+
+h1, h2, h3 {
+	font-family: var(--font-family-sans);
+	font-weight: 700;
+	line-height: 1.1;
+	margin: 0 0 var(--space-24);
+	text-wrap: balance;
+}
+
+h2 {
+	font-family: var(--serif);
+	font-size: var(--font-size-heading);
+	font-weight: var(--font-weight-heading);
+	letter-spacing: var(--letter-spacing-heading);
+	line-height: var(--line-height-heading);
+}
+h3 {
+	font-size: var(--font-size-subheading);
+	letter-spacing: var(--letter-spacing-subheading);
+	line-height: var(--line-height-subheading);
+}
+
+p { margin: 0 0 var(--space-16); }
+p:last-child { margin-bottom: 0; }
+
+a { color: inherit; }
+
+.strong { font-weight: 700; }
+
+::selection {
+	background: var(--hey-day);
+	color: var(--teal-me-more);
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px; height: 1px;
+	margin: -1px; padding: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.skip-link {
+	position: absolute;
+	top: -100%;
+	left: 1rem;
+	z-index: var(--layer-toast);
+	padding: var(--space-12) var(--space-16);
+	background: var(--teal-me-more);
+	color: var(--white);
+	font-weight: 700;
+	text-decoration: none;
+}
+.skip-link:focus { top: 1rem; }
+
+/* Skip-link target. main carries tabindex="-1" only so the skip link moves
+   focus and not merely the viewport; it must never draw the focus ring around
+   the entire page. */
+main[tabindex] { outline: none; }
+
+/* ---- Shared building blocks ---- */
+.container {
+	max-width: calc(var(--container) + 2 * var(--pad-x));
+	margin-inline: auto;
+	padding-inline: var(--pad-x);
+}
+.container.narrow { max-width: var(--container-narrow); }
+
+.section {
+	position: relative;
+	padding-block: var(--section-pad);
+}
+.section::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background-image:
+		linear-gradient(var(--blueprint-line) 1px, transparent 1px),
+		linear-gradient(90deg, var(--blueprint-line) 1px, transparent 1px);
+	background-size: 5.5rem 5.5rem;
+	mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+	opacity: 0.22;
+}
+.section > * {
+	position: relative;
+	z-index: var(--layer-raised);
+}
+/* light sections inherit the base 0.22; only the darker surfaces differ */
+.section-dark::before {
+	opacity: 0.18;
+}
+.contact::before {
+	opacity: 0.08;
+}
+.section[id] { scroll-margin-top: calc(var(--header-h) + var(--frame)); }
+
+.section-white {
+	background: var(--paper);
+	--surface-bg: var(--paper);
+	--surface-ink-label: var(--color-paper-ink-label);
+}
+.section-meringue {
+	background: var(--meringue);
+	--surface-bg: var(--meringue);
+	--surface-ink-label: var(--color-meringue-ink-label);
+}
+.section-dark {
+	--blueprint-line: rgba(255, 255, 255, 0.055);
+	--surface-bg: var(--teal-me-more);
+	--surface-ink-title: var(--color-teal-me-more-ink-title);
+	--surface-ink-label: var(--color-teal-me-more-ink-label);
+	--surface-accent: var(--accent-line-color-teal-me-more);
+	background: var(--gradient-dark-section);
+	color: var(--color-teal-me-more-ink-body);
+}
+.section-dark h2, .section-dark h3 { color: var(--surface-ink-title); }
+
+.eyebrow {
+	font-family: var(--font-family-label);
+	font-weight: var(--font-weight-label);
+	font-size: var(--font-size-label);
+	text-transform: uppercase;
+	letter-spacing: var(--letter-spacing-label);
+	margin-bottom: var(--space-16);
+	/* Each surface declares --surface-ink-label from the design system's
+	   --color-<surface>-ink-label. It repeats the body ink everywhere except on
+	   the dark base, where it is hey-day, and on paper and meringue, where it
+	   recedes to text-muted so the heading carries the weight. An unclassed
+	   surface is paper. */
+	color: var(--surface-ink-label, var(--color-paper-ink-label));
+}
+
+.accent-line {
+	display: block;
+	width: var(--accent-line-width);
+	height: var(--accent-line-height);
+	margin: 0 0 var(--space-32);
+	/* Each surface declares its own --surface-accent from the design system's
+	   --accent-line-color-<surface>; light sections fall back to paper's. */
+	background: var(--surface-accent, var(--accent-line-color-paper));
+	transform: scaleX(0);
+	transform-origin: left center;
+	transition: transform 1600ms var(--ease) 350ms;
+}
+.reveal.visible .accent-line { transform: scaleX(1); }
+
+.lead {
+	font-size: var(--font-size-lead);
+	font-weight: var(--font-weight-lead);
+	line-height: var(--line-height-lead);
+	margin-bottom: var(--space-32);
+	text-wrap: balance;
+}
+.lead-small {
+	font-size: var(--font-size-body-large);
+	line-height: var(--line-height-body-large);
+}
+.lead-emphasis {
+	position: relative;
+	border-left: 0;
+	padding-left: clamp(var(--space-16), 3vw, var(--space-32));
+	margin-top: var(--space-48);
+}
+.lead-emphasis::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0.18em;
+	bottom: 0.18em;
+	width: var(--accent-line-height);
+	background: var(--accent-line-color-paper);
+}
+
+.button {
+	display: inline-block;
+	padding: var(--space-16) var(--space-32);
+	font-weight: var(--font-weight-action);
+	font-size: var(--font-size-action);
+	text-transform: uppercase;
+	letter-spacing: var(--letter-spacing-action);
+	text-decoration: none;
+	border: var(--border-width-standard) solid transparent;
+	box-shadow: 0 0 0 rgba(255, 215, 0, 0);
+	transition: transform 200ms var(--ease), background-color 200ms, color 200ms, border-color 200ms, box-shadow 200ms;
+}
+.button:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-button-hover);
+}
+
+.button-primary {
+	background: var(--hey-day);
+	color: var(--color-hey-day-ink-body);
+}
+.button-primary:hover { background: var(--color-hey-day-hover); }
+
+.button-ghost {
+	border-color: rgba(255, 255, 255, 0.6);
+	color: var(--white);
+}
+.button-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+/* ---- Header ---- */
+.site-header {
+	position: fixed;
+	inset: var(--frame) var(--frame) auto;
+	z-index: var(--layer-nav);
+	transition: background-color 300ms, box-shadow 300ms;
+}
+.header-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: var(--header-h);
+	/* Uses --pad-x-extra (the inner half of --pad-x) rather than a copy of its
+	   value, so the header's inner padding cannot drift from the content below. */
+	max-width: calc(var(--container) + 2 * var(--pad-x-extra));
+	margin-inline: auto;
+	padding-inline: var(--pad-x-extra);
+}
+.logo { display: block; position: relative; z-index: var(--layer-dropdown); }
+.logo img { width: 10rem; height: auto; }
+.logo .logo-dark { display: none; }
+
+.site-header.scrolled,
+.site-header.nav-open {
+	--surface-bg: var(--white);
+}
+.site-header.scrolled {
+	background: var(--white);
+	box-shadow: var(--shadow-header-scrolled);
+}
+.site-header.scrolled .logo-dark,
+.site-header.nav-open .logo-dark { display: block; }
+.site-header.scrolled .logo-light,
+.site-header.nav-open .logo-light { display: none; }
+
+.nav-menu {
+	display: flex;
+	gap: var(--space-32);
+	align-items: center;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.nav-menu a {
+	font-size: var(--font-size-action);
+	font-weight: var(--font-weight-action);
+	text-transform: uppercase;
+	letter-spacing: var(--letter-spacing-action);
+	text-decoration: none;
+	transition: color 200ms;
+}
+.nav-menu a:not(.nav-cta) {
+	position: relative;
+}
+.nav-menu a:not(.nav-cta)::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 100%;
+	bottom: -0.45em;
+	height: 4px;
+	background: var(--hey-day);
+	transition: right 250ms var(--ease);
+}
+.nav-menu a:not(.nav-cta):hover::after,
+.nav-menu a.current::after { right: 0; }
+
+/* Mobile-first default: the mobile menu is a white overlay, so nav type is dark.
+   The light-on-transparent-header colours are desktop-only (see the min-width
+   block below). Colour rules deliberately skip .nav-cta and .lang-toggle —
+   those two own their colours, so they can't be turned yellow-on-yellow. */
+.nav-menu a:not(.nav-cta):not(.lang-toggle) { color: var(--text); }
+
+.nav-menu .nav-cta {
+	padding: var(--space-8) var(--space-16);
+	background: var(--hey-day);
+	color: var(--color-hey-day-ink-body);
+}
+.nav-menu .nav-cta:hover { background: var(--color-hey-day-hover); }
+
+.language-switch { display: flex; align-items: center; }
+
+.nav-menu .lang-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2.4rem;
+	padding: var(--space-4) var(--space-12);
+	border: 1.5px solid rgba(41, 49, 50, 0.3);
+	border-radius: var(--radius-pill);
+	font-family: var(--font-family-label);
+	font-size: 0.8125rem;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	line-height: 1;
+	text-decoration: none;
+	color: var(--text);
+	transition: color 200ms, background-color 200ms, border-color 200ms;
+}
+.nav-menu .lang-toggle::after { display: none; }
+.nav-menu .lang-toggle:hover {
+	color: var(--teal-me-more);
+	background: var(--hey-day);
+	border-color: var(--hey-day);
+}
+
+/* Desktop horizontal nav sits on the transparent header over the hero, so its
+   type is light — and turns dark once the header gains its white background.
+   Confined to the desktop breakpoint so the mobile overlay never has to
+   override any of it. */
+@media (min-width: 1000px) {
+	/* Labels must never break mid-word. The desktop nav switches on at 1000px
+	   but its six labels need ~1030px at the full gap, so 1000-1028px rendered
+	   every item on two lines — 1024px, iPad landscape, sat inside that window.
+	   nowrap makes the constraint explicit; the gap step below supplies the
+	   missing width instead of letting the text absorb it. */
+	.nav-menu a { white-space: nowrap; }
+
+	.nav-menu a:not(.nav-cta):not(.lang-toggle) { color: rgba(255, 255, 255, 0.85); }
+	.nav-menu a:not(.nav-cta):not(.lang-toggle):hover,
+	.nav-menu a:not(.nav-cta):not(.lang-toggle).current { color: var(--hey-day); }
+	.site-header.scrolled .nav-menu a:not(.nav-cta):not(.lang-toggle) { color: var(--text); }
+	.site-header.scrolled .nav-menu a:not(.nav-cta):not(.lang-toggle):hover,
+	.site-header.scrolled .nav-menu a:not(.nav-cta):not(.lang-toggle).current { color: #000; }
+
+	.nav-menu .lang-toggle {
+		color: rgba(255, 255, 255, 0.9);
+		border-color: rgba(255, 255, 255, 0.5);
+	}
+	.site-header.scrolled .nav-menu .lang-toggle {
+		color: var(--text);
+		border-color: rgba(41, 49, 50, 0.3);
+	}
+	/* needed explicitly: the .scrolled rule above outranks the plain :hover rule */
+	.site-header.scrolled .nav-menu .lang-toggle:hover {
+		color: var(--teal-me-more);
+		border-color: var(--hey-day);
+	}
+}
+
+/* One step down the spacing scale buys the ~28px the nav is short of just
+   above its own breakpoint. Above 1100px there is room for the full gap. */
+@media (min-width: 1000px) and (max-width: 1099px) {
+	.nav-menu { gap: var(--space-24); }
+}
+
+.nav-toggle {
+	display: none;
+	flex-direction: column;
+	gap: 5px;
+	background: none;
+	border: 0;
+	padding: var(--space-8);
+	cursor: pointer;
+}
+.nav-toggle-bar {
+	width: 24px;
+	height: 2px;
+	background: var(--white);
+	transition: transform 200ms, opacity 200ms, background-color 300ms;
+}
+.site-header.scrolled .nav-toggle-bar,
+.site-header.nav-open .nav-toggle-bar { background: var(--text); }
+
+@media (max-width: 999px) {
+	.nav-toggle { display: flex; position: relative; z-index: var(--layer-dropdown); }
+	.nav-menu {
+		position: fixed;
+		inset: 0;
+		flex-direction: column;
+		justify-content: center;
+		gap: clamp(var(--space-16), 4vh, var(--space-32));
+		background: var(--white);
+		transform: translateY(-100%);
+		transition: transform 350ms var(--ease);
+	}
+	.site-header.nav-open .nav-menu { transform: translateY(0); }
+	/* colours come from the mobile-first defaults above — only sizing differs here */
+	.nav-menu a { font-size: 1.1875rem; }
+	.nav-menu .lang-toggle { font-size: var(--font-size-action); }
+	.site-header.nav-open .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+	.site-header.nav-open .nav-toggle-bar:nth-child(2) { opacity: 0; }
+	.site-header.nav-open .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+
+/* ---- Hero ---- */
+.hero {
+	position: relative;
+	min-height: 100svh;
+	display: grid;
+	place-items: center;
+	overflow: hidden;
+	color: var(--white);
+}
+.hero-media { position: absolute; inset: 0; }
+.hero-poster {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.hero-video { position: absolute; inset: 0; }
+.hero-video iframe {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100vw;
+	height: 56.25vw;          /* 16:9 */
+	min-height: 100vh;
+	min-width: 177.78vh;      /* 16:9 */
+	transform: translate(-50%, -50%);
+	border: 0;
+	opacity: 0;
+	transition: opacity 800ms ease;
+}
+.hero-video iframe.playing { opacity: 1; }
+.hero-overlay {
+	position: absolute;
+	inset: 0;
+	background:
+		linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+		radial-gradient(circle at 50% 52%, rgba(255, 215, 0, 0.075), transparent 22rem),
+		linear-gradient(to bottom, rgba(24, 33, 34, 0.68) 0%, rgba(41,49,50,0.36) 45%, rgba(24, 33, 34, 0.76) 100%);
+	background-size: 5.5rem 5.5rem, 5.5rem 5.5rem, auto, auto;
+}
+.hero-content {
+	position: relative;
+	z-index: var(--layer-raised);
+	text-align: center;
+	padding: var(--space-96) var(--pad-x) var(--space-64);
+	max-width: calc(72rem + 2 * var(--pad-x));
+}
+/* The hero reads as the dark base: a photo behind a dark overlay. */
+.hero-content { --surface-ink-label: var(--color-teal-me-more-ink-label); }
+.hero h1 {
+	font-family: var(--serif);
+	font-size: var(--font-size-title);
+	font-weight: var(--font-weight-title);
+	text-transform: none;
+	letter-spacing: var(--letter-spacing-title);
+	line-height: var(--line-height-title);
+	margin-bottom: var(--space-32);
+	text-shadow: var(--text-shadow-hero);
+}
+.hero-sub {
+	font-family: var(--font-family-label);
+	font-weight: 300;
+	font-size: var(--font-size-body-large);
+	line-height: var(--line-height-body-large);
+	/* Not var(--measure). The measure is 34em, which holds a constant character
+	   count within one typeface but not across three: measured here, 34em is 67
+	   characters in Montserrat, 65 in Libre Baskerville and 75 in Work Sans Light
+	   — and this is the only Work Sans block on the site. At 34em this centred
+	   lead runs to 76 characters and grows wider than the headline above it. 46rem
+	   holds it to 68, which is what the measure means everywhere else. */
+	max-width: 46rem;
+	margin: 0 auto var(--space-48);
+}
+.hero-actions {
+	display: flex;
+	gap: var(--space-16);
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.scroll-hint {
+	position: absolute;
+	bottom: calc(1.25rem + var(--frame));
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: var(--layer-raised);
+	width: 1.75rem;
+	height: 2.75rem;
+	border: var(--border-width-standard) solid rgba(255,255,255,0.7);
+	border-radius: var(--radius-pill);
+}
+.scroll-hint span {
+	position: absolute;
+	top: 0.5rem;
+	left: 50%;
+	width: 4px;
+	height: 8px;
+	margin-left: -2px;
+	border-radius: var(--radius-2);
+	background: var(--hey-day);
+	animation: scroll-hint 2s infinite var(--ease);
+}
+@keyframes scroll-hint {
+	0% { transform: translateY(0); opacity: 1; }
+	70% { transform: translateY(0.9rem); opacity: 0; }
+	100% { transform: translateY(0); opacity: 0; }
+}
+
+/* ---- About statement ---- */
+#about .container.narrow { max-width: 68rem; }
+
+/* ---- Services ---- */
+.section-heading { margin-bottom: clamp(var(--space-32), 5vw, var(--space-64)); }
+
+.service-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: clamp(var(--space-32), 5vw, var(--space-64)) clamp(var(--space-32), 6vw, var(--space-96));
+}
+@media (max-width: 719px) {
+	.service-grid { grid-template-columns: 1fr; }
+}
+.service-icon {
+	width: var(--icon-feature-square);
+	height: var(--icon-feature-square);
+	margin-bottom: var(--space-24);
+	/* The surface's title ink, not hey-day. The design system's icons.inkNote is
+	   explicit: "Never a status colour" — hey-day is the signal, so a yellow icon
+	   claims a meaning it does not have. These sit on the dark base, where the
+	   title ink is white. */
+	fill: var(--surface-ink-title, var(--text));
+	stroke: var(--surface-ink-title, var(--text));
+	/* icons.style: "square terminals, no radius", and setRequirements asks for
+	   square butt caps and mitre joins. These were rounded. */
+	stroke-linecap: butt;
+	stroke-linejoin: miter;
+}
+.service h3 {
+	margin-bottom: var(--space-12);
+	font-size: var(--font-size-subheading);
+}
+.service p {
+	color: var(--text-on-dark);
+	max-width: var(--measure);
+	line-height: var(--line-height-body);
+}
+
+/* ---- AI ---- */
+.section-ai {
+	--blueprint-line: rgba(41, 49, 50, 0.065);
+	/* A gradient cannot be a ring colour, so the ground hook takes meringue —
+	   the gradient's own end stop, and the choice the design system makes for
+	   this surface. At the 2px the focus ring uses it is exact enough. */
+	--surface-bg: var(--meringue);
+	--surface-ink-label: var(--color-glacier-ink-label);
+	/* Declared rather than inherited: without this the accent rule falls back to
+	   paper's pair, which is hey-day. This surface is glacier, and glacier's own
+	   pair is reign. */
+	--surface-accent: var(--accent-line-color-glacier);
+	background: var(--gradient-ai-section);
+	position: relative;
+	overflow: hidden;
+}
+.section-ai::after {
+	content: 'AI';
+	position: absolute;
+	right: -0.04em;
+	bottom: -0.28em;
+	font-size: clamp(12rem, 31vw, 30rem);
+	font-weight: 900;
+	line-height: 1;
+	color: rgba(255, 255, 255, 0.32);
+	pointer-events: none;
+}
+.ai-layout {
+	position: relative;
+	z-index: var(--layer-raised);
+	display: grid;
+	grid-template-columns: 1.15fr 0.85fr;
+	gap: clamp(var(--space-48), 8vw, var(--space-144));
+	align-items: start;
+}
+.ai-layout h2 { font-size: var(--font-size-heading); }
+.ai-copy { padding-top: var(--space-32); }
+.ai-copy p:not(.lead-small) { font-size: var(--font-size-caption); }
+.button-dark {
+	margin-top: var(--space-16);
+	background: var(--teal-me-more);
+	color: var(--white);
+}
+.button-dark:hover { background: #111819; }
+@media (max-width: 719px) {
+	.ai-layout { grid-template-columns: 1fr; gap: 0; }
+	.ai-copy { padding-top: 0; }
+}
+
+/* ---- Flock of four, flying in fourmation ---- */
+.flock {
+	display: block;
+	width: clamp(7rem, 12vw, 10rem);
+	margin: 0 auto var(--space-32);
+	overflow: visible;
+}
+.flock path {
+	fill: none;
+	stroke: var(--teal-me-more);
+	stroke-width: 3;
+	stroke-linecap: round;
+}
+.flock g {
+	animation: flock-bob 3.6s ease-in-out infinite;
+}
+.flock g:nth-child(2) { animation-delay: 500ms; }
+.flock g:nth-child(3) { animation-delay: 1000ms; }
+.flock g:nth-child(4) { animation-delay: 1500ms; }
+@keyframes flock-bob {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(5px); }
+}
+
+/* ---- Culture manifesto ---- */
+#culture .container.narrow { max-width: 56rem; }
+#culture {
+	text-align: center;
+	/* keep the manifesto close to the four value tiles below */
+	padding-bottom: clamp(var(--space-48), 6vw, var(--space-64));
+}
+#culture h2 {
+	font-size: var(--font-size-display);
+	letter-spacing: var(--letter-spacing-display);
+	line-height: var(--line-height-display);
+}
+#culture .accent-line {
+	margin-inline: auto;
+	transform-origin: center;
+}
+#culture .culture-context {
+	font-size: var(--font-size-body);
+	font-weight: var(--font-weight-body);
+	line-height: var(--line-height-body);
+	max-width: var(--measure);
+	margin-inline: auto;
+	margin-bottom: clamp(var(--space-32), 4vw, var(--space-48));
+	color: color-mix(in srgb, var(--teal-me-more) 82%, transparent);
+}
+#culture .manifesto-text {
+	font-size: var(--font-size-body-large);
+	font-weight: var(--font-weight-body-large);
+	line-height: var(--line-height-body-large);
+	max-width: var(--measure);
+	margin-inline: auto;
+	margin-bottom: var(--space-24);
+}
+
+/* ---- Values grid ---- */
+.value-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+.value {
+	display: flex;
+	justify-content: center;
+	padding: clamp(var(--space-48), 8vw, var(--space-144)) var(--pad-x);
+}
+.value-inner {
+	width: 100%;
+	max-width: 37rem;
+}
+.value h3 {
+	/* Deliberate local treatment, not a system voice: the heading voice made bolder
+	   and capped at 65px — at the full heading size these tile headings wrap to a
+	   third line and unbalance the grid. Single-use, so it stays local by design. */
+	font-family: var(--serif);
+	font-size: clamp(2rem, 5.078125vw, 4.0625rem);
+	font-weight: 700;
+	line-height: 1.02;
+	letter-spacing: -0.04em;
+	text-transform: none;
+	margin-bottom: var(--space-24);
+}
+.value .accent-line { margin-bottom: var(--space-32); }
+/* Body copy at its own size. These four tiles carried a large-text floor until
+   v0.13.0, put there so the reign tile's white-on-green — 3.40:1, constant —
+   sat inside WCAG's large-text band, where 3:1 is the bar. v0.13.0 replaced
+   WCAG AA with the house bar: 3:1 for text that is read, at every size and in
+   every medium (contrast.readingText). 3.40:1 clears it at 19px, so the floor
+   has nothing left to do, and largeTextFloorNote now calls the token
+   information rather than a bar. The system names this very section as the
+   pattern for reign — "a heading, a standing statement, a value name and a
+   short paragraph or two at reading size, the values section is the model"
+   (colors.reign.inkNote) — with no size condition attached. Colours unchanged. */
+.value p {
+	font-size: var(--font-size-body-large);
+	line-height: var(--line-height-body-large);
+}
+
+/* Each tile takes its ink and its accent colour from its own surface, so the
+   complementary-pair rule is read from the system rather than restated here. */
+.value-glacier {
+	background: var(--glacier);
+	color: var(--color-glacier-ink-body);
+	--surface-ink-title: var(--color-glacier-ink-title);
+	--surface-accent: var(--accent-line-color-glacier);
+}
+.value-clay {
+	background: var(--clay);
+	color: var(--color-clay-ink-body);
+	--surface-ink-title: var(--color-clay-ink-title);
+	--surface-accent: var(--accent-line-color-clay);
+}
+.value-reign {
+	background: var(--reign);
+	color: var(--color-reign-ink-body);
+	--surface-ink-title: var(--color-reign-ink-title);
+	--surface-accent: var(--accent-line-color-reign);
+}
+.value-terracotta {
+	background: var(--terracotta);
+	color: var(--color-terracotta-ink-body);
+	--surface-ink-title: var(--color-terracotta-ink-title);
+	--surface-accent: var(--accent-line-color-terracotta);
+}
+.value h3 { color: var(--surface-ink-title, var(--text)); }
+
+@media (max-width: 719px) {
+	.value-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- Team ---- */
+.team-intro {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: clamp(var(--space-32), 5vw, var(--space-64));
+	align-items: start;
+	margin-bottom: clamp(var(--space-48), 6vw, var(--space-64));
+}
+.team-intro h2 { font-size: var(--font-size-heading); }
+@media (max-width: 719px) {
+	.team-intro { grid-template-columns: 1fr; }
+}
+
+.team-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: clamp(var(--space-32), 4vw, var(--space-48));
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+@media (max-width: 999px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.team-card img {
+	width: 100%;
+	aspect-ratio: 1;
+	object-fit: cover;
+	margin-bottom: var(--space-24);
+	filter: grayscale(12%);
+	transition: filter 300ms, transform 300ms var(--ease), box-shadow 300ms var(--ease);
+}
+.team-card:hover img {
+	filter: grayscale(0%);
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-card-hover-lift);
+}
+.team-card h3 {
+	font-size: 1.375rem;
+	margin-bottom: var(--space-4);
+}
+.team-role {
+	font-weight: 700;
+	font-size: 0.875rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--reign);
+	margin-bottom: var(--space-8);
+}
+.team-skills { font-size: var(--font-size-caption); color: var(--text-muted); }
+
+
+/* ---- Contact / footer ---- */
+.contact { padding-bottom: 0; }
+.contact-inner {
+	display: grid;
+	grid-template-columns: 1.6fr 1fr;
+	gap: clamp(var(--space-32), 6vw, var(--space-64));
+	align-items: start;
+	padding-bottom: var(--section-pad);
+}
+@media (max-width: 719px) {
+	.contact-inner { grid-template-columns: 1fr; }
+}
+
+.contact-email a {
+	font-size: var(--font-size-lead);
+	font-weight: 700;
+	color: var(--white);
+	text-decoration-color: var(--hey-day);
+	text-decoration-thickness: 3px;
+	text-underline-offset: 6px;
+}
+.contact-email a:hover { color: var(--hey-day); }
+.contact-intro { max-width: var(--measure); color: var(--text-on-dark); }
+.contact-phone {
+	color: var(--text-on-dark);
+	font-size: 1.125rem;
+	text-decoration: none;
+}
+.contact-phone:hover { color: var(--hey-day); }
+
+.social-list {
+	display: flex;
+	gap: var(--space-16);
+	list-style: none;
+	margin: var(--space-32) 0 0;
+	padding: 0;
+}
+.social-list svg {
+	width: 1.375rem;
+	height: 1.375rem;
+	fill: var(--text-on-dark);
+	transition: fill 200ms;
+}
+.social-list a:hover svg { fill: var(--hey-day); }
+
+.contact-details { justify-self: end; text-align: right; }
+@media (max-width: 719px) { .contact-details { justify-self: start; text-align: left; } }
+.footer-logo { width: 7rem; margin-bottom: var(--space-24); margin-left: auto; }
+@media (max-width: 719px) { .footer-logo { margin-left: 0; } }
+address { font-style: normal; margin-bottom: var(--space-16); }
+.orgnr { color: var(--text-on-dark); font-size: var(--font-size-caption); opacity: 0.7; }
+
+.footer-bottom {
+	border-top: var(--border-width-hairline) solid var(--rule-hairline-color-teal-me-more);
+	padding: var(--space-24) var(--space-24) calc(var(--space-24) + var(--frame));
+	text-align: center;
+	font-size: 0.875rem;
+	opacity: 0.6;
+}
+.footer-bottom p { margin: 0; }
+
+/* Page footer. Lives outside main so it is a contentinfo landmark, which means
+   it carries the dark surface itself rather than inheriting it from the contact
+   section it used to sit inside. */
+.site-footer { position: relative; }
+
+/* ---- Scroll reveal ---- */
+.reveal {
+	opacity: 0;
+	transform: translateY(2rem);
+	transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+}
+.reveal.visible {
+	opacity: 1;
+	transform: none;
+}
+
+/* Gentle stagger for card grids */
+.service-grid .service:nth-child(2),
+.team-grid .team-card:nth-child(3n + 2) { transition-delay: 120ms; }
+.service-grid .service:nth-child(3),
+.team-grid .team-card:nth-child(3n + 3) { transition-delay: 240ms; }
+.service-grid .service:nth-child(4) { transition-delay: 360ms; }
+
+/* ---- Mobile rhythm & air ---- */
+@media (max-width: 599px) {
+	.eyebrow {
+		font-size: 0.875rem;
+		letter-spacing: 0.25em;
+	}
+
+	.hero-actions {
+		flex-direction: column;
+		align-items: center;
+	}
+	.hero-actions .button {
+		width: 100%;
+		max-width: 18rem;
+		text-align: center;
+	}
+
+	/* Team: two smaller columns instead of one endless one.
+	   minmax(0, 1fr) instead of 1fr: a plain 1fr carries an implicit minimum of
+	   the content's min-content width, and a Swedish compound like
+	   "Integrationsarkitekt" measures 177px against a ~147px column here, which
+	   pushed the whole grid past the viewport. Hyphenation lets the word break
+	   properly (html[lang] supplies the language); break-word is the net for
+	   anything the hyphenation dictionary does not know. */
+	.team-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: var(--space-32) var(--space-16);
+	}
+	.team-role, .team-skills, .team-card h3 {
+		hyphens: auto;
+		overflow-wrap: break-word;
+	}
+	.team-card img { margin-bottom: var(--space-16); }
+	.team-card h3 { font-size: 1.125rem; }
+	.team-role { font-size: 0.75rem; margin-bottom: var(--space-8); }
+	.team-skills { font-size: 0.875rem; line-height: 1.5; }
+
+	/* narrower on small screens; thickness stays on the design-system token */
+	.accent-line { width: 5rem; margin-bottom: var(--space-32); }
+
+	.contact-email a { word-break: break-all; }
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+	.reveal { opacity: 1; transform: none; transition: none; }
+	.accent-line { transform: none; transition: none; }
+	.scroll-hint span { animation: none; }
+	.flock g { animation: none; }
+	.button:hover, .team-card:hover img { transform: none; }
+}
+
+/* ---- Keyboard focus ----
+   THIS BLOCK MUST STAY LAST. :focus-visible is a single pseudo-class, so it
+   carries the same specificity as .button — and the later rule wins a tie.
+   With the block placed earlier, .button's own box-shadow beat the ring and the
+   indicator vanished on every light surface while still working on the dark
+   ones, because there the .hero/.section-dark descendant selectors outranked it.
+   Anything added below this comment has to be checked against that. */
+/* Keyboard focus: the hey-day band alone, per the design system's
+   focus.contrastNote. It is still composed as three rings in one box-shadow —
+   the surface colour at the offset distance, the hey-day band, then the outer
+   ring — because that is the composition the system prescribes and because the
+   offset and the band have to stay in one declaration. The outer ring is
+   --focus-ring-outer-width, which v0.13.0 set to 0px, so the stack draws the
+   band alone without this file deciding anything. It used to be 1px of
+   teal-me-more, added here when the bar was WCAG's 3:1 for a focus indicator;
+   v0.13.0 replaced that with the house bar, under which a ring is judged by eye
+   (contrast.nonText) and a saturated band separates on chroma, which a
+   luminance ratio does not measure. Should the system put the outer ring back,
+   it returns here with no edit. The transparent outline is the forced-colors
+   fallback — box-shadow is not painted in that mode, an outline is, and the
+   browser gives a transparent one a visible colour there. */
+:focus-visible {
+	outline: var(--focus-ring-width) solid transparent;
+	outline-offset: var(--focus-ring-offset);
+	/* The stack lives in its own property so a surface can shorten it and a
+	   hover state can extend it without either restating the geometry. */
+	--ring-stack:
+		0 0 0 var(--focus-ring-offset) var(--surface-bg, var(--paper)),
+		0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--focus-ring-color),
+		0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width) + var(--focus-ring-outer-width))
+			var(--focus-ring-outer-color);
+	box-shadow: var(--ring-stack);
+}
+/* On the dark base the outer line adds nothing — hey-day is 9.48:1 against
+   teal-me-more on its own, and a dark line on a dark surface is invisible. */
+.hero :focus-visible,
+.section-dark :focus-visible,
+.site-footer :focus-visible,
+.site-header:not(.scrolled) :focus-visible {
+	--ring-stack:
+		0 0 0 var(--focus-ring-offset) var(--surface-bg, var(--teal-me-more)),
+		0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--focus-ring-color);
+}
+/* A hey-day ring on a hey-day fill is invisible. hey-day's pair colour is the
+   system's answer for anything drawn on top of it. .lang-toggle turns yellow
+   only on hover, which can coincide with focus. */
+.button-primary:focus-visible,
+.nav-menu .nav-cta:focus-visible,
+.lang-toggle:hover:focus-visible {
+	--focus-ring-color: var(--color-hey-day-pair);
+}
+
+.button:hover:focus-visible {
+	box-shadow: var(--ring-stack), var(--shadow-button-hover);
+}
