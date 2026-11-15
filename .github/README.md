@@ -1,131 +1,96 @@
 # fourmation.se
 
-Fourmation's website. Static HTML, CSS and vanilla JavaScript, served by GitHub
-Pages. There is no build step and no package manager: what is committed to the
-deploying branch is exactly what is served.
+The website of Fourmation, a technical architecture firm in Gothenburg. It is a
+static site — plain HTML, CSS and vanilla JavaScript — hosted on GitHub Pages at
+[fourmation.se](https://fourmation.se).
 
-Two language versions as two separate pages — `index.html` (Swedish, canonical)
-and `en/index.html` (English) — rather than one page with a runtime language
-switch. That keeps both versions crawlable and indexable on their own URL.
+There is no build step and no package manager. What is committed to `master` is
+exactly what is served.
 
-## Deploying
+## Languages
 
-`master` is the branch GitHub Pages serves, and `CNAME` points the custom domain
-at it. Work happens on a feature branch and is merged to `master` when it is
-ready to be public, so `master` and the live site are the same thing. Check what
-is actually deployed before assuming the repo and the site agree.
+The site exists in Swedish and English as two separate pages, so each version
+has its own crawlable URL:
 
-## Running it locally
+- `index.html` — Swedish (canonical), served at `/`
+- `en/index.html` — English, served at `/en/`
 
-```
+The two pages share the same structure and differ only in their text.
+
+## Project structure
+
+| Path | Contents |
+|---|---|
+| `index.html`, `en/index.html` | The Swedish and English pages |
+| `404.html` | Error page, self-contained with its own inline styles |
+| `css/tokens.css` | Design tokens copied from `fmtn/design-system` |
+| `css/main.css` | The site's stylesheet |
+| `js/main.js` | Header scroll state, mobile menu, scroll reveal, scrollspy and hero video |
+| `images/`, `fonts/` | Images and self-hosted web fonts |
+| `robots.txt`, `sitemap.xml` | Crawler configuration, listing both language URLs |
+| `CNAME` | The custom domain for GitHub Pages |
+
+All fonts and images are hosted locally. The only third-party content is the
+hero video, embedded from Vimeo with tracking disabled.
+
+## Running locally
+
+Start a local web server from the repository root:
+
+```bash
 python3 -m http.server 8123
 ```
 
-`index.html` and `en/index.html` also work opened straight off disk over
-`file://` — their asset and cross-language links are deliberately relative so
-that works. **`404.html` does not.** Its paths are root-absolute on purpose
-(see below), so it needs the server.
+Then open <http://localhost:8123>. The two language pages also work when opened
+directly from disk, but `404.html` uses root-absolute paths and needs the server.
 
-## What is here
+## Deployment
 
-| | |
-|---|---|
-| `index.html`, `en/index.html` | The two language versions |
-| `404.html` | Error page, self-contained by design |
-| `css/tokens.css` | Vendored design tokens — **do not hand-edit** |
-| `css/main.css` | The hand-written stylesheet |
-| `js/main.js` | Header scroll state, mobile menu, scroll reveal, scrollspy, hero video |
-| `images/`, `fonts/` | Local assets; no external font or image CDN |
-| — | The only third party is the hero video (Vimeo, loaded with `dnt=1`, skipped on localhost and for `prefers-reduced-motion`) |
-| `robots.txt`, `sitemap.xml` | Both language URLs, with hreflang alternates |
-| `CNAME` | The custom domain. GitHub Pages consumes it and does not serve it |
+GitHub Pages serves the `master` branch. Work is done on a separate branch and
+merged to `master` when it is ready to go live — merging is publishing.
 
-## The tokens come from another repository
+## Design tokens
 
-`css/tokens.css` is a verbatim copy of `dist/tokens.css` from a tagged release of
-`fmtn/design-system`. Its header records the tag, the commit and the date, and
-carries a command that verifies the copy still matches that tag. To update it,
-copy the file from a newer tag and update those header lines — never edit values
-in place, or the site and the system drift silently.
+Colours, typography and spacing come from Fourmation's design system, which
+lives in the private repository `fmtn/design-system`. `css/tokens.css`
+is an unmodified copy of `dist/tokens.css` from a tagged release, and its header
+records which tag, commit and date it came from.
 
-```
+To update to a newer release:
+
+1. Read what changed between the two tags. The design system's own README
+   describes how; note that design decisions live in `src/design-tokens.json`
+   and are not visible in the CSS.
+2. Copy `dist/tokens.css` from the new tag over `css/tokens.css` and update the
+   tag, commit and date in its header.
+3. Update the version reference near the top of `css/main.css`.
+4. Update the token values duplicated in `404.html` (listed in a comment at the
+   top of that file).
+
+Never edit token values in `css/tokens.css` by hand. To check that the copy
+still matches its release:
+
+```bash
 diff <(tail -n +13 css/tokens.css) <path-to-design-system>/dist/tokens.css
 ```
 
-`css/main.css` names its own version reference near the top; keep it in step.
+## Making changes
 
-Before copying, work out what actually changed. **A release diff takes three
-files, and none of them substitutes for the others** — the system states this
-itself, in its own README:
+- **Change both language pages.** Keep the same elements in the same order in
+  `index.html` and `en/index.html`. A quick check that their structure matches:
 
-| Question | File | Why this one |
-|---|---|---|
-| Did the **shape** change? | `dist/manifest.json` | A path added, dropped, or keeping its name while changing type. From v0.10.0. |
-| Did a **value** change? | `dist/tokens.json` | A flat `name: value` map, so it cannot be fooled by reordering — `dist/tokens.css` can, and was in v0.11.1. |
-| Did a **decision** change? | `src/design-tokens.json` | The prose: usage, `surfaceUse`, the notes. **Neither `dist/` file carries a word of it, including the one this site vendors.** |
+  ```bash
+  diff <(grep -oE '<[a-z][a-z0-9]*' index.html) <(grep -oE '<[a-z][a-z0-9]*' en/index.html)
+  ```
 
-```
-D=<path-to-design-system>
-diff <(git -C $D show <old>:dist/manifest.json)     <(git -C $D show <new>:dist/manifest.json)
-diff <(git -C $D show <old>:dist/tokens.json)       <(git -C $D show <new>:dist/tokens.json)
-diff <(git -C $D show <old>:src/design-tokens.json) <(git -C $D show <new>:src/design-tokens.json)
-```
+- **Adding a page** means adding it in both languages, adding it to
+  `sitemap.xml`, and adding `hreflang` links in the `<head>` of both versions.
+- **Keep `404.html` self-contained.** GitHub Pages serves it for every unknown
+  path, so it cannot rely on external stylesheets or relative URLs.
 
-The third row is the one that catches this site out, because `css/tokens.css`
-contains no prose at all — not one note. Two changes here came from it:
+## About this README
 
-- **The icons.** Five icon tokens exist and not one of them is a colour, so no
-  value diff could ever have said that an icon takes its surface's ink and never
-  the signal colour. That rule lives only in `icons.inkNote`, and until it was
-  read the icons on this site were yellow.
-- **The focus ring**, twice, in opposite directions. In v0.9.0 a value diff
-  showed two new names, `focus-ring-outer-color` and `-width`, and nothing else
-  — inert on their own. That the existing ring measured 1.37:1 on paper, and
-  how to compose three rings in one box-shadow, was all in
-  `focus.contrastNote`. In v0.13.0 the same note took the outer ring back: the
-  system replaced WCAG AA with its own bar, under which a ring is judged by eye
-  and a saturated band separates on chroma, which a luminance ratio does not
-  measure. The value diff for that reversal is one line, `-width: 1px → 0px`,
-  and it reads like a rounding change.
-- **The reign tiles' type size.** The same release softened reign from a
-  type-size floor to a rule on how much text belongs on it. No token moved at
-  all — `--font-size-large-text-floor` is still `1.5rem`. Only
-  `largeTextFloorNote` changed, from a bar to information.
-
-Read the commit subjects between the two tags as well; they say why something
-moved, which none of the three files does.
-
-Most releases turn out not to touch this site at all — the design system also
-serves decks, CVs, a portal and a Claude Design bundle, and most of what it adds
-belongs to those.
-
-## Three rules that span more than one file
-
-**The two language pages stay structurally in sync.** Same elements in the same
-order; only the text differs. A change to one is a change to both. The cheap
-check is that their tag sequences are identical:
-
-```
-diff <(grep -oE '<[a-z][a-z0-9]*' index.html) <(grep -oE '<[a-z][a-z0-9]*' en/index.html)
-```
-
-**`404.html` carries its own copy of the tokens it uses.** GitHub Pages serves
-that one file for every unmatched path, so it can depend on no external
-stylesheet and no relative URL — a page whose whole job is to appear when a URL
-is wrong should not itself need a URL to resolve. The cost is the repo's only
-duplicated token values, listed in a comment at the top of the file. When a token
-changes in `css/tokens.css`, change it there too.
-
-**Adding a page means adding it twice.** Once per language, plus an entry in
-`sitemap.xml` and an hreflang link in both pages' `<head>`.
-
-## Why this file lives in `.github/`
-
-GitHub Pages serves the repository root, so a `README.md` there would be public
-at `fourmation.se/README.md`. Jekyll — which is on, because there is no
-`.nojekyll` — excludes dot-directories from the build, so this path is not
-served, while GitHub still shows the file on the repository landing page.
-
-Verified against the live site: `/robots.txt` returns 200, `/.gitignore` returns
-404, and both are tracked in the deployed branch. **Do not add `.nojekyll`** — the
-Jekyll pass is what keeps this file out of the published output.
+This file lives in `.github/` rather than the repository root so that it is not
+published on the website. GitHub Pages runs Jekyll, which skips dot-directories,
+while GitHub still shows the file on the repository page. For the same reason,
+do not add a `.nojekyll` file.
